@@ -1,4 +1,5 @@
 title: Mémos
+site.baseurl: /theblog/
 description: Mes mots techniques
 author: TheSubmarine
 description: > # this means to ignore newlines until "baseurl:"
