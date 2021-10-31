@@ -1,2 +1,4 @@
 theme: jekyll-theme-slate
 project.title: "A GitHub Pages site to showcase repository metadata"
+project_title: "metadata-example",
+project_tagline: "A GitHub Pages site to showcase repository metadata2"
