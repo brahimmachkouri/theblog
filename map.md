@@ -1,5 +1,5 @@
 ---
-title: Articles
+title: Liste des articles
 ---
 
 {% for category in site.categories %}
