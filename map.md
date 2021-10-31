@@ -1,3 +1,7 @@
+--
+title: Articles
+--
+
 {% for category in site.categories %}
   <h3>{{ category[0] }}</h3>
   <ul>
