@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 date: 2021-10-31 14:39:00
 title: Compilation du driver cp210x sous Ubuntu (M5Paper)
 category: materiel
