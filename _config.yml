@@ -1,8 +1,6 @@
 title: Mémos
 description: Mes mots techniques
-author: Brahim MACHKOURI
-#description: > # this means to ignore newlines until "baseurl:"
-  
+author: Brahim MACHKOURI  
 baseurl: /theblog
 timezone: Europe/Paris
 # social links
