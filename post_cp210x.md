@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Compilation du driver cp210x sous Ubuntu (M5Paper)
 category: materiel
 tags: m5paper, linux, driver, cp210x
