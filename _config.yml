@@ -1,11 +1,11 @@
 title: Mémos
 baseurl: /theblog
 description: Mes mots techniques
-author: TheSubmarine
+author: Brahim MACHKOURI
 description: > # this means to ignore newlines until "baseurl:"
   Les mémos techniques
 # social links
-twitter_username: thesubmarine # DO NOT include the @ character, or else the build will fail!
+#twitter_username: thesubmarine # DO NOT include the @ character, or else the build will fail!
 github_username:  brahimmachkouri # DO NOT include the @ character, or else the build will fail!
 theme: minima
 show_excerpts: true # set to false to remove excerpts on the homepage
