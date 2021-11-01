@@ -4,7 +4,6 @@
 {% assign counter = 0 %}
 var documents = [
     {% for post in site.posts %}
-        //idx.add({
         {
             "url": "{{ site.url }}{{ post.url }}",
             "title": "{{ post.title }}",
@@ -13,7 +12,6 @@ var documents = [
             "id": {{counter}}
         }
         {% if forloop.last %}{% else %}, {% endif %}
-        //});            
         {% assign counter = counter | plus: 1 %}
     {% endfor %}
 ];
@@ -40,23 +38,14 @@ function lunr_search(term) {
             console.log(idx.search(term));
             //if results
             for (var i = 0; i < results.length; i++) {
-            //results.forEach( result => {
-                console.log(result);
                 // more statements
-                //if (results.hasOwnProperty('foo')) {
-
-                
-                    var ref = results[i]['ref'];
-                    //var ref = result['ref'];
-                    var url = documents[ref]['url'];
-                    var title = documents[ref]['title'];
-                    var category = documents[ref]['category'];
-                    var tags = documents[ref]['tags'];
-                    //var body = documents[ref]['body'].substring(0,160)+'...';
-                    document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='url'>"+ url +"</span></a></li>";
-                //}    
-            //}
-            });
+                var ref = results[i]['ref'];
+                var url = documents[ref]['url'];
+                var title = documents[ref]['title'];
+                var category = documents[ref]['category'];
+                var tags = documents[ref]['tags'];
+                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='url'>"+ url +"</span></a></li>";
+            }
         } else {
             document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>Aucun résultat trouvé...</li>";
         }
