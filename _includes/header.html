@@ -16,7 +16,9 @@
             </svg>
           </span>
         </label>
-        {%- include search-lunr.html -%} | 
+        {%- include search-lunr.html -%} 
+<form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    
         <div class="trigger">
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
@@ -25,7 +27,12 @@
             {%- endif -%}
           {%- endfor -%} 
           
-        </div> 
+        </div> | 
+  <input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search via Lunr.js" />
+</form>
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
       </nav>
     {%- endif -%}
   </div>
