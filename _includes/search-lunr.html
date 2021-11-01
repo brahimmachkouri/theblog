@@ -4,11 +4,11 @@
 {% assign counter = 0 %}
 var documents = [
     {% for post in site.posts %}
-        index.add({
-            url: {{ site.url }}{{ post.url }},
-            title: {{ post.title }},
-            category: {{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }},
-            tags: {{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }},
+        idx.add({
+            url: "{{ site.url }}{{ post.url }}",
+            title: "{{ post.title }}",
+            category: "{{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
+            tags: "{{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
             id: {{counter}}
         });            
         {% assign counter = counter | plus: 1 %}
@@ -25,6 +25,7 @@ var idx = lunr(function () {
         this.add(doc)
     }, this)
 });
+
 function lunr_search(term) {
     document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
     if(term) {
