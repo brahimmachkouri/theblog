@@ -5,11 +5,14 @@
 var documents = [
     {% for post in site.posts %}
         //idx.add({
+        {
             "url": "{{ site.url }}{{ post.url }}",
             "title": "{{ post.title }}",
             "category": "{{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
             "tags": "{{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
             "id": {{counter}}
+        }
+        {% if forloop.last %}{% else %}, {% endif %}
         //});            
         {% assign counter = counter | plus: 1 %}
     {% endfor %}
