@@ -2,7 +2,7 @@
 layout: post
 date: 2021-11-01 12:50:00
 title: Git Sheatcheet
-category: developpement
+category: développement
 tags: linux git 
 ---
 
