@@ -57,16 +57,23 @@ function lunr_search(term) {
         if(results.length>0){
             console.log(idx.search(term));
             //if results
-            for (var i = 0; i < results.length; i++) {
+            //for (var i = 0; i < results.length; i++) {
+            results.forEach( result => 
                 // more statements
-                var ref = results[i]['ref'];
-                var url = documents[ref]['url'];
-                var title = documents[ref]['title'];
-                var category = documents[ref]['category'];
-                var tags = documents[ref]['tags'];
-                //var body = documents[ref]['body'].substring(0,160)+'...';
-                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='url'>"+ url +"</span></a></li>";
-            }
+                //if (results.hasOwnProperty('foo')) {
+
+                
+                    //var ref = results[i]['ref'];
+                    var ref = result['ref'];
+                    var url = documents[ref]['url'];
+                    var title = documents[ref]['title'];
+                    var category = documents[ref]['category'];
+                    var tags = documents[ref]['tags'];
+                    //var body = documents[ref]['body'].substring(0,160)+'...';
+                    document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='url'>"+ url +"</span></a></li>";
+                //}    
+            //}
+            );
         } else {
             document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>Aucun résultat trouvé...</li>";
         }
