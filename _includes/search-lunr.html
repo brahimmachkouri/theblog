@@ -5,7 +5,7 @@
 var documents = [
     {% for post in site.posts %}
         {
-            "url": "{{ site.url }}{{ post.url }}",
+            "url": "{{ site.baseurl }}{{ post.url }}",
             "title": "{{ post.title }}",
             "category": "{{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
             "tags": "{{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
