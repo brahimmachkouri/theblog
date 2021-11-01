@@ -3,6 +3,7 @@
 <script>
 {% assign counter = 0 %}
 var documents = [
+    /*
     {% for page in site.pages %}
         {% if page.url contains '.xml' or page.url contains 'assets' %}
         {% else %}{
@@ -22,6 +23,7 @@ var documents = [
         {% assign counter = counter | plus: 1 %}
         }, 
     {% endfor %}
+    */
     {% for post in site.posts %}{
         "id": {{ counter }},
         "url": "{{ site.url }}{{ post.url }}",
@@ -30,7 +32,9 @@ var documents = [
         "tags": "{{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}"
         }{% if forloop.last %}{% else %}, 
         {% endif %}
-    {% endfor %}];
+        {% assign counter = counter | plus: 1 %}
+    {% endfor %}
+];
 
 var idx = lunr(function () {
     this.ref('id')
