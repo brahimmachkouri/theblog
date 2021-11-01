@@ -26,7 +26,7 @@
             <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%} 
-          | Recherche : <input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
+          | <label class="page-link"> Recherche : </label><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
         </div>
 </form>
 <div id="lunrsearchresults">
