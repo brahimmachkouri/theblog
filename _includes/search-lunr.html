@@ -10,22 +10,26 @@ var documents = [
             "url": "{{ site.url }}{{ page.url }}",
             "title": "{{ page.title }}",
             "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-            }, 
+            },
+            "category": "{{page.category | jsonify}}",
+            "tags": "{{post.tags | jsonify}}",
         {% endif %}
     {% endfor %}
-    {% for page in site.without-plugin %}{
+    /*{% for page in site.without-plugin %}{
         "id": {{ counter }},
         "url": "{{ site.url }}{{ page.url }}",
         "title": "{{ page.title }}",
         "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
         }, 
-    {% endfor %}
+    {% endfor %}*/
     {% for page in site.posts %}{
         "id": {{ counter }},
         "url": "{{ site.url }}{{ page.url }}",
         "title": "{{ page.title }}",
         "body": "{{ page.date | date: "%Y/%m/%d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-        }
+        },
+        "category": "{{post.category | jsonify}}",
+        "tags": "{{post.tags | jsonify}}",
         {% if forloop.last %}{% else %}, 
         {% endif %}
     {% endfor %}];
@@ -34,8 +38,8 @@ var idx = lunr(function () {
     this.ref('id')
     this.field('title')
     this.field('body')
-    //this.field('category')
-    //this.field('tags')
+    this.field('category')
+    this.field('tags')
 
     documents.forEach(function (doc) {
         this.add(doc)
