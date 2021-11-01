@@ -57,14 +57,14 @@ function lunr_search(term) {
     .lunrsearchresult {padding-bottom: 1rem;}
     .lunrsearchresult .title {color: #d9230f;}
     .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a {display: inline; color: #777;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
     .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 
 
 <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <p><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search via Lunr.js" /></p>
+    <input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search via Lunr.js" />
 </form>
 <div id="lunrsearchresults">
     <ul></ul>
