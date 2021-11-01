@@ -3,35 +3,14 @@
 <script>
 {% assign counter = 0 %}
 var documents = [
-    /*
-    {% for page in site.pages %}
-        {% if page.url contains '.xml' or page.url contains 'assets' %}
-        {% else %}{
-            "id": {{ counter }},
-            "url": "{{ site.url }}{{ page.url }}",
-            "title": "{{ page.title }}"
-            //"body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-            {% assign counter = counter | plus: 1 %}
-            },
-        {% endif %}
-    {% endfor %}
-    {% for page in site.without-plugin %}{
-        "id": {{ counter }},
-        "url": "{{ site.url }}{{ page.url }}",
-        "title": "{{ page.title }}"
-        //"body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %},
-        {% assign counter = counter | plus: 1 %}
-        }, 
-    {% endfor %}
-    */
-    {% for post in site.posts %}{
-        "id": {{ counter }},
-        "url": "{{ site.url }}{{ post.url }}",
-        "title": "{{ post.title }}",
-        "category": "{{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}",
-        "tags": "{{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }}"
-        }{% if forloop.last %}{% else %}, 
-        {% endif %}
+    {% for post in site.posts %}
+        index.add({
+            url: {{ site.url }}{{ post.url }},
+            title: {{ post.title }},
+            category: {{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }},
+            tags: {{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' | replace: '  ', ' ' }},
+            id: {{counter}}
+        });            
         {% assign counter = counter | plus: 1 %}
     {% endfor %}
 ];
@@ -39,7 +18,6 @@ var documents = [
 var idx = lunr(function () {
     this.ref('id')
     this.field('title')
-    //this.field('body')
     this.field('category')
     this.field('tags')
 
@@ -57,15 +35,15 @@ function lunr_search(term) {
         if(results.length>0){
             console.log(idx.search(term));
             //if results
-            //for (var i = 0; i < results.length; i++) {
-            results.forEach( result => {
+            for (var i = 0; i < results.length; i++) {
+            //results.forEach( result => {
                 console.log(result);
                 // more statements
                 //if (results.hasOwnProperty('foo')) {
 
                 
-                    //var ref = results[i]['ref'];
-                    var ref = result['ref'];
+                    var ref = results[i]['ref'];
+                    //var ref = result['ref'];
                     var url = documents[ref]['url'];
                     var title = documents[ref]['title'];
                     var category = documents[ref]['category'];
