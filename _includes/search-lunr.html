@@ -24,8 +24,8 @@ var documents = [
         "id": {{ counter }},
         "url": "{{ site.url }}{{ post.url }}",
         "title": "{{ post.title }}",
-        "category": "{{ post.category }}",
-        "tags": "{{ post.tags | markdownify }}",
+        "category": "{{ post.category | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' }}",
+        "tags": "{{ post.tags | jsonify | replace: '"', ' ' | replace: '[', ' ' | replace: ']', ' ' }}",
         }{% if forloop.last %}{% else %}, 
         {% endif %}
     {% endfor %}];
