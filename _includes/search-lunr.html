@@ -23,9 +23,9 @@ var documents = [
     {% for post in site.posts %}{
         "id": {{ counter }},
         "url": "{{ site.url }}{{ post.url }}",
-        "title": "{{post.title | jsonify}}",
-        "category": "{{post.category | markdownify | replace: '"', ' '}}",
-        "tags": "{{post.tags | markdownify | replace: '"', ' '}}",
+        "title": "{{ post.titlec}}",
+        "category": "{{ post.category }}",
+        "tags": "{{ post.tags }}",
         }{% if forloop.last %}{% else %}, 
         {% endif %}
     {% endfor %}];
