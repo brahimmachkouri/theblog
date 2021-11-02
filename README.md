@@ -5,4 +5,4 @@ There is a category page and tags page.
 
 The theme is minima, the default Jekyll theme.
 
-See for yourself : https://brahimmachkouri.github.io/theblog/
+See by yourself : https://brahimmachkouri.github.io/theblog/
