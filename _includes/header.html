@@ -5,12 +5,7 @@
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-    <div class="trigger">
-      <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-        <label class="page-link"> Recherche : </label><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
-      </form>
-    </div>
-    
+
     {%- if titles_size > 0 -%}
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -24,6 +19,9 @@
         {%- include search-lunr.html -%} 
         
         <div class="trigger">
+          <form style="padding-left: 20px;float:right;" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+            <label class="page-link"> Recherche : </label><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
+          </form>
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
@@ -34,8 +32,8 @@
 
       </nav>
     <div id="lunrsearchresults">
-<ul></ul>
-</div>
+      <ul></ul>
+    </div>
     {%- endif -%}
   </div>
 </header>
