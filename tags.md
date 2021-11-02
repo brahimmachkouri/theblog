@@ -2,8 +2,6 @@
 title: Liste des tags
 ---
 
-{%- include search-lunr.html -%} 
-
 <div id="lunrsearchresults">
     <ul></ul>
 </div>
