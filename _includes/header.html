@@ -1,3 +1,4 @@
+{%- include search-lunr.html -%} 
 <header class="site-header">
 
   <div class="wrapper">
@@ -16,7 +17,7 @@
             </svg>
           </span>
         </label>
-        {%- include search-lunr.html -%} 
+        
         
         <div class="trigger">
           <form style="padding-left: 20px;float:right;" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
