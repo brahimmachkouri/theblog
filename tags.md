@@ -9,5 +9,5 @@ title: Liste des tags
 </div>
 
 {% for tag in site.tags %}
-  Tag : "{{ tag[0] }}" <a href="#" onClick="lunr_search('{{ tag[0] }}');">({{ tag[1].size }})</a> <br>
+  "{{ tag[0] }}" <a href="#" onClick="lunr_search('{{ tag[0] }}');">({{ tag[1].size }})</a> <br>
 {% endfor %}
