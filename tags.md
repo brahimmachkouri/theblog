@@ -2,11 +2,12 @@
 title: Liste des tags
 ---
 
+{%- include search-lunr.html -%} 
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
 {% for tag in site.tags %}
-  <h3>Tag : "{{ tag[0] }}" ({{ tag[1].size }}):</h3>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  Tag : "{{ tag[0] }}" <a href="#" onClick="lunr_search({'{ tag[0] }}');">({{ tag[1].size }})</a> <br>
 {% endfor %}
