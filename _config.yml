@@ -8,4 +8,4 @@ timezone: Europe/Paris
 github_username:  brahimmachkouri # DO NOT include the @ character, or else the build will fail!
 theme: minima
 show_excerpts: true # set to false to remove excerpts on the homepage
-show_tags: false # set to false to remove tags on the homepage
+show_tags: true # set to false to remove tags on the homepage
