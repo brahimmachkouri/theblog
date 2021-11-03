@@ -19,7 +19,6 @@
           </span>
         </label>
         
-        
         <div class="trigger">
           <form style="padding-left: 20px;float:right;" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
             <label class="page-link"> Recherche : </label><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
@@ -27,10 +26,7 @@
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
-              {%- if path == "tags.md" and site.show_tags -%}
-                <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-              {%- endif -%}
-              {%- if path != "tags.md" -%}
+              {%- (if path != "tags.md") or (if path == "tags.md" and site.show_tags) -%}
                 <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
               {%- endif -%}
             {%- endif -%}
@@ -38,9 +34,9 @@
         </div>
 
       </nav>
-    <div id="lunrsearchresults">
-      <ul></ul>
-    </div>
+      <div id="lunrsearchresults">
+        <ul></ul>
+      </div>
     {%- endif -%}
   </div>
 </header>
