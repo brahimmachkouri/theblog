@@ -1,5 +1,5 @@
 ---
-title: Liste des tags
+title: Tags
 ---
 
 
