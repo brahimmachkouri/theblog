@@ -8,8 +8,8 @@ tags: gamecube viper driver usb
 
 Téléchargements :
 
-Viper Extreme USB Driver : xxxx  
-Viper USB Flasher : yyyy 
+[Viper Extreme USB Driver](https://github.com/brahimmachkouri/theblog/raw/main/files/ViperUSBWin7Driver.7z)  
+[Viper USB Flasher](https://github.com/brahimmachkouri/theblog/raw/main/files/ViperFlasherUSB10.7z) 
 
 Le driver est non signé, il est donc nécessaire de passer Windows en mode Test.
 
@@ -38,5 +38,5 @@ Redémarrer l'OS.
 
 ## Flashage :
 Assurez vous que le switch est en position 2 on sur le viper extreme, et que le câble USB est bien branché, et la gamecube allumée. 
-Lancez Viper Flasher, et chargez le fichier (File > Load Bios) : "Cobra 2.1 with SDLoad A & B.vgc".
+Lancez Viper Flasher, et chargez le fichier (File > Load Bios) dont l'extension est vgc.
 Cliquez sur Write pour flasher le BIOS de la puce.
