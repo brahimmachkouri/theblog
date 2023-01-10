@@ -4,7 +4,8 @@ date: 2023-01-10 16:57:26
 title: connexion à un répertoire samba partagé avec macos
 category: macos 
 tags: smb samba mac
----
+---  
+
 ⚠️ Utilisez le VPN de l'établissement si votre serveur de fichier est hébergé en interne.
 
 Depuis le menu Finder, cliquez sur "Aller" > "Se connecter au serveur..." (ou command+K):  
