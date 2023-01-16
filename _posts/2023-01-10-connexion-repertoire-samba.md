@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2023-01-10 16:57:26
-title: connexion à un répertoire samba partagé avec macos
+title: Connexion à un répertoire samba partagé avec macos
 category: macos 
 tags: smb samba mac
 ---  
