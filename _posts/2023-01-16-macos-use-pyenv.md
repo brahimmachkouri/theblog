@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2023-01-16 10:01:15
-title: macOS : utilisation de pyenv
+title: utilisation de pyenv sous macOS
 category: macos dev
 tags: python
 ---  
