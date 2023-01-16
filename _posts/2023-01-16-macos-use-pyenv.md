@@ -2,8 +2,8 @@
 layout: post
 date: 2023-01-16 10:01:15
 title: utilisation de pyenv sous macOS
-category: macos dev
-tags: python
+category: macos
+tags: python dev
 ---  
 
 Pour utiliser différentes versions de Python sous macOS, [**pyenv**](https://github.com/pyenv/pyenv) est LA solution.
