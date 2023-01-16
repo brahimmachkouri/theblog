@@ -5,4 +5,6 @@ There is a category page and tags page.
 
 The theme is minima, the default Jekyll theme.
 
-See by yourself : https://brahimmachkouri.github.io/theblog/
+You'll find the repository here : https://github.com/brahimmachkouri/minimal-blog-for-github-pages
+
+Demo : https://brahimmachkouri.github.io/theblog/
