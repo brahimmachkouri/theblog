@@ -49,7 +49,7 @@ pyenv versions
 python -V
 ```
 
-Pour déclarer les versions 2 et 3 de Python en global :
+Pour déclarer les versions 2 ET 3 de Python en global :
 ```shell
 pyenv global 3.11.1 2.7.18
 ```
