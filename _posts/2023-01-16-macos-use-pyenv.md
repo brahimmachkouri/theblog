@@ -55,6 +55,7 @@ pyenv global 3.11.1 2.7.18
 ```
 Testez :  
 ```shell
+python -V
 python2
 python3
 ```
