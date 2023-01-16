@@ -30,7 +30,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)" 
 eval "$(pyenv init -)"
 ```
-Pour que les modifications soient bien prises en compte, il faut s'assurer de bien quitter du terminal (pressez <kbd>⌘</kbd>+<kbd>Q</kbd>) et le relancer.
+Pour que les modifications soient bien prises en compte, il faut s'assurer de bien fermer le terminal (pressez <kbd>⌘</kbd>+<kbd>Q</kbd>) et le relancer.
 
 Désormais, pour installer des versions de Python, procédez comme ceci :  
 ```shell
