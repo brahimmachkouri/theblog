@@ -43,7 +43,7 @@ Et pour le définir la version 3.11.1 comme version globale :
 pyenv global 3.11.1
 ```
 
-Testez :
+Quittez le terminal, puis ouvrez-le à nouveau et testez :
 ```bash
 pyenv versions
 python -V
