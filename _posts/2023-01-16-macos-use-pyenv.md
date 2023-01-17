@@ -38,7 +38,7 @@ pyenv install 3.11
 pyenv install 2.7.18
 ```
 
-Et pour le définir la version 3.11.1 comme version globale :  
+Et pour définir la version 3.11.1 comme version globale :  
 ```shell
 pyenv global 3.11.1
 ```
