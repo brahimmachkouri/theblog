@@ -12,6 +12,7 @@ Pour l'installer, il faut d'abord installer les Xcode Tools :
 ```shell
 xcode-select --install
 ```
+
 Ainsi que quelques dépendances à l'aide de [**brew**](https://docs.brew.sh/Installation) :  
 ```shell
 brew install openssl readline sqlite3 xz zlib
@@ -30,6 +31,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)" 
 eval "$(pyenv init -)"
 ```
+
 Pour que les modifications soient bien prises en compte, il faut s'assurer de bien fermer le terminal (pressez <kbd>⌘</kbd>+<kbd>Q</kbd>) et le relancer.
 
 Désormais, pour installer des versions de Python, procédez comme ceci :  
