@@ -20,5 +20,3 @@ Here is a working solution to get the latest IODD firmware on a Zalman VE-300.
 - Run the latest firmware writer iODD_2531_user_fw_writer_04(R1600F)_x86.EXE. Since you have a valid iodd firmware on your device, the updater is happy with it. Just press the "Update" button. Maybe you'll find newer versions of the 2531 firmware in this page : http://iodd.kr/wordpress/support/download/#tab-e72d0adcf55af0bdf71
 - After finishing the update, power off the VE-300 and reconnect it. 
 - Enjoy :smiley:
-
-**Source** : D5AA96 user, in http://reboot.pro/topic/20174-how-to-flash-zm-ve400-with-original-firmware-from-iodd/
