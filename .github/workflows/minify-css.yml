@@ -20,7 +20,7 @@ jobs:
 
       - name: 🧹 Minify style.css
         run: |
-          cleancss -o assets/css/style.min.css assets/css/style.css
+          cleancss -o assets/css/style.min.css assets/css/mystyle.css
           echo "✅ CSS minifié → style.min.css"
 
       - name: 📤 Commit minified CSS
