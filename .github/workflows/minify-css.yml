@@ -20,13 +20,13 @@ jobs:
 
       - name: 🧹 Minify style.css
         run: |
-          cleancss -o assets/css/style.min.css assets/css/mystyle.css
+          cleancss -o assets/css/mystyle.min.css assets/css/mystyle.css
           echo "✅ CSS minifié → style.min.css"
 
       - name: 📤 Commit minified CSS
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/css/style.min.css
+          git add assets/css/mystyle.min.css
           git commit -m "🧼 Auto: minify CSS" || echo "Pas de changement"
           git push
