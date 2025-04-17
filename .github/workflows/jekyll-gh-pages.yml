@@ -1,4 +1,4 @@
-name: Deploy Jekyll to GitHub Pages (v4 + debug)
+name: Déploiement Jekyll sur GitHub Pages
 
 on:
   push:
@@ -18,46 +18,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: 🧾 Checkout du code
         uses: actions/checkout@v4
 
-      - name: Setup GitHub Pages
+      - name: ⚙️ Configuration GitHub Pages
         uses: actions/configure-pages@v3
-      
-      #- name: Install Jekyll dependencies
-      #  run: |
-      #    bundle install
 
-      - name: Build Jekyll site
+      - name: 🧱 Build Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
-      - name: Debug – contenu du dépôt
+      - name: 🔍 Vérification du dossier _site
         run: |
-          echo "::group::Contenu du répertoire courant"
-          ls -la
+          echo "::group::Contenu de _site"
+          ls -la ./_site
           echo "::endgroup::"
 
-      - name: Debug – contenu du dossier _site
-        run: |
-          echo "::group::Vérification du dossier _site"
-          if [ -d "_site" ]; then
-            echo "✅ Dossier _site trouvé. Contenu :"
-            ls -la _site
-          else
-            echo "❌ Dossier _site introuvable après la build Jekyll !"
-            exit 1
-          fi
-          echo "::endgroup::"
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-artifact@v4
+      - name: 📦 Upload artifact (compatible GitHub Pages)
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: github-pages
           path: ./_site
-          if-no-files-found: error
 
   deploy:
     needs: build
@@ -66,24 +48,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download artifact for deployment
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./_site
-
-      - name: Debug – contenu de _site après téléchargement
-        run: |
-          echo "::group::_site après download"
-          ls -la ./_site || echo "❌ Le dossier _site n’a pas été recréé !"
-          echo "::endgroup::"
-      
-      #- name: Debug Jekyll build logs
-      #  run: |
-      #    echo "::group::Jekyll Build Logs"
-      #    cat .jekyll-cache/logs/*
-      #    echo "::endgroup::"
-
-      - name: Deploy to GitHub Pages
+      - name: 🚀 Déploiement sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
