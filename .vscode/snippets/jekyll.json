@@ -1,0 +1,16 @@
+{
+    "jekyll-post": {
+        "prefix": "post",
+        "body": [
+        "---",
+        "layout: post",
+        "title: \"$1\"",
+        "category: $2",
+        "tags: [$3]",
+        "---",
+        "",
+        "$0"
+        ],
+        "description": "Nouveau post Jekyll"
+    }
+}  
