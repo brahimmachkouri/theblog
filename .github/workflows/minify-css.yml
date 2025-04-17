@@ -1,0 +1,32 @@
+name: Minify CSS on push
+
+on:
+  push:
+    branches: [main]  # ou une branche de build
+
+permissions:
+  contents: write
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Install clean-css-cli
+        run: npm install -g clean-css-cli
+
+      - name: 🧹 Minify style.css
+        run: |
+          cleancss -o assets/css/style.min.css assets/css/style.css
+          echo "✅ CSS minifié → style.min.css"
+
+      - name: 📤 Commit minified CSS
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/css/style.min.css
+          git commit -m "🧼 Auto: minify CSS" || echo "Pas de changement"
+          git push
