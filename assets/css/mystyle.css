@@ -47,3 +47,43 @@ footer-col-3 {
 	width: calc(40% - (30px / 2));
 }
 
+/* 🌞 Style clair par défaut */
+body {
+  background-color: #ffffff;
+  color: #111111;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: #0056b3;
+}
+
+/* 🌙 Mode sombre automatique selon les préférences du système */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #eeeeee;
+  }
+
+  a {
+    color: #90cdf4;
+  }
+
+  .lunrsearchresult .title {
+    color: #ff7b72;
+  }
+
+  .lunrsearchresult .url {
+    color: #999999;
+  }
+
+  .lunrsearchresult a {
+    color: #bbbbbb;
+  }
+
+  footer {
+    background-color: #1e1e1e;
+    color: #cccccc;
+  }
+}
+
