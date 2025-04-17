@@ -10,6 +10,6 @@ theme: minima
 show_excerpts: true # set to false to remove excerpts on the homepage
 show_tags: false # set to false to remove tags on the homepage
 include:
-  - assets/css/style.min.css
+  - assets/css/mystyle.min.css
 plugins:
   - jemoji
