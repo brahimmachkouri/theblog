@@ -6,25 +6,28 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # ← on a besoin d’écrire dans gh-pages !
+  contents: write  # nécessaire pour pouvoir push sur gh-pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: 🧾 Checkout source
         uses: actions/checkout@v4
 
-      - name: Build Jekyll site
+      - name: 🧱 Build Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
-      - name: Debug – contenu de _site
-        run: ls -la ./_site
+      - name: 🔍 Vérification du dossier _site
+        run: |
+          echo "::group::Contenu de _site"
+          ls -la ./_site
+          echo "::endgroup::"
 
-      - name: Upload site as artifact
+      - name: 📦 Upload site artifact
         uses: actions/upload-artifact@v4
         with:
           name: jekyll-site
@@ -34,23 +37,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: 🧾 Checkout source
         uses: actions/checkout@v4
 
-      - name: Download artifact
+      - name: 📥 Download site artifact
         uses: actions/download-artifact@v4
         with:
           name: jekyll-site
           path: site
 
-      - name: Init Git and push to gh-pages
+      - name: 🚀 Init git et push vers gh-pages
         run: |
           cd site
-          touch .nojekyll  # évite que GitHub interprète ça comme un site Jekyll côté GitHub Pages
+          touch .nojekyll  # désactive le traitement Jekyll côté GitHub Pages
           git init
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "🚀 Deploy site"
+          git commit -m "🚀 Déploiement manuel vers gh-pages"
           git branch -M gh-pages
-          git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git push --force origin gh-pages
