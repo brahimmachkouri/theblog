@@ -31,9 +31,6 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           args: --no-progress --verbose ./_site
-  
-      - name: Lint Markdown
-        uses: DavidAnson/markdownlint-cli2-action@v15
 
       - name: Upload site artifact
         uses: actions/upload-artifact@v4

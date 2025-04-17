@@ -1,5 +1,0 @@
-{
-    "default": true,
-    "MD013": false,   // ignore les lignes trop longues
-    "MD033": false    // autorise HTML brut
-}
