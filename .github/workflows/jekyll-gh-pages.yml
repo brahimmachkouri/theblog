@@ -1,4 +1,4 @@
-name: Deploy Jekyll to GitHub Pages (v4 artifact compatible)
+name: Deploy Jekyll to GitHub Pages (debug version)
 
 on:
   push:
@@ -18,41 +18,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
 
-      - name: Build Jekyll site
+      - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
-      - name: Debug – contenu du dossier _site
-        run: ls -la ./_site
+      - name: Debug – contenu du dépôt
+        run: ls -la
 
-      - name: Upload site artifact for GitHub Pages
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages     # Nom **obligatoire** pour deploy-pages
-          path: ./_site
-          if-no-files-found: error
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Download artifact for deployment
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./_site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Debug – contenu de _site
