@@ -12,22 +12,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🧾 Checkout source
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: 🧱 Build Jekyll site
+      - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
-      - name: 🔍 Vérification du dossier _site
+      - name: Vérification du dossier _site
         run: |
           echo "::group::Contenu de _site"
           ls -la ./_site
           echo "::endgroup::"
 
-      - name: 📦 Upload site artifact
+      - name: Vérification des liens (lychee)
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress --verbose ./_site
+  
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v15
+
+      - name: Upload site artifact
         uses: actions/upload-artifact@v4
         with:
           name: jekyll-site
@@ -37,16 +45,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: 🧾 Checkout source
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: 📥 Download site artifact
+      - name: Download site artifact
         uses: actions/download-artifact@v4
         with:
           name: jekyll-site
           path: site
 
-      - name: 🚀 Init git et push vers gh-pages
+      - name: Init git et push vers gh-pages
         run: |
           cd site
           touch .nojekyll  # désactive le traitement Jekyll côté GitHub Pages
