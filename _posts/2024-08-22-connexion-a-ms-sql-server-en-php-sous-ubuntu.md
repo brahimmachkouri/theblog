@@ -8,7 +8,7 @@ tags: mssql php ubuntu
 
 Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points...
 
-Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu’un utilisateur admindb est configuré pour l’accès à la base tournois qui ne contient ici qu’une seule table :
+Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu'un utilisateur admindb est configuré pour l'accès à la base tournois qui ne contient ici qu'une seule table :
 
 ```
 +------------+
@@ -61,7 +61,7 @@ Servername = monserveur
 Database = tournois
 Port = 1433
 ```
-Tester la connexion au serveur SQL Server à l’aide des outils tsql & isql :
+Tester la connexion au serveur SQL Server à l'aide des outils tsql & isql :
 
 ```
 tsql -H 10.0.0.15 -p 1433 -U admindb -P HercuLE -D tournois
