@@ -1,4 +1,4 @@
-name: Déploiement Jekyll sur GitHub Pages
+name: Deploy Jekyll manually to gh-pages branch
 
 on:
   push:
@@ -6,48 +6,51 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write  # ← on a besoin d’écrire dans gh-pages !
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🧾 Checkout du code
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configuration GitHub Pages
-        uses: actions/configure-pages@v3
-
-      - name: 🧱 Build Jekyll
+      - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
-      - name: 🔍 Vérification du dossier _site
-        run: |
-          echo "::group::Contenu de _site"
-          ls -la ./_site
-          echo "::endgroup::"
+      - name: Debug – contenu de _site
+        run: ls -la ./_site
 
-      - name: 📦 Upload artifact (compatible GitHub Pages)
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload site as artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: jekyll-site
           path: ./_site
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 🚀 Déploiement sur GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: jekyll-site
+          path: site
+
+      - name: Init Git and push to gh-pages
+        run: |
+          cd site
+          touch .nojekyll  # évite que GitHub interprète ça comme un site Jekyll côté GitHub Pages
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "🚀 Deploy site"
+          git branch -M gh-pages
+          git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
