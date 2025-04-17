@@ -78,11 +78,11 @@ jobs:
           ls -la ./_site || echo "❌ Le dossier _site n’a pas été recréé !"
           echo "::endgroup::"
       
-      - name: Debug Jekyll build logs
-        run: |
-          echo "::group::Jekyll Build Logs"
-          cat .jekyll-cache/logs/*
-          echo "::endgroup::"
+      #- name: Debug Jekyll build logs
+      #  run: |
+      #    echo "::group::Jekyll Build Logs"
+      #    cat .jekyll-cache/logs/*
+      #    echo "::endgroup::"
 
       - name: Deploy to GitHub Pages
         id: deployment
