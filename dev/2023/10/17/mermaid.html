@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mermaid Markdown | Mémos</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Mermaid Markdown" />
+<meta name="author" content="Brahim MACHKOURI" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Test de Mermaid Markdown" />
+<meta property="og:description" content="Test de Mermaid Markdown" />
+<link rel="canonical" href="https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid.html" />
+<meta property="og:url" content="https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid.html" />
+<meta property="og:site_name" content="Mémos" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-17T22:59:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mermaid Markdown" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2023-10-17T22:59:00+02:00","datePublished":"2023-10-17T22:59:00+02:00","description":"Test de Mermaid Markdown","headline":"Mermaid Markdown","mainEntityOfPage":{"@type":"WebPage","@id":"https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid.html"},"url":"https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://brahimmachkouri.github.io/theblog/feed.xml" title="Mémos" /></head>
+<body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
+<link rel="stylesheet" href="/theblog/assets/css/mystyle.min.css"><!--<script src="/theblog/assets/js/lunr.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+
+<script>
+
+var documents = [
+    
+        {
+            "url": "/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html",
+            "title": "Connexion à MS SQL Server en PHP sous Debian/Ubuntu",
+            "category": " dev ",
+            "tags": " mssql , php , ubuntu ",
+            "id": 0
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2023/10/17/mermaid.html",
+            "title": "Mermaid Markdown",
+            "category": " dev ",
+            "tags": " mermaid ",
+            "id": 1
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/macos/2023/01/16/macos-use-pyenv.html",
+            "title": "Utilisation de pyenv sous macOS",
+            "category": " macos ",
+            "tags": " python , dev ",
+            "id": 2
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/macos/2023/01/10/connexion-repertoire-samba.html",
+            "title": "Connexion à un répertoire samba partagé avec macos",
+            "category": " macos ",
+            "tags": " smb , samba , mac ",
+            "id": 3
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/materiel/2022/06/08/installation-driver-viper-win10.html",
+            "title": "Install viper usb driver on Windows 10",
+            "category": " materiel ",
+            "tags": " gamecube , viper , driver , usb ",
+            "id": 4
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html",
+            "title": "Virtualbox low resolution mode",
+            "category": " virtualisation ",
+            "tags": " virtualbox ",
+            "id": 5
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html",
+            "title": "Upgrade Zalman VE-300 firmware to an iodd 2531 firmware",
+            "category": " materiel ",
+            "tags": " zalman , iodd , firmware ",
+            "id": 6
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html",
+            "title": "Compilation du driver cp210x sous Ubuntu (M5Paper)",
+            "category": " materiel ",
+            "tags": " m5paper , linux , driver , cp210x ",
+            "id": 7
+        }
+        
+        
+    
+];
+
+var idx = lunr(function () {
+    this.ref('id')
+    this.field('title')
+    this.field('category')
+    this.field('tags')
+
+    documents.forEach(function (doc) {
+        this.add(doc)
+    }, this)
+});
+
+function lunr_search(term) {
+    document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
+    if(term) {
+        document.getElementById('lunrsearchresults').innerHTML = "<p>Résultat de la recherche pour '" + term + ":'</p>" + document.getElementById('lunrsearchresults').innerHTML;
+        //put results on the screen.
+        var results = idx.search(term);
+        if(results.length>0){
+            //if results
+            for (var i = 0; i < results.length; i++) {
+                // more statements
+                var ref = results[i]['ref'];
+                var url = documents[ref]['url'];
+                var title = documents[ref]['title'];
+                var category = documents[ref]['category'];
+                var tags = documents[ref]['tags'];
+                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span></a></li>";
+            }
+        } else {
+            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>Aucun résultat trouvé...</li>";
+        }
+    }
+    return false;
+}
+</script>
+
+<header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/theblog/">Mémos</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+        
+        <div class="trigger">
+          <form style="padding-left: 20px;float:right;" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+            <label class="page-link"> Recherche : </label><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
+          </form><a class="page-link" href="/theblog/map.html">Catégories</a></div>
+
+      </nav>
+      <div id="lunrsearchresults">
+        <ul></ul>
+      </div></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+.post-title {
+  font-size: 32px;
+}
+</style>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mermaid Markdown</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-10-17T22:59:00+02:00" itemprop="datePublished">
+        17 Oct 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Test de <a href="https://mermaid.js.org/intro/">Mermaid Markdown</a></p>
+
+<p>Flowchart :</p>
+<pre><code class="language-mermaid">  graph TD;
+      A--&gt;B;
+      A--&gt;C;
+      B--&gt;D;
+      C--&gt;D;
+</code></pre>
+<p>Sequence Diagram :</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &lt;br/&gt;prevail!
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!
+</code></pre>
+<p>Gantt :</p>
+<pre><code class="language-mermaid">gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram to mermaid
+excludes weekdays 2014-01-10
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d
+</code></pre>
+<p>Diagramme de classe :</p>
+<pre><code class="language-mermaid">classDiagram
+Class01 &lt;|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --&gt; C2 : Where am i?
+Class09 --* C3
+Class09 --|&gt; Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 &lt;--&gt; C2: Cool label
+</code></pre>
+<p>Graphique git :</p>
+<pre><code class="language-mermaid">gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+</code></pre>
+
+<p>Entity Relationship Diagram - ❗ experimental</p>
+<pre><code class="language-mermaid">erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+</code></pre>
+
+<p>User Journey Diagram :</p>
+<pre><code class="language-mermaid">journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+</code></pre>
+
+  </div><a class="u-url" href="/theblog/dev/2023/10/17/mermaid.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/theblog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://brahimmachkouri.github.io/theblog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/theblog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>A static Github blog for everyone.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a href="https://github.com/brahimmachkouri"><svg class="svg-icon"><use xlink:href="/theblog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">brahimmachkouri</span></a></li></ul>
+</div>
+
+  </div>
+
+</footer><!-- to be included in footer.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.0/mermaid.dark.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.0/mermaid.min.js" type="text/javascript"></script>
+<script>
+var config = {
+    startOnLoad:true,
+    //theme: 'forest',
+    flowchart:{
+            useMaxWidth:false,
+            htmlLabels:true
+        }
+};
+mermaid.initialize(config);
+window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+</script>
+</body>
+
+</html>
