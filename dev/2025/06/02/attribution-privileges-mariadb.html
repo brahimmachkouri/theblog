@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Attribution de privilèges MySQL/MariaDB | Mémos</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Attribution de privilèges MySQL/MariaDB" />
+<meta name="author" content="Brahim MACHKOURI" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Objectif" />
+<meta property="og:description" content="Objectif" />
+<meta property="og:site_name" content="Mémos" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-06-02T15:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Attribution de privilèges MySQL/MariaDB" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-06-02T15:00:00+02:00","datePublished":"2025-06-02T15:00:00+02:00","description":"Objectif","headline":"Attribution de privilèges MySQL/MariaDB","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"},"url":"/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
+<body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
+<link rel="stylesheet" href="/theblog/assets/css/mystyle.min.css"><!--<script src="/theblog/assets/js/lunr.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+
+<script>
+
+var documents = [
+    
+        {
+            "url": "/theblog/dev/2025/06/02/attribution-privileges-mariadb.html",
+            "title": "Attribution de privilèges MySQL/MariaDB",
+            "category": " dev ",
+            "tags": " mysql , mariadb ",
+            "id": 0
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2025/06/01/test2.html",
+            "title": "Test2",
+            "category": " dev ",
+            "tags": " mssql , php , ubuntu ",
+            "id": 1
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html",
+            "title": "Connexion à MS SQL Server en PHP sous Debian/Ubuntu",
+            "category": " dev ",
+            "tags": " mssql , php , ubuntu ",
+            "id": 2
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2024/06/01/test.html",
+            "title": "Test",
+            "category": " dev ",
+            "tags": " ",
+            "id": 3
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2023/10/17/mermaid.html",
+            "title": "Mermaid Markdown",
+            "category": " dev ",
+            "tags": " mermaid ",
+            "id": 4
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/macos/2023/01/16/macos-use-pyenv.html",
+            "title": "Utilisation de pyenv sous macOS",
+            "category": " macos ",
+            "tags": " python , dev ",
+            "id": 5
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/macos/2023/01/10/connexion-repertoire-samba.html",
+            "title": "Connexion à un répertoire samba partagé avec macos",
+            "category": " macos ",
+            "tags": " smb , samba , mac ",
+            "id": 6
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/materiel/2022/06/08/installation-driver-viper-win10.html",
+            "title": "Install viper usb driver on Windows 10",
+            "category": " materiel ",
+            "tags": " gamecube , viper , driver , usb ",
+            "id": 7
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html",
+            "title": "Virtualbox low resolution mode",
+            "category": " virtualisation ",
+            "tags": " virtualbox ",
+            "id": 8
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html",
+            "title": "Upgrade Zalman VE-300 firmware to an iodd 2531 firmware",
+            "category": " materiel ",
+            "tags": " zalman , iodd , firmware ",
+            "id": 9
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html",
+            "title": "Compilation du driver cp210x sous Ubuntu (M5Paper)",
+            "category": " materiel ",
+            "tags": " m5paper , linux , driver , cp210x ",
+            "id": 10
+        }
+        
+        
+    
+];
+
+var idx = lunr(function () {
+    this.ref('id')
+    this.field('title')
+    this.field('category')
+    this.field('tags')
+
+    documents.forEach(function (doc) {
+        this.add(doc)
+    }, this)
+});
+
+function lunr_search(term) {
+    document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
+    if(term) {
+        document.getElementById('lunrsearchresults').innerHTML = "<p>Résultat de la recherche pour '" + term + ":'</p>" + document.getElementById('lunrsearchresults').innerHTML;
+        //put results on the screen.
+        var results = idx.search(term);
+        if(results.length>0){
+            //if results
+            for (var i = 0; i < results.length; i++) {
+                // more statements
+                var ref = results[i]['ref'];
+                var url = documents[ref]['url'];
+                var title = documents[ref]['title'];
+                var category = documents[ref]['category'];
+                var tags = documents[ref]['tags'];
+                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span></a></li>";
+            }
+        } else {
+            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>Aucun résultat trouvé...</li>";
+        }
+    }
+    return false;
+}
+</script>
+
+<header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/theblog/">Mémos</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+        
+        <div class="trigger">
+          <form style="padding-left: 20px;float:right;" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+            <label class="page-link"> Recherche : </label><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Entrez un terme + [Entrée]" />
+          </form><a class="page-link" href="/theblog/map.html">Catégories</a></div>
+
+      </nav>
+      <div id="lunrsearchresults">
+        <ul></ul>
+      </div></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+.post-title {
+  font-size: 32px;
+}
+</style>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Attribution de privilèges MySQL/MariaDB</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2025-06-02T15:00:00+02:00" itemprop="datePublished">
+        2 Jun 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="objectif">Objectif</h2>
+
+<p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.</p>
+
+<hr />
+
+<h2 id="syntaxe-moderne-mysql-80--mariadb-102">Syntaxe moderne (MySQL 8.0+ / MariaDB 10.2+)</h2>
+
+<p>La bonne pratique actuelle consiste à séparer la création d’utilisateur de l’attribution des privilèges :</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 1. Créer l'utilisateur</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'nom_utilisateur'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'mot_de_passe'</span><span class="p">;</span>
+
+<span class="c1">-- 2. Accorder les privilèges</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">nom_base</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'nom_utilisateur'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+
+<span class="c1">-- 3. Appliquer les changements</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="paramètres">Paramètres</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">nom_base</code> : nom de la base de données</li>
+  <li><code class="language-plaintext highlighter-rouge">nom_utilisateur</code> : nom de l’utilisateur MariaDB/MySQL</li>
+  <li><code class="language-plaintext highlighter-rouge">mot_de_passe</code> : mot de passe associé</li>
+  <li><code class="language-plaintext highlighter-rouge">@'%'</code> : autorise l’accès depuis toutes les adresses IP</li>
+</ul>
+
+<blockquote>
+  <p>💡 <strong>Pourquoi cette approche ?</strong> Elle offre plus de flexibilité, une meilleure gestion des erreurs et respecte le principe de séparation des responsabilités.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="exemple-pratique-pour-cours">Exemple pratique pour cours</h2>
+
+<p>Créons un utilisateur pour une application e-commerce :</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Étape 1 : Créer l'utilisateur</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'ecommerce_user'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'SecurePass2025!'</span><span class="p">;</span>
+
+<span class="c1">-- Étape 2 : Créer la base de données (si nécessaire)</span>
+<span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">boutique_en_ligne</span><span class="p">;</span>
+
+<span class="c1">-- Étape 3 : Accorder les privilèges</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">boutique_en_ligne</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'ecommerce_user'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+
+<span class="c1">-- Étape 4 : Appliquer les changements</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+
+<span class="c1">-- Étape 5 : Vérifier que tout fonctionne</span>
+<span class="k">SHOW</span> <span class="n">GRANTS</span> <span class="k">FOR</span> <span class="s1">'ecommerce_user'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="résultat-attendu">Résultat attendu</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+--------------------------------------------------------------------+
+| Grants for ecommerce_user@%                                       |
++--------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `ecommerce_user`@`%`                       |
+| GRANT ALL PRIVILEGES ON `boutique_en_ligne`.* TO `ecommerce_user`@`%` |
++--------------------------------------------------------------------+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="gestion-des-utilisateurs-existants">Gestion des utilisateurs existants</h2>
+
+<h3 id="vérifier-lexistence-dun-utilisateur">Vérifier l’existence d’un utilisateur</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">User</span><span class="p">,</span> <span class="k">Host</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span> <span class="k">WHERE</span> <span class="k">User</span> <span class="o">=</span> <span class="s1">'webadmin'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="recréer-un-utilisateur-mariadb-1013--mysql-80">Recréer un utilisateur (MariaDB 10.1.3+ / MySQL 8.0+)</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">USER</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'MotDePasseFort2025!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">boutique_en_ligne</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="modifier-un-utilisateur-existant">Modifier un utilisateur existant</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Changer le mot de passe (syntaxe moderne)</span>
+<span class="k">ALTER</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'NouveauMotDePasse2025!'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="variantes-de-restrictions-daccès">Variantes de restrictions d’accès</h2>
+
+<h3 id="accès-depuis-une-ip-précise">Accès depuis une IP précise</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'192.168.1.42'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'MotDePasseFort2025!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">boutique_en_ligne</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'192.168.1.42'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="accès-depuis-un-sous-réseau-local">Accès depuis un sous-réseau local</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'192.168.1.%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'MotDePasseFort2025!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">boutique_en_ligne</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'192.168.1.%'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="accès-depuis-localhost-uniquement">Accès depuis localhost uniquement</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'MotDePasseFort2025!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">boutique_en_ligne</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="accès-depuis-plusieurs-sources">Accès depuis plusieurs sources</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Créer plusieurs entrées pour le même utilisateur</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'MotDePasseFort123!'</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'192.168.1.%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'MotDePasseFort123!'</span><span class="p">;</span>
+
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'192.168.1.%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="privilèges-granulaires-recommandé-pour-la-production">Privilèges granulaires (recommandé pour la production)</h2>
+
+<p>Au lieu d’utiliser <code class="language-plaintext highlighter-rouge">ALL PRIVILEGES</code>, accordez uniquement les droits nécessaires :</p>
+
+<h3 id="privilèges-de-base-pour-une-application-web">Privilèges de base pour une application web</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span><span class="p">,</span> <span class="k">DELETE</span> <span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="privilèges-étendus-pour-un-administrateur">Privilèges étendus pour un administrateur</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span><span class="p">,</span> <span class="k">DELETE</span><span class="p">,</span> <span class="k">CREATE</span><span class="p">,</span> <span class="k">DROP</span><span class="p">,</span> <span class="k">ALTER</span><span class="p">,</span> <span class="k">INDEX</span> 
+<span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="privilèges-en-lecture-seule">Privilèges en lecture seule</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">SELECT</span> <span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'readonly_user'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="liste-des-privilèges-principaux">Liste des privilèges principaux</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SELECT</code> : lecture des données</li>
+  <li><code class="language-plaintext highlighter-rouge">INSERT</code> : insertion de nouvelles données</li>
+  <li><code class="language-plaintext highlighter-rouge">UPDATE</code> : modification des données existantes</li>
+  <li><code class="language-plaintext highlighter-rouge">DELETE</code> : suppression des données</li>
+  <li><code class="language-plaintext highlighter-rouge">CREATE</code> : création de tables/bases</li>
+  <li><code class="language-plaintext highlighter-rouge">DROP</code> : suppression de tables/bases</li>
+  <li><code class="language-plaintext highlighter-rouge">ALTER</code> : modification de structure</li>
+  <li><code class="language-plaintext highlighter-rouge">INDEX</code> : gestion des index</li>
+  <li><code class="language-plaintext highlighter-rouge">GRANT OPTION</code> : possibilité d’accorder des privilèges à d’autres</li>
+</ul>
+
+<hr />
+
+<h2 id="configuration-réseau-requise">Configuration réseau requise</h2>
+
+<p>Pour permettre les connexions distantes, vérifiez la configuration de MariaDB/MySQL :</p>
+
+<h3 id="fichier-de-configuration-etcmysqlmycnf-ou-etcmycnf">Fichier de configuration (<code class="language-plaintext highlighter-rouge">/etc/mysql/my.cnf</code> ou <code class="language-plaintext highlighter-rouge">/etc/my.cnf</code>)</h3>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mysqld]</span>
+<span class="c"># Commenter ou modifier cette ligne pour autoriser les connexions distantes
+# bind-address = 127.0.0.1
+</span><span class="py">bind-address</span> <span class="p">=</span> <span class="s">0.0.0.0</span>
+
+<span class="c"># Ou spécifier une IP précise
+# bind-address = 192.168.1.10
+</span></code></pre></div></div>
+
+<h3 id="redémarrer-le-service">Redémarrer le service</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart mysql
+<span class="c"># ou</span>
+<span class="nb">sudo </span>systemctl restart mariadb
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="vérification-et-maintenance">Vérification et maintenance</h2>
+
+<h3 id="vérifier-les-droits-accordés">Vérifier les droits accordés</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">GRANTS</span> <span class="k">FOR</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="lister-tous-les-utilisateurs">Lister tous les utilisateurs</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">User</span><span class="p">,</span> <span class="k">Host</span><span class="p">,</span> <span class="n">authentication_string</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="vérifier-les-connexions-actives">Vérifier les connexions actives</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">PROCESSLIST</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="révocation-des-privilèges">Révocation des privilèges</h2>
+
+<h3 id="révoquer-des-privilèges-spécifiques">Révoquer des privilèges spécifiques</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REVOKE</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span> <span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="révoquer-tous-les-privilèges">Révoquer tous les privilèges</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REVOKE</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">projet_web</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="supprimer-un-utilisateur">Supprimer un utilisateur</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">USER</span> <span class="s1">'webadmin'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="bonnes-pratiques-de-sécurité">Bonnes pratiques de sécurité</h2>
+
+<h3 id="mots-de-passe">Mots de passe</h3>
+
+<ul>
+  <li>Utilisez des mots de passe forts (12+ caractères, mixte majuscules/minuscules/chiffres/symboles)</li>
+  <li>Changez régulièrement les mots de passe</li>
+  <li>Utilisez des gestionnaires de mots de passe</li>
+</ul>
+
+<h3 id="principe-du-moindre-privilège">Principe du moindre privilège</h3>
+
+<ul>
+  <li>N’accordez que les privilèges strictement nécessaires</li>
+  <li>Évitez <code class="language-plaintext highlighter-rouge">ALL PRIVILEGES</code> en production</li>
+  <li>Créez des utilisateurs spécialisés par fonction</li>
+</ul>
+
+<h3 id="restrictions-réseau">Restrictions réseau</h3>
+
+<ul>
+  <li>Limitez l’accès aux IP nécessaires plutôt qu’utiliser <code class="language-plaintext highlighter-rouge">%</code></li>
+  <li>Utilisez des VPN ou des tunnels SSH pour les accès distants</li>
+  <li>Configurez un pare-feu approprié</li>
+</ul>
+
+<h3 id="exemple-darchitecture-sécurisée">Exemple d’architecture sécurisée</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Utilisateur application (lecture/écriture limitée)</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'app_user'</span><span class="o">@</span><span class="s1">'192.168.1.%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'AppPassword123!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span><span class="p">,</span> <span class="k">DELETE</span> <span class="k">ON</span> <span class="n">myapp</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'app_user'</span><span class="o">@</span><span class="s1">'192.168.1.%'</span><span class="p">;</span>
+
+<span class="c1">-- Utilisateur admin (accès complet mais local uniquement)</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'db_admin'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'AdminPassword456!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">myapp</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'db_admin'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+
+<span class="c1">-- Utilisateur lecture seule pour les rapports</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'reporter'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'ReportPassword789!'</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">SELECT</span> <span class="k">ON</span> <span class="n">myapp</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'reporter'</span><span class="o">@</span><span class="s1">'%'</span><span class="p">;</span>
+
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="dépannage-courant">Dépannage courant</h2>
+
+<h3 id="erreur-access-denied">Erreur “Access denied”</h3>
+
+<ol>
+  <li>Vérifiez que l’utilisateur existe pour le bon host</li>
+  <li>Vérifiez le mot de passe</li>
+  <li>Contrôlez les privilèges accordés</li>
+  <li>Vérifiez la configuration réseau</li>
+</ol>
+
+<h3 id="connexion-impossible-depuis-lextérieur">Connexion impossible depuis l’extérieur</h3>
+
+<ol>
+  <li>Vérifiez <code class="language-plaintext highlighter-rouge">bind-address</code> dans la configuration</li>
+  <li>Contrôlez les règles de pare-feu</li>
+  <li>Vérifiez que le port 3306 est ouvert</li>
+  <li>Testez avec <code class="language-plaintext highlighter-rouge">telnet server_ip 3306</code></li>
+</ol>
+
+<h3 id="commandes-de-diagnostic">Commandes de diagnostic</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Voir la configuration actuelle</span>
+<span class="k">SHOW</span> <span class="n">VARIABLES</span> <span class="k">LIKE</span> <span class="s1">'bind_address'</span><span class="p">;</span>
+
+<span class="c1">-- Voir les tentatives de connexion</span>
+<span class="k">SHOW</span> <span class="n">STATUS</span> <span class="k">LIKE</span> <span class="s1">'Connections'</span><span class="p">;</span>
+
+<span class="c1">-- Voir les erreurs de connexion</span>
+<span class="k">SHOW</span> <span class="n">STATUS</span> <span class="k">LIKE</span> <span class="s1">'Aborted_connects'</span><span class="p">;</span>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/theblog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/theblog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/theblog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>A static Github blog for everyone.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a href="https://github.com/brahimmachkouri"><svg class="svg-icon"><use xlink:href="/theblog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">brahimmachkouri</span></a></li></ul>
+</div>
+
+  </div>
+
+</footer><!-- to be included in footer.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.0/mermaid.dark.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.0/mermaid.min.js" type="text/javascript"></script>
+<script>
+var config = {
+    startOnLoad:true,
+    //theme: 'forest',
+    flowchart:{
+            useMaxWidth:false,
+            htmlLabels:true
+        }
+};
+mermaid.initialize(config);
+window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+</script>
+</body>
+
+</html>

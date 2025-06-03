@@ -4,23 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Connexion à MS SQL Server en PHP sous Debian/Ubuntu | Mémos</title>
-<meta name="generator" content="Jekyll v3.10.0" />
+<meta name="generator" content="Jekyll v4.3.4" />
 <meta property="og:title" content="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" />
 <meta name="author" content="Brahim MACHKOURI" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…" />
 <meta property="og:description" content="Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…" />
-<link rel="canonical" href="https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" />
-<meta property="og:url" content="https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" />
 <meta property="og:site_name" content="Mémos" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-08-22T13:40:00+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2024-08-22T13:40:00+02:00","datePublished":"2024-08-22T13:40:00+02:00","description":"Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…","headline":"Connexion à MS SQL Server en PHP sous Debian/Ubuntu","mainEntityOfPage":{"@type":"WebPage","@id":"https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"},"url":"https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2024-08-22T13:40:00+02:00","datePublished":"2024-08-22T13:40:00+02:00","description":"Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…","headline":"Connexion à MS SQL Server en PHP sous Debian/Ubuntu","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"},"url":"/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://brahimmachkouri.github.io/theblog/feed.xml" title="Mémos" /></head>
+<link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
 <body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
 <link rel="stylesheet" href="/theblog/assets/css/mystyle.min.css"><!--<script src="/theblog/assets/js/lunr.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -30,11 +28,41 @@
 var documents = [
     
         {
+            "url": "/theblog/dev/2025/06/02/attribution-privileges-mariadb.html",
+            "title": "Attribution de privilèges MySQL/MariaDB",
+            "category": " dev ",
+            "tags": " mysql , mariadb ",
+            "id": 0
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2025/06/01/test2.html",
+            "title": "Test2",
+            "category": " dev ",
+            "tags": " mssql , php , ubuntu ",
+            "id": 1
+        }
+        , 
+        
+    
+        {
             "url": "/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html",
             "title": "Connexion à MS SQL Server en PHP sous Debian/Ubuntu",
             "category": " dev ",
             "tags": " mssql , php , ubuntu ",
-            "id": 0
+            "id": 2
+        }
+        , 
+        
+    
+        {
+            "url": "/theblog/dev/2024/06/01/test.html",
+            "title": "Test",
+            "category": " dev ",
+            "tags": " ",
+            "id": 3
         }
         , 
         
@@ -44,7 +72,7 @@ var documents = [
             "title": "Mermaid Markdown",
             "category": " dev ",
             "tags": " mermaid ",
-            "id": 1
+            "id": 4
         }
         , 
         
@@ -54,7 +82,7 @@ var documents = [
             "title": "Utilisation de pyenv sous macOS",
             "category": " macos ",
             "tags": " python , dev ",
-            "id": 2
+            "id": 5
         }
         , 
         
@@ -64,7 +92,7 @@ var documents = [
             "title": "Connexion à un répertoire samba partagé avec macos",
             "category": " macos ",
             "tags": " smb , samba , mac ",
-            "id": 3
+            "id": 6
         }
         , 
         
@@ -74,7 +102,7 @@ var documents = [
             "title": "Install viper usb driver on Windows 10",
             "category": " materiel ",
             "tags": " gamecube , viper , driver , usb ",
-            "id": 4
+            "id": 7
         }
         , 
         
@@ -84,7 +112,7 @@ var documents = [
             "title": "Virtualbox low resolution mode",
             "category": " virtualisation ",
             "tags": " virtualbox ",
-            "id": 5
+            "id": 8
         }
         , 
         
@@ -94,7 +122,7 @@ var documents = [
             "title": "Upgrade Zalman VE-300 firmware to an iodd 2531 firmware",
             "category": " materiel ",
             "tags": " zalman , iodd , firmware ",
-            "id": 6
+            "id": 9
         }
         , 
         
@@ -104,7 +132,7 @@ var documents = [
             "title": "Compilation du driver cp210x sous Ubuntu (M5Paper)",
             "category": " materiel ",
             "tags": " m5paper , linux , driver , cp210x ",
-            "id": 7
+            "id": 10
         }
         
         
@@ -293,7 +321,7 @@ SQL&gt;
     <div class="footer-col-wrapper">
       <div class="footer-col">
         <p class="feed-subscribe">
-          <a href="https://brahimmachkouri.github.io/theblog/feed.xml">
+          <a href="/theblog/feed.xml">
             <svg class="svg-icon orange">
               <use xlink:href="/theblog/assets/minima-social-icons.svg#rss"></use>
             </svg><span>Subscribe</span>
