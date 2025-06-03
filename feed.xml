@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://brahimmachkouri.github.io/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://brahimmachkouri.github.io/theblog/" rel="alternate" type="text/html" /><updated>2025-06-03T14:04:45+02:00</updated><id>https://brahimmachkouri.github.io/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Connexion à MS SQL Server en PHP sous Debian/Ubuntu</title><link href="https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" rel="alternate" type="text/html" title="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" /><published>2024-08-22T13:40:00+02:00</published><updated>2024-08-22T13:40:00+02:00</updated><id>https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"><![CDATA[<p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
+
+<p>Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu’un utilisateur admindb est configuré pour l’accès à la base tournois qui ne contient ici qu’une seule table :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+------------+
+|   users    |
++------------+
+|    id      |
+|    nom     |
++------------+
+</code></pre></div></div>
+<p>Paramètres :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP SQL Server : 10.0.0.15
+Database : tournois
+Username : admindb
+Password : HercuLE
+</code></pre></div></div>
+<p>Pour installer le client SQL Server sous Debian ou Ubuntu :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install freetds-common freetds-bin unixodbc tdsodbc php7.2-odbc
+</code></pre></div></div>
+<p>Redémarrer le démon PHP, puis remplir les fichiers de configuration :</p>
+
+<p>Dans /etc/freetds/freetds.conf, ajouter :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[monserveur]
+host = 10.0.0.15
+port = 1433
+tds version = 8.0
+</code></pre></div></div>
+<p>Dans /etc/odbcinst.ini, ajouter :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[FreeTDS]
+Description = FreeTDS Driver
+Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
+Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so
+Dontdlclose = 1
+</code></pre></div></div>
+<p>Dans /etc/odbc.ini, ajouter :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[MSSQLSRV]
+Driver = FreeTDS
+Description = ODBC connection via FreeTDS
+#Server = 10.0.0.15
+Servername = monserveur
+Database = tournois
+Port = 1433
+</code></pre></div></div>
+<p>Tester la connexion au serveur SQL Server à l’aide des outils tsql &amp; isql :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tsql -H 10.0.0.15 -p 1433 -U admindb -P HercuLE -D tournois
+</code></pre></div></div>
+<p>Si tout va bien, voici le résultat :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>locale is "en_US.UTF-8"
+locale charset is "UTF-8"
+using default charset "UTF-8"
+Setting tournois as default database in login packet
+1&gt;
+</code></pre></div></div>
+<p>Taper quit pour sortir.</p>
+
+<p>Ensuite :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isql -v MSSQLSRV admindb HercuLE
+</code></pre></div></div>
+<p>donnera :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+---------------------------------------+
+| Connected!                            |
+|                                       |
+| sql-statement                         |
+| help [tablename]                      |
+| quit                                  |
+|                                       |
++---------------------------------------+
+SQL&gt;
+</code></pre></div></div>
+<p>Voici le code pour faire une requête en PHP :</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+ 
+<span class="nb">define</span><span class="p">(</span><span class="s1">'USER'</span><span class="p">,</span><span class="s1">'admindb'</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'PASSWORD'</span><span class="p">,</span><span class="s1">'HercuLE'</span><span class="p">);</span>
+ 
+<span class="nv">$conn</span>   <span class="o">=</span> <span class="nb">odbc_connect</span><span class="p">(</span><span class="s2">"MSSQLSRV"</span><span class="p">,</span> <span class="no">USER</span><span class="p">,</span> <span class="no">PASSWORD</span><span class="p">);</span>
+<span class="nv">$query</span>  <span class="o">=</span> <span class="s2">"select * from CT_USER"</span><span class="p">;</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nb">odbc_exec</span><span class="p">(</span> <span class="nv">$conn</span><span class="p">,</span> <span class="nv">$query</span> <span class="p">);</span>
+ 
+<span class="k">while</span> <span class="p">(</span><span class="nb">odbc_fetch_row</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nb">odbc_result</span><span class="p">(</span><span class="nv">$result</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mssql" /><category term="php" /><category term="ubuntu" /><summary type="html"><![CDATA[Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…]]></summary></entry><entry><title type="html">Mermaid Markdown</title><link href="https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid.html" rel="alternate" type="text/html" title="Mermaid Markdown" /><published>2023-10-17T22:59:00+02:00</published><updated>2023-10-17T22:59:00+02:00</updated><id>https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/dev/2023/10/17/mermaid.html"><![CDATA[<p>Test de <a href="https://mermaid.js.org/intro/">Mermaid Markdown</a></p>
+
+<p>Flowchart :</p>
+<pre><code class="language-mermaid">  graph TD;
+      A--&gt;B;
+      A--&gt;C;
+      B--&gt;D;
+      C--&gt;D;
+</code></pre>
+<p>Sequence Diagram :</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&gt;&gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&gt;&gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &lt;br/&gt;prevail!
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!
+</code></pre>
+<p>Gantt :</p>
+<pre><code class="language-mermaid">gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram to mermaid
+excludes weekdays 2014-01-10
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d
+</code></pre>
+<p>Diagramme de classe :</p>
+<pre><code class="language-mermaid">classDiagram
+Class01 &lt;|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --&gt; C2 : Where am i?
+Class09 --* C3
+Class09 --|&gt; Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 &lt;--&gt; C2: Cool label
+</code></pre>
+<p>Graphique git :</p>
+<pre><code class="language-mermaid">gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+</code></pre>
+
+<p>Entity Relationship Diagram - ❗ experimental</p>
+<pre><code class="language-mermaid">erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+</code></pre>
+
+<p>User Journey Diagram :</p>
+<pre><code class="language-mermaid">journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+</code></pre>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mermaid" /><summary type="html"><![CDATA[Test de Mermaid Markdown]]></summary></entry><entry><title type="html">Utilisation de pyenv sous macOS</title><link href="https://brahimmachkouri.github.io/theblog/macos/2023/01/16/macos-use-pyenv.html" rel="alternate" type="text/html" title="Utilisation de pyenv sous macOS" /><published>2023-01-16T11:01:15+01:00</published><updated>2023-01-16T11:01:15+01:00</updated><id>https://brahimmachkouri.github.io/theblog/macos/2023/01/16/macos-use-pyenv</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/macos/2023/01/16/macos-use-pyenv.html"><![CDATA[<p>Pour utiliser différentes versions de Python sous macOS, <a href="https://github.com/pyenv/pyenv"><strong>pyenv</strong></a> est LA solution.</p>
+
+<p>Pour l’installer, il faut d’abord installer les Xcode Tools :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xcode-select <span class="nt">--install</span>
+</code></pre></div></div>
+
+<p>Ainsi que quelques dépendances à l’aide de <a href="https://docs.brew.sh/Installation"><strong>brew</strong></a> :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>openssl readline sqlite3 xz zlib
+</code></pre></div></div>
+
+<p>Ensuite, cloner le repository et lancer l’installation :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+<span class="nb">cd</span> ~/.pyenv/ <span class="o">&amp;&amp;</span> src/configure <span class="o">&amp;&amp;</span> make <span class="nt">-C</span> src
+</code></pre></div></div>
+
+<p>Il faut maintenant éditer le fichier .zshrc ou .bash_profile pour y ajouter ceci à la fin :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.pyenv"</span> 
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">"</span> 
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv init <span class="nt">--path</span><span class="si">)</span><span class="s2">"</span> 
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv init -<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>Pour que les modifications soient bien prises en compte, il faut s’assurer de bien fermer le terminal (pressez <kbd>⌘</kbd>+<kbd>Q</kbd>) et le relancer.</p>
+
+<p>Désormais, pour installer des versions de Python, procédez comme ceci :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pyenv <span class="nb">install </span>3.11
+pyenv <span class="nb">install </span>2.7.18
+</code></pre></div></div>
+
+<p>Et pour définir la version 3.11.1 comme version globale :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pyenv global 3.11.1
+</code></pre></div></div>
+
+<p>Quittez le terminal, puis ouvrez-le à nouveau et testez :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pyenv versions
+python <span class="nt">-V</span>
+</code></pre></div></div>
+
+<p>Pour déclarer les versions 2 ET 3 de Python en global :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pyenv global 3.11.1 2.7.18
+</code></pre></div></div>
+<p>Testez :</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-V</span>
+python2
+python3
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="python" /><category term="dev" /><summary type="html"><![CDATA[Pour utiliser différentes versions de Python sous macOS, pyenv est LA solution.]]></summary></entry><entry><title type="html">Connexion à un répertoire samba partagé avec macos</title><link href="https://brahimmachkouri.github.io/theblog/macos/2023/01/10/connexion-repertoire-samba.html" rel="alternate" type="text/html" title="Connexion à un répertoire samba partagé avec macos" /><published>2023-01-10T17:57:26+01:00</published><updated>2023-01-10T17:57:26+01:00</updated><id>https://brahimmachkouri.github.io/theblog/macos/2023/01/10/connexion-repertoire-samba</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/macos/2023/01/10/connexion-repertoire-samba.html"><![CDATA[<p>⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.</p>
+
+<p>Depuis le menu Finder, cliquez sur “Aller” &gt; “Se connecter au serveur…” (ou command+K):<br />
+<img src="/theblog/assets/images/connect_samba_macos_img1.png" alt="image1" /></p>
+
+<p>Dans le champ, saisissez “smb://login@adresseip”, en remplaçant login par votre propre login, et adresseip par l’adresse IP de votre serveur (1) :
+<img src="/theblog/assets/images/connect_samba_macos_img2.png" alt="image2" /></p>
+
+<p>Pour ajouter le serveur aux serveurs favoris, cliquez sur le bouton ‘+’ (2). Puis cliquez sur le bouton “Connecter” (3).</p>
+
+<p>Cliquez une nouvelle fois sur “Se connecter” :
+<img src="/theblog/assets/images/connect_samba_macos_img3.png" alt="image3" /></p>
+
+<p>Lorsque la fenêtre suivante apparaît, entrez vos identifiants (1,2) et cliquez sur Enregistrer le mot de passe dans mon trousseau (3) pour éviter de le resaisir la fois prochaine.<br />
+Cliquez sur le bouton “Connecter” (4) :
+<img src="/theblog/assets/images/connect_samba_macos_img4.png" alt="image4" /></p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="smb" /><category term="samba" /><category term="mac" /><summary type="html"><![CDATA[⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.]]></summary></entry><entry><title type="html">Install viper usb driver on Windows 10</title><link href="https://brahimmachkouri.github.io/theblog/materiel/2022/06/08/installation-driver-viper-win10.html" rel="alternate" type="text/html" title="Install viper usb driver on Windows 10" /><published>2022-06-08T21:47:04+02:00</published><updated>2022-06-08T21:47:04+02:00</updated><id>https://brahimmachkouri.github.io/theblog/materiel/2022/06/08/installation-driver-viper-win10</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/materiel/2022/06/08/installation-driver-viper-win10.html"><![CDATA[<p>Téléchargements :</p>
+
+<p><a href="https://github.com/brahimmachkouri/theblog/raw/main/files/ViperUSBWin7Driver.7z">Viper Extreme USB Driver</a><br />
+<a href="https://github.com/brahimmachkouri/theblog/raw/main/files/ViperFlasherUSB10.7z">Viper USB Flasher</a></p>
+
+<p>Le driver est non signé, il est donc nécessaire de passer Windows en mode Test.</p>
+
+<h2 id="test-mode">Test Mode</h2>
+
+<h3 id="activation">Activation</h3>
+
+<p>En ligne de commande avec les droits admin :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcdedit -set TESTSIGNING ON
+</code></pre></div></div>
+<p>Redémarrer l’OS. Si l’opération a réussi, il y a une indication sur le côté droit au bas de l’écran (watermark) : Test Mode.</p>
+
+<p>Pour installer le driver USB de la Viper, allumez la gamecube en ayant pris soin de brancher la Viper en USB au PC.
+S’il est demandé d’installer le driver via Windows Update, refusez.
+Installez le driver en spécifiant le répertoire dans lequel se trouve les fichiers décompressés du drivers.
+Cliquez sur “Continuer” s’il est dit que le driver n’est pas certifié.</p>
+
+<h3 id="désactivation">Désactivation</h3>
+
+<p>En ligne de commande avec les droits admin :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcdedit -set TESTSIGNING OFF
+</code></pre></div></div>
+<p>Redémarrer l’OS.</p>
+
+<h2 id="flashage-">Flashage :</h2>
+<p>Assurez vous que le switch est en position 2 on sur le viper extreme, et que le câble USB est bien branché, et la gamecube allumée. 
+Lancez Viper Flasher, et chargez le fichier (File &gt; Load Bios) dont l’extension est vgc.
+Cliquez sur Write pour flasher le BIOS de la puce.</p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="gamecube" /><category term="viper" /><category term="driver" /><category term="usb" /><summary type="html"><![CDATA[Téléchargements :]]></summary></entry><entry><title type="html">Virtualbox low resolution mode</title><link href="https://brahimmachkouri.github.io/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html" rel="alternate" type="text/html" title="Virtualbox low resolution mode" /><published>2021-11-29T12:34:00+01:00</published><updated>2021-11-29T12:34:00+01:00</updated><id>https://brahimmachkouri.github.io/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html"><![CDATA[<p>You have to change the info.plist with admin rights. For example in terminal type:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist
+</code></pre></div></div>
+
+<p>Then you can change the following key to false:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSHighResolutionCapable&lt;/key&gt; &lt;true/&gt;
+</code></pre></div></div>
+<p>should now be :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSHighResolutionCapable&lt;/key&gt; &lt;false/&gt;
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="virtualisation" /><category term="virtualbox" /><summary type="html"><![CDATA[You have to change the info.plist with admin rights. For example in terminal type: sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist]]></summary></entry><entry><title type="html">Upgrade Zalman VE-300 firmware to an iodd 2531 firmware</title><link href="https://brahimmachkouri.github.io/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html" rel="alternate" type="text/html" title="Upgrade Zalman VE-300 firmware to an iodd 2531 firmware" /><published>2021-11-05T12:29:00+01:00</published><updated>2021-11-05T12:29:00+01:00</updated><id>https://brahimmachkouri.github.io/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/ioddfirmware/master/LD0003234649_2.jpg" alt="Zalman VE-300" /></p>
+
+<p>Here is a working solution to get the latest IODD firmware on a Zalman VE-300.</p>
+
+<ul>
+  <li>Download and extract the file <a href="https://github.com/brahimmachkouri/ioddfirmware/raw/master/zalman_ve300_to_iodd.7z">zalman_ve300_to_iodd.7z</a>.</li>
+  <li>Run the firmware writer iODD2531_user_fw_writer_02(R1288F)_x86.EXE as administrator. Warning : it’s the firmware for FAT/exFAT. If you want to apply this for NTFS, search for the firmware with a “N” at the end : R1288N (N stands for NTFS, and in R1288F, F stands for FAT)</li>
+  <li>Run the EDA tool as administrator</li>
+  <li>Drag-and-drop the crosshair of the EDA tool on the disabled “Update” button of the firmware writer</li>
+  <li>Activate the “enabled” checkbox in the EDA tool. On eda  form, in the “Modify window” tab, uncheck the “WS_DISABLED” check box and click on “Set the window text” button : the “Update” button should now be enabled.</li>
+  <li>With your VE-300 device connected, press the “Update” button. The old updater is not so picky about the installed firmware on the device as the recent one.</li>
+  <li>After finishing the update, power off the VE-300 and reconnect it. Now you have a “iodd2531” device with an outdated firmware.</li>
+  <li>Run the latest firmware writer iODD_2531_user_fw_writer_04(R1600F)_x86.EXE. Since you have a valid iodd firmware on your device, the updater is happy with it. Just press the “Update” button. Maybe you’ll find newer versions of the 2531 firmware in this page : http://iodd.kr/wordpress/support/download/#tab-e72d0adcf55af0bdf71</li>
+  <li>After finishing the update, power off the VE-300 and reconnect it.</li>
+</ul>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="zalman" /><category term="iodd" /><category term="firmware" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Compilation du driver cp210x sous Ubuntu (M5Paper)</title><link href="https://brahimmachkouri.github.io/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html" rel="alternate" type="text/html" title="Compilation du driver cp210x sous Ubuntu (M5Paper)" /><published>2021-10-31T15:39:00+01:00</published><updated>2021-10-31T15:39:00+01:00</updated><id>https://brahimmachkouri.github.io/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux</id><content type="html" xml:base="https://brahimmachkouri.github.io/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/m5paper.jpg" alt="MPaper" /></p>
+
+<p>Pour compiler le driver cp210x, il faut le télécharger (<a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers">Linux 3.x.x/4.x.x/5.x.x VCP Driver</a>), puis ouvrir le zip pour trouver le drivers écrit en C destiné à être compilé.</p>
+
+<p>Il faut au préalable installer quelques paquets :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install unzip make gcc linux-image-extra-virtual
+</code></pre></div></div>
+<p>Décompresser le fichier zip téléchargé :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip Linux_3.x.x_4.x.x_VCP_Driver_Source.zip
+</code></pre></div></div>
+<p>Puis procéder à la compilation :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+</code></pre></div></div>
+
+<p>Ensuite, copier le driver dans le bon répertoire :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp cp210x.ko /lib/modules/$(uname -r)/kernel/drivers/usb/serial/
+</code></pre></div></div>
+
+<p>Et enfin, charger les modules :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo insmod /lib/modules/$(uname -r)/kernel/drivers/usb/serial/usbserial.ko
+sudo insmod /lib/modules/$(uname -r)/kernel/drivers/usb/serial/cp210x.ko
+</code></pre></div></div>
+
+<p>Résultat de la commande <code class="language-plaintext highlighter-rouge">lsmod | grep cp210</code> (les sizes peuvent être différentes) :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Module                 Size  Used by)
+cp210x                 36864  0
+usbserial              53248  1 cp210x
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="m5paper" /><category term="linux" /><category term="driver" /><category term="cp210x" /><summary type="html"><![CDATA[]]></summary></entry></feed>
