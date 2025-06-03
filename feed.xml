@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-03T21:05:31+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Attribution de privilèges MySQL/MariaDB</title><link href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" rel="alternate" type="text/html" title="Attribution de privilèges MySQL/MariaDB" /><published>2025-06-02T15:00:00+02:00</published><updated>2025-06-02T15:00:00+02:00</updated><id>/theblog/dev/2025/06/02/attribution-privileges-mariadb</id><content type="html" xml:base="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"><![CDATA[<h2 id="objectif">Objectif</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-03T21:46:00+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Attribution de privilèges MySQL/MariaDB</title><link href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" rel="alternate" type="text/html" title="Attribution de privilèges MySQL/MariaDB" /><published>2025-06-02T15:00:00+02:00</published><updated>2025-06-02T15:00:00+02:00</updated><id>/theblog/dev/2025/06/02/attribution-privileges-mariadb</id><content type="html" xml:base="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"><![CDATA[<h2 id="objectif">Objectif</h2>
 
 <p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.</p>
 
@@ -297,7 +297,7 @@
 
 <span class="c1">-- Voir les erreurs de connexion</span>
 <span class="k">SHOW</span> <span class="n">STATUS</span> <span class="k">LIKE</span> <span class="s1">'Aborted_connects'</span><span class="p">;</span>
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mysql" /><category term="mariadb" /><summary type="html"><![CDATA[Objectif]]></summary></entry><entry><title type="html">Test2</title><link href="/theblog/dev/2025/06/01/test2.html" rel="alternate" type="text/html" title="Test2" /><published>2025-06-01T12:00:00+02:00</published><updated>2025-06-01T12:00:00+02:00</updated><id>/theblog/dev/2025/06/01/test2</id><content type="html" xml:base="/theblog/dev/2025/06/01/test2.html"><![CDATA[<p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mysql" /><category term="mariadb" /><summary type="html"><![CDATA[Objectif]]></summary></entry><entry><title type="html">Connexion à MS SQL Server en PHP sous Debian/Ubuntu</title><link href="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" rel="alternate" type="text/html" title="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" /><published>2024-08-22T13:40:00+02:00</published><updated>2024-08-22T13:40:00+02:00</updated><id>/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu</id><content type="html" xml:base="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"><![CDATA[<p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
 
 <p>Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu’un utilisateur admindb est configuré pour l’accès à la base tournois qui ne contient ici qu’une seule table :</p>
 
@@ -390,100 +390,7 @@ SQL&gt;
 <span class="k">while</span> <span class="p">(</span><span class="nb">odbc_fetch_row</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="nb">odbc_result</span><span class="p">(</span><span class="nv">$result</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mssql" /><category term="php" /><category term="ubuntu" /><summary type="html"><![CDATA[Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…]]></summary></entry><entry><title type="html">Connexion à MS SQL Server en PHP sous Debian/Ubuntu</title><link href="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" rel="alternate" type="text/html" title="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" /><published>2024-08-22T13:40:00+02:00</published><updated>2024-08-22T13:40:00+02:00</updated><id>/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu</id><content type="html" xml:base="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"><![CDATA[<p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
-
-<p>Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu’un utilisateur admindb est configuré pour l’accès à la base tournois qui ne contient ici qu’une seule table :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+------------+
-|   users    |
-+------------+
-|    id      |
-|    nom     |
-+------------+
-</code></pre></div></div>
-<p>Paramètres :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP SQL Server : 10.0.0.15
-Database : tournois
-Username : admindb
-Password : HercuLE
-</code></pre></div></div>
-<p>Pour installer le client SQL Server sous Debian ou Ubuntu :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install freetds-common freetds-bin unixodbc tdsodbc php7.2-odbc
-</code></pre></div></div>
-<p>Redémarrer le démon PHP, puis remplir les fichiers de configuration :</p>
-
-<p>Dans /etc/freetds/freetds.conf, ajouter :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[monserveur]
-host = 10.0.0.15
-port = 1433
-tds version = 8.0
-</code></pre></div></div>
-<p>Dans /etc/odbcinst.ini, ajouter :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[FreeTDS]
-Description = FreeTDS Driver
-Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
-Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so
-Dontdlclose = 1
-</code></pre></div></div>
-<p>Dans /etc/odbc.ini, ajouter :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[MSSQLSRV]
-Driver = FreeTDS
-Description = ODBC connection via FreeTDS
-#Server = 10.0.0.15
-Servername = monserveur
-Database = tournois
-Port = 1433
-</code></pre></div></div>
-<p>Tester la connexion au serveur SQL Server à l’aide des outils tsql &amp; isql :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tsql -H 10.0.0.15 -p 1433 -U admindb -P HercuLE -D tournois
-</code></pre></div></div>
-<p>Si tout va bien, voici le résultat :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>locale is "en_US.UTF-8"
-locale charset is "UTF-8"
-using default charset "UTF-8"
-Setting tournois as default database in login packet
-1&gt;
-</code></pre></div></div>
-<p>Taper quit pour sortir.</p>
-
-<p>Ensuite :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isql -v MSSQLSRV admindb HercuLE
-</code></pre></div></div>
-<p>donnera :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+---------------------------------------+
-| Connected!                            |
-|                                       |
-| sql-statement                         |
-| help [tablename]                      |
-| quit                                  |
-|                                       |
-+---------------------------------------+
-SQL&gt;
-</code></pre></div></div>
-<p>Voici le code pour faire une requête en PHP :</p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
- 
-<span class="nb">define</span><span class="p">(</span><span class="s1">'USER'</span><span class="p">,</span><span class="s1">'admindb'</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">'PASSWORD'</span><span class="p">,</span><span class="s1">'HercuLE'</span><span class="p">);</span>
- 
-<span class="nv">$conn</span>   <span class="o">=</span> <span class="nb">odbc_connect</span><span class="p">(</span><span class="s2">"MSSQLSRV"</span><span class="p">,</span> <span class="no">USER</span><span class="p">,</span> <span class="no">PASSWORD</span><span class="p">);</span>
-<span class="nv">$query</span>  <span class="o">=</span> <span class="s2">"select * from CT_USER"</span><span class="p">;</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nb">odbc_exec</span><span class="p">(</span> <span class="nv">$conn</span><span class="p">,</span> <span class="nv">$query</span> <span class="p">);</span>
- 
-<span class="k">while</span> <span class="p">(</span><span class="nb">odbc_fetch_row</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="nb">odbc_result</span><span class="p">(</span><span class="nv">$result</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mssql" /><category term="php" /><category term="ubuntu" /><summary type="html"><![CDATA[Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…]]></summary></entry><entry><title type="html">Test</title><link href="/theblog/dev/2024/06/01/test.html" rel="alternate" type="text/html" title="Test" /><published>2024-06-01T12:00:00+02:00</published><updated>2024-06-01T12:00:00+02:00</updated><id>/theblog/dev/2024/06/01/test</id><content type="html" xml:base="/theblog/dev/2024/06/01/test.html"><![CDATA[<h1 id="ceci-est-un-test">Ceci est un test</h1>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><summary type="html"><![CDATA[Ceci est un test]]></summary></entry><entry><title type="html">Mermaid Markdown</title><link href="/theblog/dev/2023/10/17/mermaid.html" rel="alternate" type="text/html" title="Mermaid Markdown" /><published>2023-10-17T22:59:00+02:00</published><updated>2023-10-17T22:59:00+02:00</updated><id>/theblog/dev/2023/10/17/mermaid</id><content type="html" xml:base="/theblog/dev/2023/10/17/mermaid.html"><![CDATA[<p>Test de <a href="https://mermaid.js.org/intro/">Mermaid Markdown</a></p>
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mssql" /><category term="php" /><category term="ubuntu" /><summary type="html"><![CDATA[Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…]]></summary></entry><entry><title type="html">Mermaid Markdown</title><link href="/theblog/dev/2023/10/17/mermaid.html" rel="alternate" type="text/html" title="Mermaid Markdown" /><published>2023-10-17T22:59:00+02:00</published><updated>2023-10-17T22:59:00+02:00</updated><id>/theblog/dev/2023/10/17/mermaid</id><content type="html" xml:base="/theblog/dev/2023/10/17/mermaid.html"><![CDATA[<p>Test de <a href="https://mermaid.js.org/intro/">Mermaid Markdown</a></p>
 
 <p>Flowchart :</p>
 <pre><code class="language-mermaid">  graph TD;
@@ -677,4 +584,31 @@ Cliquez sur Write pour flasher le BIOS de la puce.</p>]]></content><author><name
   <li>After finishing the update, power off the VE-300 and reconnect it. Now you have a “iodd2531” device with an outdated firmware.</li>
   <li>Run the latest firmware writer iODD_2531_user_fw_writer_04(R1600F)_x86.EXE. Since you have a valid iodd firmware on your device, the updater is happy with it. Just press the “Update” button. Maybe you’ll find newer versions of the 2531 firmware in this page : http://iodd.kr/wordpress/support/download/#tab-e72d0adcf55af0bdf71</li>
   <li>After finishing the update, power off the VE-300 and reconnect it.</li>
-</ul>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="zalman" /><category term="iodd" /><category term="firmware" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+</ul>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="zalman" /><category term="iodd" /><category term="firmware" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Compilation du driver cp210x sous Ubuntu (M5Paper)</title><link href="/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html" rel="alternate" type="text/html" title="Compilation du driver cp210x sous Ubuntu (M5Paper)" /><published>2021-10-31T15:39:00+01:00</published><updated>2021-10-31T15:39:00+01:00</updated><id>/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux</id><content type="html" xml:base="/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/m5paper.jpg" alt="MPaper" /></p>
+
+<p>Pour compiler le driver cp210x, il faut le télécharger (<a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers">Linux 3.x.x/4.x.x/5.x.x VCP Driver</a>), puis ouvrir le zip pour trouver le drivers écrit en C destiné à être compilé.</p>
+
+<p>Il faut au préalable installer quelques paquets :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install unzip make gcc linux-image-extra-virtual
+</code></pre></div></div>
+<p>Décompresser le fichier zip téléchargé :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip Linux_3.x.x_4.x.x_VCP_Driver_Source.zip
+</code></pre></div></div>
+<p>Puis procéder à la compilation :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+</code></pre></div></div>
+
+<p>Ensuite, copier le driver dans le bon répertoire :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp cp210x.ko /lib/modules/$(uname -r)/kernel/drivers/usb/serial/
+</code></pre></div></div>
+
+<p>Et enfin, charger les modules :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo insmod /lib/modules/$(uname -r)/kernel/drivers/usb/serial/usbserial.ko
+sudo insmod /lib/modules/$(uname -r)/kernel/drivers/usb/serial/cp210x.ko
+</code></pre></div></div>
+
+<p>Résultat de la commande <code class="language-plaintext highlighter-rouge">lsmod | grep cp210</code> (les sizes peuvent être différentes) :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Module                 Size  Used by)
+cp210x                 36864  0
+usbserial              53248  1 cp210x
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="m5paper" /><category term="linux" /><category term="driver" /><category term="cp210x" /><summary type="html"><![CDATA[]]></summary></entry></feed>
