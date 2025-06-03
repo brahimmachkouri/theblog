@@ -1,91 +1,37 @@
-name: Deploy Jekyll manually to gh-pages branch
+name: Deploy Jekyll site to gh-pages
 
 on:
   push:
-    branches: ["main"]
-    # Optionnel : pour éviter les boucles si d'autres actions poussent sur main
-    # if: "!contains(github.event.head_commit.message, 'Auto: minify CSS')" # À adapter
-  workflow_dispatch:
+    branches: ["main"] # Se déclenche quand vous poussez sur la branche main
+  workflow_dispatch:   # Permet de déclencher manuellement depuis l'interface GitHub
 
 permissions:
-  contents: write  # nécessaire pour pouvoir push sur gh-pages
+  contents: write   # Essentiel pour que l'action puisse écrire sur la branche gh-pages
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
+      - name: Checkout source # Récupère le code de votre dépôt
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Build and Deploy Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        # Cette action va :
+        # 1. Configurer Ruby et Jekyll (elle utilise les versions par défaut de GitHub Pages si vous n'avez pas de Gemfile).
+        # 2. Construire votre site Jekyll (depuis le dossier source '/' vers la destination './_site').
+        # 3. Pousser automatiquement le contenu de './_site' vers votre branche 'gh-pages'.
         with:
-          ruby-version: '3.1' # Ou la version spécifiée dans votre Gemfile si vous en avez un
-          bundler-cache: true # Installer/mettre en cache les gems de votre Gemfile
+          source: ./
+          destination: ./_site
+          # Le GITHUB_TOKEN est utilisé automatiquement par l'action pour le push.
 
-      - name: Build Jekyll site
-        run: bundle exec jekyll build --source ./ --destination ./_site
-        env:
-          JEKYLL_ENV: production # Important pour un build de production
-
-      - name: Vérification du dossier _site
-        run: |
-          echo "::group::Contenu de _site"
-          ls -la ./_site
-          echo "::endgroup::"
-
+      # Optionnel : Vérification des liens après la construction.
+      # L'action jekyll-build-pages construit d'abord dans ./_site puis déploie.
+      # Donc, on peut vérifier les liens sur le contenu de ./_site ici.
       - name: Vérification des liens (lychee)
+        if: success() # Ne s'exécute que si l'étape précédente a réussi
         uses: lycheeverse/lychee-action@v1
         with:
           args: --no-progress --verbose ./_site
-        # continue-on-error: true # Décommenter pour déployer même si des liens sont cassés
-
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: jekyll-site
-          path: ./_site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # Pas besoin de checkout la source ici, car on va opérer sur l'artefact
-      # - name: Checkout source
-      #   uses: actions/checkout@v4
-
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: jekyll-site
-          path: ./deploy_dir # Télécharge dans un dossier temporaire, par ex. deploy_dir
-
-      # Option A: Utiliser votre script Git manuel (devrait fonctionner)
-      # - name: Init git et push vers gh-pages
-      #   run: |
-      #     cd deploy_dir # Aller dans le dossier avec le site construit
-      #     touch .nojekyll  # Désactive le traitement Jekyll côté GitHub Pages
-      #     git init
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "github-actions[bot]@users.noreply.github.com"
-      #     git add .
-      #     git commit -m "🚀 Déploiement manuel vers gh-pages"
-      #     git branch -M gh-pages
-      #     # Utiliser GITHUB_REPOSITORY est plus sûr que github.repository qui peut ne pas être peuplé ici
-      #     git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPOSITORY }}.git
-      #     git push --force origin gh-pages
-      #   env:
-      #     GITHUB_REPOSITORY: ${{ github.repository }}
-
-      # Option B: Utiliser une action dédiée pour le déploiement gh-pages (recommandé)
-      - name: Deploy to GitHub Pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy_dir # Le dossier contenant le contenu de _site
-          publish_branch: gh-pages
-          force_orphan: true # Crée une branche gh-pages avec un historique propre
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: '🚀 Déploiement vers gh-pages'
-          # .nojekyll est généralement ajouté par cette action si nécessaire
+        # continue-on-error: true # Décommentez si vous voulez que le workflow continue même si des liens sont cassés
