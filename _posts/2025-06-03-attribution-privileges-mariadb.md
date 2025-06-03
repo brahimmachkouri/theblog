@@ -14,12 +14,12 @@ Accorder tous les privilèges à un utilisateur sur une base de données MariaDB
 
 ## Commande SQL
 
-```sql
+```SQL
 GRANT ALL PRIVILEGES ON nom_base.* TO 'nom_utilisateur'@'%' IDENTIFIED BY 'mot_de_passe';
 FLUSH PRIVILEGES;
 ```
 
-### Paramètres :
+### Paramètres
 
 - `nom_base` : nom de la base de données
 - `nom_utilisateur` : nom de l'utilisateur MariaDB
@@ -30,7 +30,7 @@ FLUSH PRIVILEGES;
 
 ## Exemple
 
-```sql
+```SQL
 GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'%' IDENTIFIED BY 'MotDePasseFort123!';
 FLUSH PRIVILEGES;
 ```
@@ -41,19 +41,19 @@ FLUSH PRIVILEGES;
 
 ### Accès depuis une IP précise
 
-```sql
+```SQL
 GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'192.168.1.42' IDENTIFIED BY 'MotDePasseFort123!';
 ```
 
 ### Accès depuis un sous-réseau local
 
-```sql
+```SQL
 GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'192.168.1.%' IDENTIFIED BY 'MotDePasseFort123!';
 ```
 
 ### Accès depuis localhost (par défaut, mais à expliciter si besoin)
 
-```sql
+```SQL
 GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'localhost' IDENTIFIED BY 'MotDePasseFort123!';
 ```
 
@@ -62,7 +62,8 @@ GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'localhost' IDENTIFIED BY 'Mo
 ## Finalisation
 
 Toujours exécuter :
-```sql
+
+```SQL
 FLUSH PRIVILEGES;
 ```
 
@@ -72,7 +73,7 @@ FLUSH PRIVILEGES;
 
 Si le compte existe déjà avec une autre restriction (ex : uniquement localhost), il peut être nécessaire de créer explicitement une autre entrée avec `@'%'` ou de modifier l'existante avec :
 
-```sql
+```SQL
 CREATE USER 'webadmin'@'%' IDENTIFIED BY 'MotDePasseFort123!';
 GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'%';
 FLUSH PRIVILEGES;
@@ -82,7 +83,7 @@ FLUSH PRIVILEGES;
 
 ## Vérification des droits
 
-```sql
+```SQL
 SHOW GRANTS FOR 'webadmin'@'%';
 ```
 
@@ -91,9 +92,9 @@ SHOW GRANTS FOR 'webadmin'@'%';
 ## Sécurité
 
 - Veille à utiliser des mots de passe forts.
-- Pour la production, privilèges plus restrictifs recommandés : `SELECT`, `INSERT`, etc. 
+- Pour la production, privilèges plus restrictifs recommandés : `SELECT`, `INSERT`, etc.
 - Utiliser `REVOKE` pour retirer les droits si besoin.
 
-```sql
+```SQL
 REVOKE ALL PRIVILEGES ON projet_web.* FROM 'webadmin'@'%';
 ```
