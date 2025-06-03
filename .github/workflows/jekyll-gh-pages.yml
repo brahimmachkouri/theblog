@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Ruby
@@ -22,15 +22,10 @@ jobs:
           ruby-version: 3.2
           bundler-cache: true
 
-      - name: Install Jekyll
-        run: |
-          gem install bundler
-          bundle init
-          echo "gem 'jekyll', '~> 4.3.2'" >> Gemfile
-          echo "gem 'minima'" >> Gemfile
-          bundle install
+      - name: Install dependencies from existing Gemfile
+        run: bundle install
 
-      - name: Build site with future posts
+      - name: Build Jekyll site (including future posts)
         run: bundle exec jekyll build --future
 
       - name: Deploy to GitHub Pages
