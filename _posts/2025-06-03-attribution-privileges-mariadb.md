@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-06-03 14:00:00
+date: 2025-06-03 13:00:00
 title: Attribution de privilèges MySQL/MariaDB
 category: dev
 tags: mysql mariadb
