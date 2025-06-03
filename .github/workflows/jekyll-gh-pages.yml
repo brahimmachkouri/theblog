@@ -1,38 +1,40 @@
-name: Deploy Jekyll site to gh-pages
+name: Build and deploy Jekyll with future posts
 
 on:
   push:
-    branches: ["main"] # Se déclenche quand vous poussez sur la branche main
-  workflow_dispatch:   # Permet de déclencher manuellement depuis l'interface GitHub
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
-  contents: write   # Essentiel pour que l'action puisse écrire sur la branche gh-pages
+  contents: write
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout source # Récupère le code de votre dépôt
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build and Deploy Jekyll site
-        uses: actions/jekyll-build-pages@v1
-        # Cette action va :
-        # 1. Configurer Ruby et Jekyll (elle utilise les versions par défaut de GitHub Pages si vous n'avez pas de Gemfile).
-        # 2. Construire votre site Jekyll (depuis le dossier source '/' vers la destination './_site').
-        # 3. Pousser automatiquement le contenu de './_site' vers votre branche 'gh-pages'.
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          source: ./
-          destination: ./_site
-          # Le GITHUB_TOKEN est utilisé automatiquement par l'action pour le push.
-          build_script: "bundle exec jekyll build --future"
+          ruby-version: 3.2
+          bundler-cache: true
 
-      # Optionnel : Vérification des liens après la construction.
-      # L'action jekyll-build-pages construit d'abord dans ./_site puis déploie.
-      # Donc, on peut vérifier les liens sur le contenu de ./_site ici.
-      - name: Vérification des liens (lychee)
-        if: success() # Ne s'exécute que si l'étape précédente a réussi
-        uses: lycheeverse/lychee-action@v1
+      - name: Install Jekyll
+        run: |
+          gem install bundler
+          bundle init
+          echo "gem 'jekyll', '~> 4.3.2'" >> Gemfile
+          echo "gem 'minima'" >> Gemfile
+          bundle install
+
+      - name: Build site with future posts
+        run: bundle exec jekyll build --future
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          args: --no-progress --verbose ./_site
-        # continue-on-error: true # Décommentez si vous voulez que le workflow continue même si des liens sont cassés
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
