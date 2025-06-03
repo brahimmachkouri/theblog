@@ -36,7 +36,7 @@ FLUSH PRIVILEGES;
 
 ---
 
-### Exemple pratique pour cours
+### Exemple pratique
 
 Créons un utilisateur pour une application e-commerce :
 
