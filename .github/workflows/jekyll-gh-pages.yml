@@ -25,6 +25,7 @@ jobs:
           source: ./
           destination: ./_site
           # Le GITHUB_TOKEN est utilisé automatiquement par l'action pour le push.
+          build_script: "bundle exec jekyll build --future"
 
       # Optionnel : Vérification des liens après la construction.
       # L'action jekyll-build-pages construit d'abord dans ./_site puis déploie.
