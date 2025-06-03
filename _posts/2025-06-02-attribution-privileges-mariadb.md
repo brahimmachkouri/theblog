@@ -10,7 +10,7 @@ Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQ
 
 ---
 
-## Syntaxe moderne (MySQL 8.0+ / MariaDB 10.2+)
+### Syntaxe moderne (MySQL 8.0+ / MariaDB 10.2+)
 
 La bonne pratique actuelle consiste à séparer la création d'utilisateur de l'attribution des privilèges :
 
@@ -25,7 +25,7 @@ GRANT ALL PRIVILEGES ON nom_base.* TO 'nom_utilisateur'@'%';
 FLUSH PRIVILEGES;
 ```
 
-### Paramètres
+#### Paramètres
 
 - `nom_base` : nom de la base de données
 - `nom_utilisateur` : nom de l'utilisateur MariaDB/MySQL
@@ -36,7 +36,7 @@ FLUSH PRIVILEGES;
 
 ---
 
-## Exemple pratique pour cours
+### Exemple pratique pour cours
 
 Créons un utilisateur pour une application e-commerce :
 
@@ -57,8 +57,9 @@ FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'ecommerce_user'@'%';
 ```
 
-### Résultat attendu
-```
+#### Résultat attendu
+
+```bash
 +--------------------------------------------------------------------+
 | Grants for ecommerce_user@%                                       |
 +--------------------------------------------------------------------+
@@ -69,15 +70,15 @@ SHOW GRANTS FOR 'ecommerce_user'@'%';
 
 ---
 
-## Gestion des utilisateurs existants
+### Gestion des utilisateurs existants
 
-### Vérifier l'existence d'un utilisateur
+#### Vérifier l'existence d'un utilisateur
 
 ```sql
 SELECT User, Host FROM mysql.user WHERE User = 'webadmin';
 ```
 
-### Recréer un utilisateur (MariaDB 10.1.3+ / MySQL 8.0+)
+#### Recréer un utilisateur (MariaDB 10.1.3+ / MySQL 8.0+)
 
 ```sql
 DROP USER IF EXISTS 'webadmin'@'%';
@@ -86,7 +87,7 @@ GRANT ALL PRIVILEGES ON boutique_en_ligne.* TO 'webadmin'@'%';
 FLUSH PRIVILEGES;
 ```
 
-### Modifier un utilisateur existant
+#### Modifier un utilisateur existant
 
 ```sql
 -- Changer le mot de passe (syntaxe moderne)
@@ -96,9 +97,9 @@ FLUSH PRIVILEGES;
 
 ---
 
-## Variantes de restrictions d'accès
+### Variantes de restrictions d'accès
 
-### Accès depuis une IP précise
+#### Accès depuis une IP précise
 
 ```sql
 CREATE USER 'webadmin'@'192.168.1.42' IDENTIFIED BY 'MotDePasseFort2025!';
@@ -106,7 +107,7 @@ GRANT ALL PRIVILEGES ON boutique_en_ligne.* TO 'webadmin'@'192.168.1.42';
 FLUSH PRIVILEGES;
 ```
 
-### Accès depuis un sous-réseau local
+#### Accès depuis un sous-réseau local
 
 ```sql
 CREATE USER 'webadmin'@'192.168.1.%' IDENTIFIED BY 'MotDePasseFort2025!';
@@ -114,7 +115,7 @@ GRANT ALL PRIVILEGES ON boutique_en_ligne.* TO 'webadmin'@'192.168.1.%';
 FLUSH PRIVILEGES;
 ```
 
-### Accès depuis localhost uniquement
+#### Accès depuis localhost uniquement
 
 ```sql
 CREATE USER 'webadmin'@'localhost' IDENTIFIED BY 'MotDePasseFort2025!';
@@ -122,7 +123,7 @@ GRANT ALL PRIVILEGES ON boutique_en_ligne.* TO 'webadmin'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-### Accès depuis plusieurs sources
+#### Accès depuis plusieurs sources
 
 ```sql
 -- Créer plusieurs entrées pour le même utilisateur
@@ -135,30 +136,30 @@ GRANT ALL PRIVILEGES ON projet_web.* TO 'webadmin'@'192.168.1.%';
 
 ---
 
-## Privilèges granulaires (recommandé pour la production)
+### Privilèges granulaires (recommandé pour la production)
 
 Au lieu d'utiliser `ALL PRIVILEGES`, accordez uniquement les droits nécessaires :
 
-### Privilèges de base pour une application web
+#### Privilèges de base pour une application web
 
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE ON projet_web.* TO 'webadmin'@'%';
 ```
 
-### Privilèges étendus pour un administrateur
+#### Privilèges étendus pour un administrateur
 
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, INDEX 
 ON projet_web.* TO 'webadmin'@'%';
 ```
 
-### Privilèges en lecture seule
+#### Privilèges en lecture seule
 
 ```sql
 GRANT SELECT ON projet_web.* TO 'readonly_user'@'%';
 ```
 
-### Liste des privilèges principaux
+#### Liste des privilèges principaux
 
 - `SELECT` : lecture des données
 - `INSERT` : insertion de nouvelles données
@@ -172,11 +173,11 @@ GRANT SELECT ON projet_web.* TO 'readonly_user'@'%';
 
 ---
 
-## Configuration réseau requise
+### Configuration réseau requise
 
 Pour permettre les connexions distantes, vérifiez la configuration de MariaDB/MySQL :
 
-### Fichier de configuration (`/etc/mysql/my.cnf` ou `/etc/my.cnf`)
+#### Fichier de configuration (`/etc/mysql/my.cnf` ou `/etc/my.cnf`)
 
 ```ini
 [mysqld]
@@ -188,7 +189,7 @@ bind-address = 0.0.0.0
 # bind-address = 192.168.1.10
 ```
 
-### Redémarrer le service
+#### Redémarrer le service
 
 ```bash
 sudo systemctl restart mysql
@@ -198,21 +199,21 @@ sudo systemctl restart mariadb
 
 ---
 
-## Vérification et maintenance
+### Vérification et maintenance
 
-### Vérifier les droits accordés
+#### Vérifier les droits accordés
 
 ```sql
 SHOW GRANTS FOR 'webadmin'@'%';
 ```
 
-### Lister tous les utilisateurs
+#### Lister tous les utilisateurs
 
 ```sql
 SELECT User, Host, authentication_string FROM mysql.user;
 ```
 
-### Vérifier les connexions actives
+#### Vérifier les connexions actives
 
 ```sql
 SHOW PROCESSLIST;
@@ -220,21 +221,21 @@ SHOW PROCESSLIST;
 
 ---
 
-## Révocation des privilèges
+### Révocation des privilèges
 
-### Révoquer des privilèges spécifiques
+#### Révoquer des privilèges spécifiques
 
 ```sql
 REVOKE INSERT, UPDATE ON projet_web.* FROM 'webadmin'@'%';
 ```
 
-### Révoquer tous les privilèges
+#### Révoquer tous les privilèges
 
 ```sql
 REVOKE ALL PRIVILEGES ON projet_web.* FROM 'webadmin'@'%';
 ```
 
-### Supprimer un utilisateur
+#### Supprimer un utilisateur
 
 ```sql
 DROP USER 'webadmin'@'%';
@@ -243,27 +244,27 @@ FLUSH PRIVILEGES;
 
 ---
 
-## Bonnes pratiques de sécurité
+### Bonnes pratiques de sécurité
 
-### Mots de passe
+#### Mots de passe
 
 - Utilisez des mots de passe forts (12+ caractères, mixte majuscules/minuscules/chiffres/symboles)
 - Changez régulièrement les mots de passe
 - Utilisez des gestionnaires de mots de passe
 
-### Principe du moindre privilège
+#### Principe du moindre privilège
 
 - N'accordez que les privilèges strictement nécessaires
 - Évitez `ALL PRIVILEGES` en production
 - Créez des utilisateurs spécialisés par fonction
 
-### Restrictions réseau
+#### Restrictions réseau
 
 - Limitez l'accès aux IP nécessaires plutôt qu'utiliser `%`
 - Utilisez des VPN ou des tunnels SSH pour les accès distants
 - Configurez un pare-feu approprié
 
-### Exemple d'architecture sécurisée
+#### Exemple d'architecture sécurisée
 
 ```sql
 -- Utilisateur application (lecture/écriture limitée)
@@ -283,23 +284,23 @@ FLUSH PRIVILEGES;
 
 ---
 
-## Dépannage courant
+### Dépannage courant
 
-### Erreur "Access denied"
+#### Erreur "Access denied"
 
 1. Vérifiez que l'utilisateur existe pour le bon host
 2. Vérifiez le mot de passe
 3. Contrôlez les privilèges accordés
 4. Vérifiez la configuration réseau
 
-### Connexion impossible depuis l'extérieur
+#### Connexion impossible depuis l'extérieur
 
 1. Vérifiez `bind-address` dans la configuration
 2. Contrôlez les règles de pare-feu
 3. Vérifiez que le port 3306 est ouvert
 4. Testez avec `telnet server_ip 3306`
 
-### Commandes de diagnostic
+#### Commandes de diagnostic
 
 ```sql
 -- Voir la configuration actuelle
