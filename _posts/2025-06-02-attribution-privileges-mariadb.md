@@ -6,8 +6,6 @@ category: dev
 tags: mysql mariadb
 ---
 
-## Objectif
-
 Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.
 
 ---
