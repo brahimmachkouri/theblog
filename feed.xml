@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-04T09:36:55+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Attribution de privilèges MySQL/MariaDB</title><link href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" rel="alternate" type="text/html" title="Attribution de privilèges MySQL/MariaDB" /><published>2025-06-02T15:00:00+02:00</published><updated>2025-06-02T15:00:00+02:00</updated><id>/theblog/dev/2025/06/02/attribution-privileges-mariadb</id><content type="html" xml:base="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"><![CDATA[<p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-04T09:39:01+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Attribution de privilèges MySQL/MariaDB</title><link href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" rel="alternate" type="text/html" title="Attribution de privilèges MySQL/MariaDB" /><published>2025-06-02T15:00:00+02:00</published><updated>2025-06-02T15:00:00+02:00</updated><id>/theblog/dev/2025/06/02/attribution-privileges-mariadb</id><content type="html" xml:base="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"><![CDATA[<p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.</p>
 
 <hr />
 
@@ -53,12 +53,12 @@
 
 <h4 id="résultat-attendu">Résultat attendu</h4>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+--------------------------------------------------------------------+
-| Grants <span class="k">for </span>ecommerce_user@%                                       |
-+--------------------------------------------------------------------+
-| GRANT USAGE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="sb">`</span>ecommerce_user<span class="sb">`</span>@<span class="sb">`</span>%<span class="sb">`</span>                       |
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-----------------------------------------------------------------------+
+| Grants <span class="k">for </span>ecommerce_user@%                                           |
++-----------------------------------------------------------------------+
+| GRANT USAGE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="sb">`</span>ecommerce_user<span class="sb">`</span>@<span class="sb">`</span>%<span class="sb">`</span>                            |
 | GRANT ALL PRIVILEGES ON <span class="sb">`</span>boutique_en_ligne<span class="sb">`</span>.<span class="k">*</span> TO <span class="sb">`</span>ecommerce_user<span class="sb">`</span>@<span class="sb">`</span>%<span class="sb">`</span> |
-+--------------------------------------------------------------------+
++-----------------------------------------------------------------------+
 </code></pre></div></div>
 
 <hr />
@@ -296,7 +296,7 @@
 
 <span class="c1">-- Voir les erreurs de connexion</span>
 <span class="k">SHOW</span> <span class="n">STATUS</span> <span class="k">LIKE</span> <span class="s1">'Aborted_connects'</span><span class="p">;</span>
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mysql" /><category term="mariadb" /><summary type="html"><![CDATA[Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.]]></summary></entry><entry><title type="html">Connexion à MS SQL Server en PHP sous Debian/Ubuntu</title><link href="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" rel="alternate" type="text/html" title="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" /><published>2024-08-22T13:40:00+02:00</published><updated>2024-08-22T13:40:00+02:00</updated><id>/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu</id><content type="html" xml:base="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"><![CDATA[<p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mysql" /><category term="mariadb" /><summary type="html"><![CDATA[Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.]]></summary></entry><entry><title type="html">Connexion à MS SQL Server en PHP sous Debian/Ubuntu</title><link href="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" rel="alternate" type="text/html" title="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" /><published>2024-08-22T13:40:00+02:00</published><updated>2024-08-22T13:40:00+02:00</updated><id>/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu</id><content type="html" xml:base="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"><![CDATA[<p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
 
 <p>Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu’un utilisateur admindb est configuré pour l’accès à la base tournois qui ne contient ici qu’une seule table :</p>
 

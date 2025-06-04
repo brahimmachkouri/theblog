@@ -8,15 +8,15 @@
 <meta property="og:title" content="Attribution de privilèges MySQL/MariaDB" />
 <meta name="author" content="Brahim MACHKOURI" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité." />
-<meta property="og:description" content="Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité." />
+<meta name="description" content="Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques." />
+<meta property="og:description" content="Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques." />
 <meta property="og:site_name" content="Mémos" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-06-02T15:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Attribution de privilèges MySQL/MariaDB" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-06-02T15:00:00+02:00","datePublished":"2025-06-02T15:00:00+02:00","description":"Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.","headline":"Attribution de privilèges MySQL/MariaDB","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"},"url":"/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-06-02T15:00:00+02:00","datePublished":"2025-06-02T15:00:00+02:00","description":"Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.","headline":"Attribution de privilèges MySQL/MariaDB","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"},"url":"/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
 <body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
@@ -194,7 +194,7 @@ function lunr_search(term) {
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.</p>
+    <p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.</p>
 
 <hr />
 
@@ -249,12 +249,12 @@ function lunr_search(term) {
 
 <h4 id="résultat-attendu">Résultat attendu</h4>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+--------------------------------------------------------------------+
-| Grants <span class="k">for </span>ecommerce_user@%                                       |
-+--------------------------------------------------------------------+
-| GRANT USAGE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="sb">`</span>ecommerce_user<span class="sb">`</span>@<span class="sb">`</span>%<span class="sb">`</span>                       |
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-----------------------------------------------------------------------+
+| Grants <span class="k">for </span>ecommerce_user@%                                           |
++-----------------------------------------------------------------------+
+| GRANT USAGE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="sb">`</span>ecommerce_user<span class="sb">`</span>@<span class="sb">`</span>%<span class="sb">`</span>                            |
 | GRANT ALL PRIVILEGES ON <span class="sb">`</span>boutique_en_ligne<span class="sb">`</span>.<span class="k">*</span> TO <span class="sb">`</span>ecommerce_user<span class="sb">`</span>@<span class="sb">`</span>%<span class="sb">`</span> |
-+--------------------------------------------------------------------+
++-----------------------------------------------------------------------+
 </code></pre></div></div>
 
 <hr />
