@@ -6,7 +6,7 @@ category: dev
 tags: mysql mariadb
 ---
 
-Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques de sécurité.
+Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.
 
 ---
 
@@ -60,12 +60,12 @@ SHOW GRANTS FOR 'ecommerce_user'@'%';
 #### Résultat attendu
 
 ```bash
-+--------------------------------------------------------------------+
-| Grants for ecommerce_user@%                                       |
-+--------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO `ecommerce_user`@`%`                       |
++-----------------------------------------------------------------------+
+| Grants for ecommerce_user@%                                           |
++-----------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `ecommerce_user`@`%`                            |
 | GRANT ALL PRIVILEGES ON `boutique_en_ligne`.* TO `ecommerce_user`@`%` |
-+--------------------------------------------------------------------+
++-----------------------------------------------------------------------+
 ```
 
 ---
