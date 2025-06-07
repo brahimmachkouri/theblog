@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-04T09:39:01+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Attribution de privilèges MySQL/MariaDB</title><link href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" rel="alternate" type="text/html" title="Attribution de privilèges MySQL/MariaDB" /><published>2025-06-02T15:00:00+02:00</published><updated>2025-06-02T15:00:00+02:00</updated><id>/theblog/dev/2025/06/02/attribution-privileges-mariadb</id><content type="html" xml:base="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"><![CDATA[<p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-07T19:10:28+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Installation de LinkAce via Portainer</title><link href="/theblog/dev/2025/06/07/installer-linkace-via-portainer.html" rel="alternate" type="text/html" title="Installation de LinkAce via Portainer" /><published>2025-06-07T15:00:00+02:00</published><updated>2025-06-07T15:00:00+02:00</updated><id>/theblog/dev/2025/06/07/installer-linkace-via-portainer</id><content type="html" xml:base="/theblog/dev/2025/06/07/installer-linkace-via-portainer.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/linkace.png" alt="LinkAce" /></p>
+
+<h2 id="installation-de-linkace-via-portainer">Installation de LinkAce via Portainer</h2>
+
+<p>Voici le docker-compose pour la Stack dans Portainer :</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.7"</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">linkace</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">linkace/linkace:latest</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">linkace</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">db</span>
+      <span class="pi">-</span> <span class="s">redis</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8080:80"</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linkace-app-data:/app/storage</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">APP_KEY=base64:&lt;clé_à_générer&gt;</span>
+      <span class="pi">-</span> <span class="s">APP_URL=http://localhost:8080</span>
+      <span class="pi">-</span> <span class="s">DB_CONNECTION=mysql</span>
+      <span class="pi">-</span> <span class="s">DB_HOST=db</span>
+      <span class="pi">-</span> <span class="s">DB_PORT=3306</span>
+      <span class="pi">-</span> <span class="s">DB_DATABASE=linkace</span>
+      <span class="pi">-</span> <span class="s">DB_USERNAME=linkace</span>
+      <span class="pi">-</span> <span class="s">DB_PASSWORD=motdepassefort</span>
+      <span class="pi">-</span> <span class="s">REDIS_HOST=redis</span>
+      <span class="pi">-</span> <span class="s">REDIS_PASSWORD=unautremdpfort</span>
+      <span class="pi">-</span> <span class="s">APP_DEBUG=true</span>
+      <span class="pi">-</span> <span class="s">APP_TIMEZONE=Europe/Paris</span>
+
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">mariadb:11.5</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">linkace-db</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">MYSQL_ROOT_PASSWORD=motdepassefort</span>
+      <span class="pi">-</span> <span class="s">MYSQL_DATABASE=linkace</span>
+      <span class="pi">-</span> <span class="s">MYSQL_USER=linkace</span>
+      <span class="pi">-</span> <span class="s">MYSQL_PASSWORD=motdepassefort</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_bin</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linkace-db-data:/var/lib/mysql</span>
+
+  <span class="na">redis</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">bitnami/redis:7.4</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">linkace-redis</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">REDIS_PASSWORD=unautremdpfort</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">linkace-app-data</span><span class="pi">:</span>
+  <span class="na">linkace-db-data</span><span class="pi">:</span>
+</code></pre></div></div>
+
+<p>Pour générer la clé :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> linkace/linkace php artisan key:generate <span class="nt">--show</span> 
+</code></pre></div></div>
+
+<h3 id="import">Import</h3>
+
+<p>Il faut d’abord générer un Cron Token. Aller dans System Settings (http://127.0.0.1:8080/settings/system) et cliquer sur le bouton <strong>Generate Token</strong>.</p>
+
+<p>Il est possible d’importer des liens à partir d’un export Firefox par exemple (bookmarks.html).</p>
+
+<p>Aller dans Import (http://127.0.0.1:8080/import) afin d’aller chercher le fichier bookmarks.html, puis cliquer sur le bouton <strong>Start Import</strong>.</p>
+
+<p>Ensuite, il faut programmer un cron toutes les minutes afin de déclencher le traitement de l’import par lots :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab <span class="nt">-e</span>
+</code></pre></div></div>
+
+<p>Puis saisir cette ligne dans le fichier :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /usr/local/bin/docker run --rm linkace/linkace php artisan key:generate --show &gt;&gt; /tmp/linkace_keygen.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>Veillez à bien indiquer le bon chemin de l’exécutable docker sur votre système.</p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="dev" /><category term="mysql" /><category term="mariadb" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Attribution de privilèges MySQL/MariaDB</title><link href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html" rel="alternate" type="text/html" title="Attribution de privilèges MySQL/MariaDB" /><published>2025-06-02T15:00:00+02:00</published><updated>2025-06-02T15:00:00+02:00</updated><id>/theblog/dev/2025/06/02/attribution-privileges-mariadb</id><content type="html" xml:base="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html"><![CDATA[<p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.</p>
 
 <hr />
 

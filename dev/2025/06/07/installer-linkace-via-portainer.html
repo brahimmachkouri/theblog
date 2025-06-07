@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Upgrade Zalman VE-300 firmware to an iodd 2531 firmware | Mémos</title>
+<title>Installation de LinkAce via Portainer | Mémos</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Upgrade Zalman VE-300 firmware to an iodd 2531 firmware" />
+<meta property="og:title" content="Installation de LinkAce via Portainer" />
 <meta name="author" content="Brahim MACHKOURI" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A static Github blog for everyone." />
 <meta property="og:description" content="A static Github blog for everyone." />
 <meta property="og:site_name" content="Mémos" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-11-05T12:29:00+01:00" />
+<meta property="article:published_time" content="2025-06-07T15:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Upgrade Zalman VE-300 firmware to an iodd 2531 firmware" />
+<meta property="twitter:title" content="Installation de LinkAce via Portainer" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2021-11-05T12:29:00+01:00","datePublished":"2021-11-05T12:29:00+01:00","description":"A static Github blog for everyone.","headline":"Upgrade Zalman VE-300 firmware to an iodd 2531 firmware","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html"},"url":"/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-06-07T15:00:00+02:00","datePublished":"2025-06-07T15:00:00+02:00","description":"A static Github blog for everyone.","headline":"Installation de LinkAce via Portainer","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/dev/2025/06/07/installer-linkace-via-portainer.html"},"url":"/theblog/dev/2025/06/07/installer-linkace-via-portainer.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
 <body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
@@ -197,30 +197,96 @@ function lunr_search(term) {
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Upgrade Zalman VE-300 firmware to an iodd 2531 firmware</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2021-11-05T12:29:00+01:00" itemprop="datePublished">
-        5 Nov 2021
+    <h1 class="post-title p-name" itemprop="name headline">Installation de LinkAce via Portainer</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2025-06-07T15:00:00+02:00" itemprop="datePublished">
+        7 Jun 2025
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p><img src="https://raw.githubusercontent.com/brahimmachkouri/ioddfirmware/master/LD0003234649_2.jpg" alt="Zalman VE-300" /></p>
+    <p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/linkace.png" alt="LinkAce" /></p>
 
-<p>Here is a working solution to get the latest IODD firmware on a Zalman VE-300.</p>
+<h2 id="installation-de-linkace-via-portainer">Installation de LinkAce via Portainer</h2>
 
-<ul>
-  <li>Download and extract the file <a href="https://github.com/brahimmachkouri/ioddfirmware/raw/master/zalman_ve300_to_iodd.7z">zalman_ve300_to_iodd.7z</a>.</li>
-  <li>Run the firmware writer iODD2531_user_fw_writer_02(R1288F)_x86.EXE as administrator. Warning : it’s the firmware for FAT/exFAT. If you want to apply this for NTFS, search for the firmware with a “N” at the end : R1288N (N stands for NTFS, and in R1288F, F stands for FAT)</li>
-  <li>Run the EDA tool as administrator</li>
-  <li>Drag-and-drop the crosshair of the EDA tool on the disabled “Update” button of the firmware writer</li>
-  <li>Activate the “enabled” checkbox in the EDA tool. On eda  form, in the “Modify window” tab, uncheck the “WS_DISABLED” check box and click on “Set the window text” button : the “Update” button should now be enabled.</li>
-  <li>With your VE-300 device connected, press the “Update” button. The old updater is not so picky about the installed firmware on the device as the recent one.</li>
-  <li>After finishing the update, power off the VE-300 and reconnect it. Now you have a “iodd2531” device with an outdated firmware.</li>
-  <li>Run the latest firmware writer iODD_2531_user_fw_writer_04(R1600F)_x86.EXE. Since you have a valid iodd firmware on your device, the updater is happy with it. Just press the “Update” button. Maybe you’ll find newer versions of the 2531 firmware in this page : http://iodd.kr/wordpress/support/download/#tab-e72d0adcf55af0bdf71</li>
-  <li>After finishing the update, power off the VE-300 and reconnect it.</li>
-</ul>
+<p>Voici le docker-compose pour la Stack dans Portainer :</p>
 
-  </div><a class="u-url" href="/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html" hidden></a>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.7"</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">linkace</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">linkace/linkace:latest</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">linkace</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">db</span>
+      <span class="pi">-</span> <span class="s">redis</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8080:80"</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linkace-app-data:/app/storage</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">APP_KEY=base64:&lt;clé_à_générer&gt;</span>
+      <span class="pi">-</span> <span class="s">APP_URL=http://localhost:8080</span>
+      <span class="pi">-</span> <span class="s">DB_CONNECTION=mysql</span>
+      <span class="pi">-</span> <span class="s">DB_HOST=db</span>
+      <span class="pi">-</span> <span class="s">DB_PORT=3306</span>
+      <span class="pi">-</span> <span class="s">DB_DATABASE=linkace</span>
+      <span class="pi">-</span> <span class="s">DB_USERNAME=linkace</span>
+      <span class="pi">-</span> <span class="s">DB_PASSWORD=motdepassefort</span>
+      <span class="pi">-</span> <span class="s">REDIS_HOST=redis</span>
+      <span class="pi">-</span> <span class="s">REDIS_PASSWORD=unautremdpfort</span>
+      <span class="pi">-</span> <span class="s">APP_DEBUG=true</span>
+      <span class="pi">-</span> <span class="s">APP_TIMEZONE=Europe/Paris</span>
+
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">mariadb:11.5</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">linkace-db</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">MYSQL_ROOT_PASSWORD=motdepassefort</span>
+      <span class="pi">-</span> <span class="s">MYSQL_DATABASE=linkace</span>
+      <span class="pi">-</span> <span class="s">MYSQL_USER=linkace</span>
+      <span class="pi">-</span> <span class="s">MYSQL_PASSWORD=motdepassefort</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_bin</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linkace-db-data:/var/lib/mysql</span>
+
+  <span class="na">redis</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">bitnami/redis:7.4</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">linkace-redis</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">unless-stopped</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">REDIS_PASSWORD=unautremdpfort</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">linkace-app-data</span><span class="pi">:</span>
+  <span class="na">linkace-db-data</span><span class="pi">:</span>
+</code></pre></div></div>
+
+<p>Pour générer la clé :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> linkace/linkace php artisan key:generate <span class="nt">--show</span> 
+</code></pre></div></div>
+
+<h3 id="import">Import</h3>
+
+<p>Il faut d’abord générer un Cron Token. Aller dans System Settings (http://127.0.0.1:8080/settings/system) et cliquer sur le bouton <strong>Generate Token</strong>.</p>
+
+<p>Il est possible d’importer des liens à partir d’un export Firefox par exemple (bookmarks.html).</p>
+
+<p>Aller dans Import (http://127.0.0.1:8080/import) afin d’aller chercher le fichier bookmarks.html, puis cliquer sur le bouton <strong>Start Import</strong>.</p>
+
+<p>Ensuite, il faut programmer un cron toutes les minutes afin de déclencher le traitement de l’import par lots :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab <span class="nt">-e</span>
+</code></pre></div></div>
+
+<p>Puis saisir cette ligne dans le fichier :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /usr/local/bin/docker run --rm linkace/linkace php artisan key:generate --show &gt;&gt; /tmp/linkace_keygen.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>Veillez à bien indiquer le bon chemin de l’exécutable docker sur votre système.</p>
+
+  </div><a class="u-url" href="/theblog/dev/2025/06/07/installer-linkace-via-portainer.html" hidden></a>
 </article>
 
       </div>
