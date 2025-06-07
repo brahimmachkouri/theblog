@@ -79,8 +79,9 @@ Il est possible d'importer des liens à partir d'un export Firefox par exemple (
 
 Aller dans Import (http://127.0.0.1:8080/import) afin d'aller chercher le fichier bookmarks.html, puis cliquer sur le bouton **Start Import**.
 
-Ensuite, il faut programmer un cron toutes les minutes afin de déclencher le traitement de l'import par lots :
+Ensuite, il convient de planifier, directement sur la machine hôte (celle qui exécute Docker, que ce soit votre ordinateur ou un serveur distant), une tâche cron toutes les minutes, par exemple, afin de lancer le traitement d’importation par lots.
 
+Pour créer un nouveau cron : 
 ```bash
 crontab -e
 ```
