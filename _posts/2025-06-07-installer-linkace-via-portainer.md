@@ -88,5 +88,5 @@ crontab -e
 
 Puis saisir cette ligne dans le fichier : 
 ```
-* * * * * wget -qO- http://localhost:8084/cron/{Mettre_ici_le_Cron_Token} >> /tmp/linkace_import.log 2>&1
+* * * * * wget -qO- http://localhost:8080/cron/{Mettre_ici_le_Cron_Token} >> /tmp/linkace_import.log 2>&1
 ```
