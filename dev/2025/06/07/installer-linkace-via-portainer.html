@@ -275,8 +275,9 @@ function lunr_search(term) {
 
 <p>Aller dans Import (http://127.0.0.1:8080/import) afin d’aller chercher le fichier bookmarks.html, puis cliquer sur le bouton <strong>Start Import</strong>.</p>
 
-<p>Ensuite, il faut programmer un cron toutes les minutes afin de déclencher le traitement de l’import par lots :</p>
+<p>Ensuite, il convient de planifier, directement sur la machine hôte (celle qui exécute Docker, que ce soit votre ordinateur ou un serveur distant), une tâche cron toutes les minutes, par exemple, afin de lancer le traitement d’importation par lots.</p>
 
+<p>Pour créer un nouveau cron :</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab <span class="nt">-e</span>
 </code></pre></div></div>
 
