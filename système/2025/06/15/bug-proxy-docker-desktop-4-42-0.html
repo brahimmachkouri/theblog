@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Connexion à MS SQL Server en PHP sous Debian/Ubuntu | Mémos</title>
+<title>Bug Proxy dans Docker Desktop 4.42.0 | Mémos</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" />
+<meta property="og:title" content="Bug Proxy dans Docker Desktop 4.42.0" />
 <meta name="author" content="Brahim MACHKOURI" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…" />
-<meta property="og:description" content="Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…" />
+<meta name="description" content="A static Github blog for everyone." />
+<meta property="og:description" content="A static Github blog for everyone." />
 <meta property="og:site_name" content="Mémos" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-22T13:40:00+02:00" />
+<meta property="article:published_time" content="2025-06-15T15:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Connexion à MS SQL Server en PHP sous Debian/Ubuntu" />
+<meta property="twitter:title" content="Bug Proxy dans Docker Desktop 4.42.0" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2024-08-22T13:40:00+02:00","datePublished":"2024-08-22T13:40:00+02:00","description":"Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…","headline":"Connexion à MS SQL Server en PHP sous Debian/Ubuntu","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"},"url":"/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-06-15T15:00:00+02:00","datePublished":"2025-06-15T15:00:00+02:00","description":"A static Github blog for everyone.","headline":"Bug Proxy dans Docker Desktop 4.42.0","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html"},"url":"/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
 <body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
@@ -207,109 +207,20 @@ function lunr_search(term) {
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Connexion à MS SQL Server en PHP sous Debian/Ubuntu</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2024-08-22T13:40:00+02:00" itemprop="datePublished">
-        22 Aug 2024
+    <h1 class="post-title p-name" itemprop="name headline">Bug Proxy dans Docker Desktop 4.42.0</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2025-06-15T15:00:00+02:00" itemprop="datePublished">
+        15 Jun 2025
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
+    <p><img src="https://raw.githubusercontent.com/brahimmachkouri/images/refs/heads/main/docker-proxy-bug.png" alt="LinkAce" /></p>
 
-<p>Pour la suite, on suppose que le serveur Microsoft SQL Server écoute les requêtes sur le port 1433 (par défaut) et qu’un utilisateur admindb est configuré pour l’accès à la base tournois qui ne contient ici qu’une seule table :</p>
+<p>Il y a un problème de détection de proxy dans la version 4.42.0 de Docker Desktop qui touche toutes les plateformes.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+------------+
-|   users    |
-+------------+
-|    id      |
-|    nom     |
-+------------+
-</code></pre></div></div>
-<p>Paramètres :</p>
+<p>La solution pour l’instant est d’aller dans Resources &gt; Proxies, et activer la configuration proxy manuelle.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP SQL Server : 10.0.0.15
-Database : tournois
-Username : admindb
-Password : HercuLE
-</code></pre></div></div>
-<p>Pour installer le client SQL Server sous Debian ou Ubuntu :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install freetds-common freetds-bin unixodbc tdsodbc php7.2-odbc
-</code></pre></div></div>
-<p>Redémarrer le démon PHP, puis remplir les fichiers de configuration :</p>
-
-<p>Dans /etc/freetds/freetds.conf, ajouter :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[monserveur]
-host = 10.0.0.15
-port = 1433
-tds version = 8.0
-</code></pre></div></div>
-<p>Dans /etc/odbcinst.ini, ajouter :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[FreeTDS]
-Description = FreeTDS Driver
-Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
-Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so
-Dontdlclose = 1
-</code></pre></div></div>
-<p>Dans /etc/odbc.ini, ajouter :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[MSSQLSRV]
-Driver = FreeTDS
-Description = ODBC connection via FreeTDS
-#Server = 10.0.0.15
-Servername = monserveur
-Database = tournois
-Port = 1433
-</code></pre></div></div>
-<p>Tester la connexion au serveur SQL Server à l’aide des outils tsql &amp; isql :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tsql -H 10.0.0.15 -p 1433 -U admindb -P HercuLE -D tournois
-</code></pre></div></div>
-<p>Si tout va bien, voici le résultat :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>locale is "en_US.UTF-8"
-locale charset is "UTF-8"
-using default charset "UTF-8"
-Setting tournois as default database in login packet
-1&gt;
-</code></pre></div></div>
-<p>Taper quit pour sortir.</p>
-
-<p>Ensuite :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isql -v MSSQLSRV admindb HercuLE
-</code></pre></div></div>
-<p>donnera :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+---------------------------------------+
-| Connected!                            |
-|                                       |
-| sql-statement                         |
-| help [tablename]                      |
-| quit                                  |
-|                                       |
-+---------------------------------------+
-SQL&gt;
-</code></pre></div></div>
-<p>Voici le code pour faire une requête en PHP :</p>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
- 
-<span class="nb">define</span><span class="p">(</span><span class="s1">'USER'</span><span class="p">,</span><span class="s1">'admindb'</span><span class="p">);</span>
-<span class="nb">define</span><span class="p">(</span><span class="s1">'PASSWORD'</span><span class="p">,</span><span class="s1">'HercuLE'</span><span class="p">);</span>
- 
-<span class="nv">$conn</span>   <span class="o">=</span> <span class="nb">odbc_connect</span><span class="p">(</span><span class="s2">"MSSQLSRV"</span><span class="p">,</span> <span class="no">USER</span><span class="p">,</span> <span class="no">PASSWORD</span><span class="p">);</span>
-<span class="nv">$query</span>  <span class="o">=</span> <span class="s2">"select * from CT_USER"</span><span class="p">;</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nb">odbc_exec</span><span class="p">(</span> <span class="nv">$conn</span><span class="p">,</span> <span class="nv">$query</span> <span class="p">);</span>
- 
-<span class="k">while</span> <span class="p">(</span><span class="nb">odbc_fetch_row</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="nb">odbc_result</span><span class="p">(</span><span class="nv">$result</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-  </div><a class="u-url" href="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html" hidden></a>
+  </div><a class="u-url" href="/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html" hidden></a>
 </article>
 
       </div>
