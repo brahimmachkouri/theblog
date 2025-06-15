@@ -6,7 +6,7 @@ category: système
 tags: docker
 ---
 
-![LinkAce](https://raw.githubusercontent.com/brahimmachkouri/images/refs/heads/main/docker-proxy-bug.png)
+![LinkAce](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/docker-proxy-bug.png)
 
 Il y a un problème de détection de proxy dans la version 4.42.0 de Docker Desktop qui touche toutes les plateformes.
 
