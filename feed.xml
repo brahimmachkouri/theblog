@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-15T16:40:14+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Bug Proxy dans Docker Desktop 4.42.0</title><link href="/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html" rel="alternate" type="text/html" title="Bug Proxy dans Docker Desktop 4.42.0" /><published>2025-06-15T15:00:00+02:00</published><updated>2025-06-15T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/docker-proxy-bug.png" alt="LinkAce" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-16T15:42:28+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Guide d’activation de Windows 11</title><link href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html" rel="alternate" type="text/html" title="Guide d’activation de Windows 11" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"><![CDATA[<blockquote>
+  <p>Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.</p>
+</blockquote>
+
+<h2 id="prérequis">Prérequis</h2>
+
+<ul>
+  <li><strong>Droits administrateur</strong> sur la machine.</li>
+  <li><strong>Connexion Internet</strong> fonctionnelle (obligatoire pour l’activation en ligne).</li>
+  <li><strong>Clé de produit Windows 11</strong> valide (25 caractères, format <code class="language-plaintext highlighter-rouge">XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code>).</li>
+</ul>
+
+<hr />
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation1.png" alt="Activation1" /></p>
+
+<h2 id="étape1-ouvrir-les-paramètres-dactivation">Étape 1 : ouvrir les paramètres d’activation</h2>
+
+<p><img src="activation1.png" alt="Recherche « activation » dans le menu Démarrer" /></p>
+
+<ol>
+  <li>Cliquez sur le bouton <strong>Démarrer</strong> (ou appuyez sur la touche <strong>Windows</strong>).</li>
+  <li>Tapez <strong>activation</strong> dans la barre de recherche (flèche 1).</li>
+  <li>Cliquez sur <strong>Ouvrir</strong> sous <em>Paramètres d’activation</em> (flèche 2).</li>
+</ol>
+
+<hr />
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation2.png" alt="Activation2" /></p>
+
+<h2 id="étape2-vérifier-létat-dactivation">Étape 2 : vérifier l’état d’activation</h2>
+
+<p><img src="activation2.png" alt="Fenêtre Système &gt; Activation" /></p>
+
+<ul>
+  <li>La ligne <strong>État d’activation</strong> indique si Windows est <strong>Actif</strong>.</li>
+  <li>Pour changer la clé, sélectionnez <strong>Modifier la clé de produit</strong> (flèche verte).</li>
+</ul>
+
+<hr />
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation3.png" alt="Activation3" /></p>
+
+<h2 id="étape3-saisir-une-nouvelle-clé-de-produit">Étape 3 : saisir une nouvelle clé de produit</h2>
+
+<p><img src="activation3.png" alt="Fenêtre « Saisir une clé de produit »" /></p>
+
+<ol>
+  <li>Saisissez votre nouvelle clé (25 caractères).</li>
+  <li>Cliquez sur <strong>Suivant</strong> puis sur <strong>Activer</strong>.</li>
+  <li>Attendez la confirmation. Un symbole ✓ confirme la réussite.</li>
+</ol>
+
+<hr />
+
+<h2 id="dépannage">Dépannage</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code d’erreur</th>
+      <th>Signification</th>
+      <th>Correctif rapide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0xC004F050</code></td>
+      <td>Clé invalide</td>
+      <td>Vérifier la clé et ressaisir.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0xC004F074</code></td>
+      <td>Serveur injoignable</td>
+      <td>Vérifier la connexion Internet et réessayer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pour d’autres codes, ouvrez <strong>Paramètres &gt; Système &gt; Activation &gt; Résoudre les problèmes d’activation</strong>.</p>
+
+<hr />
+
+<h2 id="pour-aller-plus-loin">Pour aller plus loin</h2>
+
+<ul>
+  <li><a href="https://support.microsoft.com/windows/activation">Documentation officielle Microsoft</a></li>
+  <li>Commande avancée : <code class="language-plaintext highlighter-rouge">slmgr /dlv</code> dans un PowerShell <em>en tant qu’administrateur</em> pour un rapport détaillé.</li>
+</ul>]]></content><author><name>Brahim MACHKOURI</name></author><category term="système" /><category term="activation" /><category term="windows" /><summary type="html"><![CDATA[Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.]]></summary></entry><entry><title type="html">Bug Proxy dans Docker Desktop 4.42.0</title><link href="/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html" rel="alternate" type="text/html" title="Bug Proxy dans Docker Desktop 4.42.0" /><published>2025-06-15T15:00:00+02:00</published><updated>2025-06-15T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/docker-proxy-bug.png" alt="LinkAce" /></p>
 
 <p>Il y a un problème de détection de proxy dans la version 4.42.0 de Docker Desktop qui touche toutes les plateformes.</p>
 
@@ -652,18 +740,4 @@ Cliquez sur Write pour flasher le BIOS de la puce.</p>]]></content><author><name
 </code></pre></div></div>
 <p>should now be :</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSHighResolutionCapable&lt;/key&gt; &lt;false/&gt;
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="virtualisation" /><category term="virtualbox" /><summary type="html"><![CDATA[You have to change the info.plist with admin rights. For example in terminal type: sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist]]></summary></entry><entry><title type="html">Upgrade Zalman VE-300 firmware to an iodd 2531 firmware</title><link href="/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html" rel="alternate" type="text/html" title="Upgrade Zalman VE-300 firmware to an iodd 2531 firmware" /><published>2021-11-05T12:29:00+01:00</published><updated>2021-11-05T12:29:00+01:00</updated><id>/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531</id><content type="html" xml:base="/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/ioddfirmware/master/LD0003234649_2.jpg" alt="Zalman VE-300" /></p>
-
-<p>Here is a working solution to get the latest IODD firmware on a Zalman VE-300.</p>
-
-<ul>
-  <li>Download and extract the file <a href="https://github.com/brahimmachkouri/ioddfirmware/raw/master/zalman_ve300_to_iodd.7z">zalman_ve300_to_iodd.7z</a>.</li>
-  <li>Run the firmware writer iODD2531_user_fw_writer_02(R1288F)_x86.EXE as administrator. Warning : it’s the firmware for FAT/exFAT. If you want to apply this for NTFS, search for the firmware with a “N” at the end : R1288N (N stands for NTFS, and in R1288F, F stands for FAT)</li>
-  <li>Run the EDA tool as administrator</li>
-  <li>Drag-and-drop the crosshair of the EDA tool on the disabled “Update” button of the firmware writer</li>
-  <li>Activate the “enabled” checkbox in the EDA tool. On eda  form, in the “Modify window” tab, uncheck the “WS_DISABLED” check box and click on “Set the window text” button : the “Update” button should now be enabled.</li>
-  <li>With your VE-300 device connected, press the “Update” button. The old updater is not so picky about the installed firmware on the device as the recent one.</li>
-  <li>After finishing the update, power off the VE-300 and reconnect it. Now you have a “iodd2531” device with an outdated firmware.</li>
-  <li>Run the latest firmware writer iODD_2531_user_fw_writer_04(R1600F)_x86.EXE. Since you have a valid iodd firmware on your device, the updater is happy with it. Just press the “Update” button. Maybe you’ll find newer versions of the 2531 firmware in this page : http://iodd.kr/wordpress/support/download/#tab-e72d0adcf55af0bdf71</li>
-  <li>After finishing the update, power off the VE-300 and reconnect it.</li>
-</ul>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="zalman" /><category term="iodd" /><category term="firmware" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="virtualisation" /><category term="virtualbox" /><summary type="html"><![CDATA[You have to change the info.plist with admin rights. For example in terminal type: sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist]]></summary></entry></feed>

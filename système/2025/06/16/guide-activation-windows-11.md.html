@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Upgrade Zalman VE-300 firmware to an iodd 2531 firmware | Mémos</title>
+<title>Guide d’activation de Windows 11 | Mémos</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Upgrade Zalman VE-300 firmware to an iodd 2531 firmware" />
+<meta property="og:title" content="Guide d’activation de Windows 11" />
 <meta name="author" content="Brahim MACHKOURI" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A static Github blog for everyone." />
-<meta property="og:description" content="A static Github blog for everyone." />
+<meta name="description" content="Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit." />
+<meta property="og:description" content="Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit." />
 <meta property="og:site_name" content="Mémos" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-11-05T12:29:00+01:00" />
+<meta property="article:published_time" content="2025-06-16T15:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Upgrade Zalman VE-300 firmware to an iodd 2531 firmware" />
+<meta property="twitter:title" content="Guide d’activation de Windows 11" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2021-11-05T12:29:00+01:00","datePublished":"2021-11-05T12:29:00+01:00","description":"A static Github blog for everyone.","headline":"Upgrade Zalman VE-300 firmware to an iodd 2531 firmware","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html"},"url":"/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-06-16T15:00:00+02:00","datePublished":"2025-06-16T15:00:00+02:00","description":"Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.","headline":"Guide d’activation de Windows 11","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"},"url":"/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
 <body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
@@ -217,30 +217,104 @@ function lunr_search(term) {
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Upgrade Zalman VE-300 firmware to an iodd 2531 firmware</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2021-11-05T12:29:00+01:00" itemprop="datePublished">
-        5 Nov 2021
+    <h1 class="post-title p-name" itemprop="name headline">Guide d&#39;activation de Windows 11</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2025-06-16T15:00:00+02:00" itemprop="datePublished">
+        16 Jun 2025
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p><img src="https://raw.githubusercontent.com/brahimmachkouri/ioddfirmware/master/LD0003234649_2.jpg" alt="Zalman VE-300" /></p>
+    <blockquote>
+  <p>Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.</p>
+</blockquote>
 
-<p>Here is a working solution to get the latest IODD firmware on a Zalman VE-300.</p>
+<h2 id="prérequis">Prérequis</h2>
 
 <ul>
-  <li>Download and extract the file <a href="https://github.com/brahimmachkouri/ioddfirmware/raw/master/zalman_ve300_to_iodd.7z">zalman_ve300_to_iodd.7z</a>.</li>
-  <li>Run the firmware writer iODD2531_user_fw_writer_02(R1288F)_x86.EXE as administrator. Warning : it’s the firmware for FAT/exFAT. If you want to apply this for NTFS, search for the firmware with a “N” at the end : R1288N (N stands for NTFS, and in R1288F, F stands for FAT)</li>
-  <li>Run the EDA tool as administrator</li>
-  <li>Drag-and-drop the crosshair of the EDA tool on the disabled “Update” button of the firmware writer</li>
-  <li>Activate the “enabled” checkbox in the EDA tool. On eda  form, in the “Modify window” tab, uncheck the “WS_DISABLED” check box and click on “Set the window text” button : the “Update” button should now be enabled.</li>
-  <li>With your VE-300 device connected, press the “Update” button. The old updater is not so picky about the installed firmware on the device as the recent one.</li>
-  <li>After finishing the update, power off the VE-300 and reconnect it. Now you have a “iodd2531” device with an outdated firmware.</li>
-  <li>Run the latest firmware writer iODD_2531_user_fw_writer_04(R1600F)_x86.EXE. Since you have a valid iodd firmware on your device, the updater is happy with it. Just press the “Update” button. Maybe you’ll find newer versions of the 2531 firmware in this page : http://iodd.kr/wordpress/support/download/#tab-e72d0adcf55af0bdf71</li>
-  <li>After finishing the update, power off the VE-300 and reconnect it.</li>
+  <li><strong>Droits administrateur</strong> sur la machine.</li>
+  <li><strong>Connexion Internet</strong> fonctionnelle (obligatoire pour l’activation en ligne).</li>
+  <li><strong>Clé de produit Windows 11</strong> valide (25 caractères, format <code class="language-plaintext highlighter-rouge">XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code>).</li>
 </ul>
 
-  </div><a class="u-url" href="/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html" hidden></a>
+<hr />
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation1.png" alt="Activation1" /></p>
+
+<h2 id="étape1-ouvrir-les-paramètres-dactivation">Étape 1 : ouvrir les paramètres d’activation</h2>
+
+<p><img src="activation1.png" alt="Recherche « activation » dans le menu Démarrer" /></p>
+
+<ol>
+  <li>Cliquez sur le bouton <strong>Démarrer</strong> (ou appuyez sur la touche <strong>Windows</strong>).</li>
+  <li>Tapez <strong>activation</strong> dans la barre de recherche (flèche 1).</li>
+  <li>Cliquez sur <strong>Ouvrir</strong> sous <em>Paramètres d’activation</em> (flèche 2).</li>
+</ol>
+
+<hr />
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation2.png" alt="Activation2" /></p>
+
+<h2 id="étape2-vérifier-létat-dactivation">Étape 2 : vérifier l’état d’activation</h2>
+
+<p><img src="activation2.png" alt="Fenêtre Système &gt; Activation" /></p>
+
+<ul>
+  <li>La ligne <strong>État d’activation</strong> indique si Windows est <strong>Actif</strong>.</li>
+  <li>Pour changer la clé, sélectionnez <strong>Modifier la clé de produit</strong> (flèche verte).</li>
+</ul>
+
+<hr />
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation3.png" alt="Activation3" /></p>
+
+<h2 id="étape3-saisir-une-nouvelle-clé-de-produit">Étape 3 : saisir une nouvelle clé de produit</h2>
+
+<p><img src="activation3.png" alt="Fenêtre « Saisir une clé de produit »" /></p>
+
+<ol>
+  <li>Saisissez votre nouvelle clé (25 caractères).</li>
+  <li>Cliquez sur <strong>Suivant</strong> puis sur <strong>Activer</strong>.</li>
+  <li>Attendez la confirmation. Un symbole ✓ confirme la réussite.</li>
+</ol>
+
+<hr />
+
+<h2 id="dépannage">Dépannage</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code d’erreur</th>
+      <th>Signification</th>
+      <th>Correctif rapide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0xC004F050</code></td>
+      <td>Clé invalide</td>
+      <td>Vérifier la clé et ressaisir.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0xC004F074</code></td>
+      <td>Serveur injoignable</td>
+      <td>Vérifier la connexion Internet et réessayer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pour d’autres codes, ouvrez <strong>Paramètres &gt; Système &gt; Activation &gt; Résoudre les problèmes d’activation</strong>.</p>
+
+<hr />
+
+<h2 id="pour-aller-plus-loin">Pour aller plus loin</h2>
+
+<ul>
+  <li><a href="https://support.microsoft.com/windows/activation">Documentation officielle Microsoft</a></li>
+  <li>Commande avancée : <code class="language-plaintext highlighter-rouge">slmgr /dlv</code> dans un PowerShell <em>en tant qu’administrateur</em> pour un rapport détaillé.</li>
+</ul>
+
+  </div><a class="u-url" href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html" hidden></a>
 </article>
 
       </div>
