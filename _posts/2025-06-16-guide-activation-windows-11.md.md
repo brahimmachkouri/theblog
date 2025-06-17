@@ -6,6 +6,8 @@ category: système
 tags: activation windows
 ---
 
+![activation](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation.png)
+
 > Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.
 
 ## Prérequis
