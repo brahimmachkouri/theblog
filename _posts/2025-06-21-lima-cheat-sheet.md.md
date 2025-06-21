@@ -82,8 +82,9 @@ limactl shell <nom_vm>
 # Exemple :
 limactl shell ubuntu24
 
-# Accès SSH avancé (pour scripts)
-ssh -o IdentitiesOnly=yes -i ~/.lima/_config/user -p 60022 lima@127.0.0.1
+# Accès SSH avancé (pour scripts, par exemple)
+ip=$(limactl shell myubu24 ip -4 addr show lima0 | grep inet | awk '{print $2}' | cut -d/ -f1)
+ssh -o IdentitiesOnly=yes -i ~/.lima/_config/user -p 22 $(whoami)@$ip
 ```
 
 ---
