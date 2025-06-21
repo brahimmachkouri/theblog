@@ -233,7 +233,7 @@ Supposons qu'une VM avec le nom "myubu24" existe, les fichiers sont dans ~/.lima
     └── vz.pid
 ```
 
-## ℹ️ Infos rapides sur les images
+## ℹ️ Infos sur les images
 
 - **Source des images** : Lima utilise les [cloud-images Ubuntu](https://cloud-images.ubuntu.com/) au format QCOW2 (KVM/QEMU).
 - **Mises à jour** : La première fois, l'image est téléchargée puis mise en cache.
