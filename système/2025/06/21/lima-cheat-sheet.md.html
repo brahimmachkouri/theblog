@@ -309,8 +309,9 @@ limactl shell &lt;nom_vm&gt;
 <span class="c"># Exemple :</span>
 limactl shell ubuntu24
 
-<span class="c"># Accès SSH avancé (pour scripts)</span>
-ssh <span class="nt">-o</span> <span class="nv">IdentitiesOnly</span><span class="o">=</span><span class="nb">yes</span> <span class="nt">-i</span> ~/.lima/_config/user <span class="nt">-p</span> 60022 lima@127.0.0.1
+<span class="c"># Accès SSH avancé (pour scripts, par exemple)</span>
+<span class="nv">ip</span><span class="o">=</span><span class="si">$(</span>limactl shell myubu24 ip <span class="nt">-4</span> addr show lima0 | <span class="nb">grep </span>inet | <span class="nb">awk</span> <span class="s1">'{print $2}'</span> | <span class="nb">cut</span> <span class="nt">-d</span>/ <span class="nt">-f1</span><span class="si">)</span>
+ssh <span class="nt">-o</span> <span class="nv">IdentitiesOnly</span><span class="o">=</span><span class="nb">yes</span> <span class="nt">-i</span> ~/.lima/_config/user <span class="nt">-p</span> 22 <span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span>@<span class="nv">$ip</span>
 </code></pre></div></div>
 
 <hr />
