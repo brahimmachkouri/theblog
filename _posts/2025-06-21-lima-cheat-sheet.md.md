@@ -1,4 +1,4 @@
-aul---
+---
 layout: post
 date: 2025-06-21 12:30:00
 title: Lima - Ubuntu cheat sheet
