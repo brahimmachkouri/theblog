@@ -356,10 +356,12 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
 <h2 id="️-personnaliser-la-configuration-de-la-vm">⚙️ Personnaliser la configuration de la VM</h2>
 
 <h3 id="editer-la-configuration-post-création">Editer la configuration post-création</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl edit 
 </code></pre></div></div>
 
 <p>Exemple (fragment) :</p>
+
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cpus</span><span class="pi">:</span> <span class="m">4</span>
 <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8GiB"</span>
 <span class="na">disk</span><span class="pi">:</span> <span class="s2">"</span><span class="s">50GiB"</span>
@@ -370,31 +372,35 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
 </code></pre></div></div>
 
 <p>Après modification, arrêter et redémarrer la VM :</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl stop 
 limactl start 
 </code></pre></div></div>
 
 <h3 id="création-avancée-avec-fichier-de-configuration-yaml">Création avancée avec fichier de configuration YAML</h3>
 <ol>
-  <li>Créez un fichier <code class="language-plaintext highlighter-rouge">config.yaml</code> avec le contenu souhaité :
-    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">images</span><span class="pi">:</span>
+  <li>Créez un fichier <code class="language-plaintext highlighter-rouge">config.yaml</code> avec le contenu souhaité :</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">images</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"</span>
-<span class="err"> </span><span class="na">arch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">x86_64"</span>
+    <span class="na">arch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">x86_64"</span>
 <span class="na">mounts</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">~"</span>
-<span class="err"> </span><span class="na">writable</span><span class="pi">:</span> <span class="kc">true</span>
+    <span class="na">writable</span><span class="pi">:</span> <span class="kc">true</span>
 <span class="na">cpus</span><span class="pi">:</span> <span class="m">4</span>
 <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8GiB"</span>
 <span class="na">vmType</span><span class="pi">:</span> <span class="s2">"</span><span class="s">vz"</span>
 <span class="na">rosetta</span><span class="pi">:</span> <span class="kc">true</span>
 <span class="na">mountType</span><span class="pi">:</span> <span class="s2">"</span><span class="s">virtiofs"</span>
-</code></pre></div>    </div>
-  </li>
-  <li>Lancez Lima en spécifiant le fichier de configuration :
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu24-advanced <span class="nt">--file</span> config.yaml
-</code></pre></div>    </div>
-  </li>
+</code></pre></div></div>
+
+<ol>
+  <li>Lancez Lima en spécifiant le fichier de configuration :</li>
 </ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu24-advanced <span class="nt">--file</span> config.yaml
+</code></pre></div></div>
 
 <hr />
 
