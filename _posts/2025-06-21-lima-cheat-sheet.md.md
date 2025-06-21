@@ -202,6 +202,37 @@ limactl shell ubuntu24 -- lsb_release -d
 
 ---
 
+## ℹ️ Infos rapides sur les fichiers de la VM "myubu24"
+
+Supposons qu'une VM avec le nom "myubu24" existe, les fichiers sont dans ~/.lima :
+
+```brew
+.lima/
+├── _config
+│   ├── networks.yaml         # Config réseau
+│   ├── user                  # Clé privée
+│   └── user.pub              # Clé publique
+└── myubu24
+    ├── basedisk <--- 578 Mo  # Image disque de base (cloudimg) utilisée
+    ├── cidata.iso            # Image cloud-init (seed ISO)
+    ├── cloud-config.yaml     # Configuration de la VM
+    ├── default_ep.sock
+    ├── default_fd.sock
+    ├── diffdisk <----100 Go  # Overlay du disque (état de la VM)
+    ├── ha.pid
+    ├── ha.sock
+    ├── ha.stderr.log
+    ├── ha.stdout.log         # Logs du superviseur/agent VM
+    ├── lima-version
+    ├── lima.yaml             # Config YAML de la VM
+    ├── serialv.log           # Log de la console série
+    ├── ssh.config
+    ├── ssh.sock
+    ├── vz-efi
+    ├── vz-identifier
+    └── vz.pid
+```
+
 ## ℹ️ Infos rapides sur les images
 
 - **Source des images** : Lima utilise les [cloud-images Ubuntu](https://cloud-images.ubuntu.com/) au format QCOW2 (KVM/QEMU).
