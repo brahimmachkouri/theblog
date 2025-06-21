@@ -1,4 +1,4 @@
----
+aul---
 layout: post
 date: 2025-06-21 12:30:00
 title: Lima - Ubuntu cheat sheet
@@ -76,14 +76,8 @@ limactl start
 ## 🖥️ Accéder à la VM
 
 ```bash
-# Ouvre un shell interactif sur la VM nommée (commande raccourcie)
-lima 
-
-# Ou, pour une VM nommée "ubuntu24"
-lima ubuntu24
-
 # Commande standard
-limactl shell 
+limactl shell <nom_vm>
 
 # Exemple :
 limactl shell ubuntu24
