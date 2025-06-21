@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T19:34:00+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T19:43:51+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima Cheat Sheet.md</title><link href="/theblog/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima Cheat Sheet.md" /><published>2025-06-21T00:00:00+02:00</published><updated>2025-06-21T00:00:00+02:00</updated><id>/theblog/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p>aul—
+layout: post
+date: 2025-06-21 12:30:00
+title: Lima - Ubuntu cheat sheet
+category: système
+tags: virtualisation macos
+—</p>
+
+<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
 
 <p>Lima (“<strong>Li</strong>nux virtual <strong>ma</strong>chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.</p>
 
@@ -67,14 +75,8 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 
 <h2 id="️-accéder-à-la-vm">🖥️ Accéder à la VM</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ouvre un shell interactif sur la VM nommée (commande raccourcie)</span>
-lima 
-
-<span class="c"># Ou, pour une VM nommée "ubuntu24"</span>
-lima ubuntu24
-
-<span class="c"># Commande standard</span>
-limactl shell 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Commande standard</span>
+limactl shell &lt;nom_vm&gt;
 
 <span class="c"># Exemple :</span>
 limactl shell ubuntu24
@@ -262,7 +264,7 @@ limactl start
     <li><code class="language-plaintext highlighter-rouge">--mount-type=virtiofs</code> offre les meilleures performances de partage de fichiers.</li>
     <li>Configurer les montages en écriture avec <code class="language-plaintext highlighter-rouge">--mount-writable</code>.</li>
   </ul>
-</blockquote>]]></content><author><name>Brahim MACHKOURI</name></author><category term="système" /><category term="virtualisation" /><category term="macos" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Guide d’activation de Windows 11</title><link href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html" rel="alternate" type="text/html" title="Guide d’activation de Windows 11" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation.png" alt="activation" /></p>
+</blockquote>]]></content><author><name>Brahim MACHKOURI</name></author><summary type="html"><![CDATA[aul— layout: post date: 2025-06-21 12:30:00 title: Lima - Ubuntu cheat sheet category: système tags: virtualisation macos —]]></summary></entry><entry><title type="html">Guide d’activation de Windows 11</title><link href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html" rel="alternate" type="text/html" title="Guide d’activation de Windows 11" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation.png" alt="activation" /></p>
 
 <blockquote>
   <p>Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.</p>
