@@ -3,10 +3,16 @@ layout: post
 date: 2025-06-21 12:30:00
 title: Lima - Ubuntu cheat sheet
 category: système
-tags: virtualisation
+tags: virtualisation macos
 ---
 
 ![lima](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png)
+
+## Installation
+
+```bash
+brew install lima
+```
 
 ## 📦 Lister les templates disponibles
 
