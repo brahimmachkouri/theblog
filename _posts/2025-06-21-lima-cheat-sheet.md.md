@@ -14,10 +14,12 @@ tags: virtualisation macos
 brew install lima
 ```
 
-## 📦 Lister les templates disponibles
+## 📦 Lister les templates Ubuntu disponibles
+
+Il existe de nombreux templates disponibles (docker, podman, debian, fedora, opensuse, alpine, ubuntu), mais ici, c'est Ubuntu qui nous intéresse :
 
 ```bash
-limactl start --list-templates
+limactl start --list-templates | grep ubuntu
 ```
 
 ✅ Affiche les templates Ubuntu disponibles localement.
