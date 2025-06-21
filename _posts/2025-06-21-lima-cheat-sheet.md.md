@@ -18,12 +18,6 @@ L'objectif est d’exécuter des outils Linux (Docker, Podman, Kubernetes, etc.)
 brew install lima
 ```
 
-## Créer la VM Lima par défaut
-
-```bash
-limactl create --name=default --cpus=1 --memory=1 --disk 5 template://ubuntu-24.04
-```
-
 ## 📦 Lister les templates Ubuntu disponibles
 
 Il existe de nombreux templates disponibles (docker, podman, kubernetes, ubuntu, debian, fedora, opensuse, alpine, etc), mais ici, c'est Ubuntu qui nous intéresse :
@@ -50,13 +44,13 @@ limactl start --list-templates | grep ubuntu
 limactl start --name=ubuntu-lts template://ubuntu-lts
 
 # Ubuntu 20.04 (Focal Fossa) avec 2 CPU et 4 Go de RAM
-limactl start --name=ubuntu20 template://ubuntu-20.04 --cpus=2 --memory=4G
+limactl start --name=ubuntu20 --cpus=2 --memory=4 --disk=5 template://ubuntu-20.04 
 
 # Ubuntu 22.04 (Jammy Jellyfish) en mode Virtualization.framework avec Rosetta
-limactl start --name=ubuntu22 template://ubuntu-22.04 --vm-type=vz --rosetta
+limactl start --name=ubuntu22 --vm-type=vz --rosetta template://ubuntu-22.04
 
 # Ubuntu 24.04 (Noble Numbat) : 4 CPU, 8 Go de RAM, Virtualization.framework, Rosetta, montage virtiofs en écriture
-limactl start --name=ubuntu24 template://ubuntu-24.04 --cpus=4 --memory=8G --vm-type=vz --rosetta --mount-type=virtiofs --mount-writable
+limactl start --name=ubuntu24 --cpus=4 --memory=8 --vm-type=vz --rosetta --mount-type=virtiofs --mount-writable template://ubuntu-24.04 
 
 # Version non-LTS (ex: 24.10) ou future
 limactl start --name=ubuntu-dev template://ubuntu-25.04
@@ -81,14 +75,20 @@ limactl start
 
 ## 🖥️ Accéder à la VM
 
+La commande **lima** est un alias pour "limactl shell default". Le nom de l'instance par défaut ("default") peut être changé via la variable $LIMA_INSTANCE.
+
+Exemple : 
+```bash
+export LIMA_INSTANCE="myubu24"
+```
+
+Le shell et le répertoire initial (workdir) dans l'instance peuvent être spécifiés via $LIMA_SHELL et $LIMA_WORKDIR.
+
 ```bash
 # Commande standard
-lima <nom_vm>
+lima
 
-# Exemple :
-lima myubu24
-
-# Commande standard
+# Commande standard pour les autres VM 
 limactl shell <nom_vm>
 
 # Exemple :
