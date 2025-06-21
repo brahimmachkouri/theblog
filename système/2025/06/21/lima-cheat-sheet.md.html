@@ -420,6 +420,36 @@ limactl start
 
 <hr />
 
+<h2 id="ℹ️-infos-rapides-sur-les-fichiers-de-la-vm-myubu24">ℹ️ Infos rapides sur les fichiers de la VM “myubu24”</h2>
+
+<p>Supposons qu’une VM avec le nom “myubu24” existe, les fichiers sont dans ~/.lima :</p>
+
+<pre><code class="language-brew">.lima/
+├── _config
+│   ├── networks.yaml         # Config réseau
+│   ├── user                  # Clé privée
+│   └── user.pub              # Clé publique
+└── myubu24
+    ├── basedisk &lt;--- 578 Mo  # Image disque de base (cloudimg) utilisée
+    ├── cidata.iso            # Image cloud-init (seed ISO)
+    ├── cloud-config.yaml     # Configuration de la VM
+    ├── default_ep.sock
+    ├── default_fd.sock
+    ├── diffdisk &lt;----100 Go  # Overlay du disque (état de la VM)
+    ├── ha.pid
+    ├── ha.sock
+    ├── ha.stderr.log
+    ├── ha.stdout.log         # Logs du superviseur/agent VM
+    ├── lima-version
+    ├── lima.yaml             # Config YAML de la VM
+    ├── serialv.log           # Log de la console série
+    ├── ssh.config
+    ├── ssh.sock
+    ├── vz-efi
+    ├── vz-identifier
+    └── vz.pid
+</code></pre>
+
 <h2 id="ℹ️-infos-rapides-sur-les-images">ℹ️ Infos rapides sur les images</h2>
 
 <ul>
