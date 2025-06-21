@@ -245,6 +245,11 @@ function lunr_search(term) {
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>lima
 </code></pre></div></div>
 
+<h2 id="créer-la-vm-lima-par-défaut">Créer la VM Lima par défaut</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl create <span class="nt">--name</span><span class="o">=</span>default <span class="nt">--cpus</span><span class="o">=</span>1 <span class="nt">--memory</span><span class="o">=</span>1 <span class="nt">--disk</span> 5 template://ubuntu-24.04
+</code></pre></div></div>
+
 <h2 id="-lister-les-templates-ubuntu-disponibles">📦 Lister les templates Ubuntu disponibles</h2>
 
 <p>Il existe de nombreux templates disponibles (docker, podman, kubernetes, ubuntu, debian, fedora, opensuse, alpine, etc), mais ici, c’est Ubuntu qui nous intéresse :</p>
@@ -304,10 +309,16 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 <h2 id="️-accéder-à-la-vm">🖥️ Accéder à la VM</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Commande standard</span>
+lima &lt;nom_vm&gt;
+
+<span class="c"># Exemple :</span>
+lima myubu24
+
+<span class="c"># Commande standard</span>
 limactl shell &lt;nom_vm&gt;
 
 <span class="c"># Exemple :</span>
-limactl shell ubuntu24
+limactl shell myubu24
 
 <span class="c"># Accès SSH avancé (pour scripts, par exemple)</span>
 <span class="nv">ip</span><span class="o">=</span><span class="si">$(</span>limactl shell myubu24 ip <span class="nt">-4</span> addr show lima0 | <span class="nb">grep </span>inet | <span class="nb">awk</span> <span class="s1">'{print $2}'</span> | <span class="nb">cut</span> <span class="nt">-d</span>/ <span class="nt">-f1</span><span class="si">)</span>

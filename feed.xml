@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T20:08:21+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T20:36:50+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
 
 <p>Lima (“<strong>Li</strong>nux virtual <strong>ma</strong>chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.</p>
 
@@ -7,6 +7,11 @@
 <h2 id="installation">Installation</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>lima
+</code></pre></div></div>
+
+<h2 id="créer-la-vm-lima-par-défaut">Créer la VM Lima par défaut</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl create <span class="nt">--name</span><span class="o">=</span>default <span class="nt">--cpus</span><span class="o">=</span>1 <span class="nt">--memory</span><span class="o">=</span>1 <span class="nt">--disk</span> 5 template://ubuntu-24.04
 </code></pre></div></div>
 
 <h2 id="-lister-les-templates-ubuntu-disponibles">📦 Lister les templates Ubuntu disponibles</h2>
@@ -68,10 +73,16 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 <h2 id="️-accéder-à-la-vm">🖥️ Accéder à la VM</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Commande standard</span>
+lima &lt;nom_vm&gt;
+
+<span class="c"># Exemple :</span>
+lima myubu24
+
+<span class="c"># Commande standard</span>
 limactl shell &lt;nom_vm&gt;
 
 <span class="c"># Exemple :</span>
-limactl shell ubuntu24
+limactl shell myubu24
 
 <span class="c"># Accès SSH avancé (pour scripts, par exemple)</span>
 <span class="nv">ip</span><span class="o">=</span><span class="si">$(</span>limactl shell myubu24 ip <span class="nt">-4</span> addr show lima0 | <span class="nb">grep </span>inet | <span class="nb">awk</span> <span class="s1">'{print $2}'</span> | <span class="nb">cut</span> <span class="nt">-d</span>/ <span class="nt">-f1</span><span class="si">)</span>
