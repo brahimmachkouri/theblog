@@ -92,7 +92,7 @@ ssh -o IdentitiesOnly=yes -i ~/.lima/_config/user -p 22 $(whoami)@$ip
 ## 🛑 Gérer la VM
 
 ```bash
-limactl list                 # Lister toutes les VM
+limactl list         # Lister toutes les VM
 limactl stop         # Arrêter une VM
 limactl start        # Démarrer une VM arrêtée
 limactl restart      # Redémarrer une VM
