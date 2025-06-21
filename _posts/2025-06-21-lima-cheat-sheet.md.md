@@ -18,6 +18,12 @@ L'objectif est d’exécuter des outils Linux (Docker, Podman, Kubernetes, etc.)
 brew install lima
 ```
 
+## Créer la VM Lima par défaut
+
+```bash
+limactl create --name=default --cpus=1 --memory=1 --disk 5 template://ubuntu-24.04
+```
+
 ## 📦 Lister les templates Ubuntu disponibles
 
 Il existe de nombreux templates disponibles (docker, podman, kubernetes, ubuntu, debian, fedora, opensuse, alpine, etc), mais ici, c'est Ubuntu qui nous intéresse :
@@ -77,10 +83,16 @@ limactl start
 
 ```bash
 # Commande standard
+lima <nom_vm>
+
+# Exemple :
+lima myubu24
+
+# Commande standard
 limactl shell <nom_vm>
 
 # Exemple :
-limactl shell ubuntu24
+limactl shell myubu24
 
 # Accès SSH avancé (pour scripts, par exemple)
 ip=$(limactl shell myubu24 ip -4 addr show lima0 | grep inet | awk '{print $2}' | cut -d/ -f1)
