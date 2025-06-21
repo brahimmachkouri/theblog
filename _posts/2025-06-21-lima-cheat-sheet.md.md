@@ -118,7 +118,7 @@ limactl delete       # Supprimer une VM (demande confirmation)
 ## 📂 Copier des fichiers entre hôte (Mac) et VM
 
 ```bash
-lima cp <source> <destination>
+limactl cp <source> <destination>
 ```
 
 ### Depuis le Mac vers la VM
