@@ -285,9 +285,9 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 
 <p>🛠️ <strong>Paramètres courants :</strong></p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">--cpus=</code> : Nombre de CPU alloué à la VM.</li>
-  <li><code class="language-plaintext highlighter-rouge">--memory=G</code> : Taille de la mémoire en Go (ex: <code class="language-plaintext highlighter-rouge">8G</code> pour 8 Go).</li>
-  <li><code class="language-plaintext highlighter-rouge">--disk=G</code> : Taille du disque en Go (par défaut 100Go).</li>
+  <li><code class="language-plaintext highlighter-rouge">--cpus=X</code> : Nombre de CPU alloué à la VM.</li>
+  <li><code class="language-plaintext highlighter-rouge">--memory=Y</code> : Taille de la mémoire en Go (ex: <code class="language-plaintext highlighter-rouge">8</code> pour 8 Go).</li>
+  <li><code class="language-plaintext highlighter-rouge">--disk=Z</code> : Taille du disque en Go (par défaut 100Go).</li>
   <li><code class="language-plaintext highlighter-rouge">--vm-type={qemu, vz}</code> : Type de machine virtuelle (<code class="language-plaintext highlighter-rouge">vz</code> pour macOS Ventura+ utilisant Virtualization.framework, plus performant).</li>
   <li><code class="language-plaintext highlighter-rouge">--rosetta</code> : Active Rosetta pour l’exécution de binaires x86_64 sur Mac Apple Silicon (nécessite <code class="language-plaintext highlighter-rouge">--vm-type=vz</code>).</li>
   <li><code class="language-plaintext highlighter-rouge">--mount-type={9p, virtiofs, reverse-sshfs}</code> : Type de montage (performant : <code class="language-plaintext highlighter-rouge">virtiofs</code> avec <code class="language-plaintext highlighter-rouge">vz</code>).</li>
