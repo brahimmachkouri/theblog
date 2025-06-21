@@ -57,9 +57,9 @@ limactl start --name=ubuntu-dev template://ubuntu-25.04
 ```
 
 🛠️ **Paramètres courants :**
-- `--cpus=` : Nombre de CPU alloué à la VM.
-- `--memory=G` : Taille de la mémoire en Go (ex: `8G` pour 8 Go).
-- `--disk=G` : Taille du disque en Go (par défaut 100Go).
+- `--cpus=X` : Nombre de CPU alloué à la VM.
+- `--memory=Y` : Taille de la mémoire en Go (ex: `8` pour 8 Go).
+- `--disk=Z` : Taille du disque en Go (par défaut 100Go).
 - `--vm-type={qemu, vz}` : Type de machine virtuelle (`vz` pour macOS Ventura+ utilisant Virtualization.framework, plus performant).
 - `--rosetta` : Active Rosetta pour l'exécution de binaires x86_64 sur Mac Apple Silicon (nécessite `--vm-type=vz`).
 - `--mount-type={9p, virtiofs, reverse-sshfs}` : Type de montage (performant : `virtiofs` avec `vz`).
