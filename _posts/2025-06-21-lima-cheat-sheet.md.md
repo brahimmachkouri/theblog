@@ -134,11 +134,13 @@ limactl cp -r  :
 ## ⚙️ Personnaliser la configuration de la VM
 
 ### Editer la configuration post-création
+
 ```bash
 limactl edit 
 ```
 
 Exemple (fragment) :
+
 ```yaml
 cpus: 4
 memory: "8GiB"
@@ -150,6 +152,7 @@ mounts:
 ```
 
 Après modification, arrêter et redémarrer la VM :
+
 ```bash
 limactl stop 
 limactl start 
@@ -157,6 +160,7 @@ limactl start
 
 ### Création avancée avec fichier de configuration YAML
 1. Créez un fichier `config.yaml` avec le contenu souhaité :
+
 ```yaml
 images:
   - location: "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"
@@ -170,7 +174,9 @@ vmType: "vz"
 rosetta: true
 mountType: "virtiofs"
 ```
+
 2. Lancez Lima en spécifiant le fichier de configuration :
+
 ```bash
 limactl start --name=ubuntu24-advanced --file config.yaml
 ```
