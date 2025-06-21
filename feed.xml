@@ -1,4 +1,222 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-17T14:21:38+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Guide d’activation de Windows 11</title><link href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html" rel="alternate" type="text/html" title="Guide d’activation de Windows 11" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation.png" alt="activation" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T16:40:10+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
+
+<h2 id="-lister-les-templates-disponibles">📦 Lister les templates disponibles</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start <span class="nt">--list-templates</span>
+</code></pre></div></div>
+
+<p>✅ Affiche les templates Ubuntu disponibles localement.</p>
+
+<p>✅ Exemples de templates :</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ubuntu</code> : Dernière LTS (ex: 22.04)</li>
+  <li><code class="language-plaintext highlighter-rouge">ubuntu-lts</code> : Alias vers la dernière LTS stable</li>
+  <li><code class="language-plaintext highlighter-rouge">ubuntu-20.04</code> : Ubuntu 20.04 LTS (Focal Fossa)</li>
+  <li><code class="language-plaintext highlighter-rouge">ubuntu-22.04</code> : Ubuntu 22.04 LTS (Jammy Jellyfish)</li>
+  <li><code class="language-plaintext highlighter-rouge">ubuntu-24.04</code> : Ubuntu 24.04 LTS (Noble Numbat)</li>
+</ul>
+
+<hr />
+
+<h2 id="-créer-et-démarrer-une-vm-ubuntu-avec-une-version-précise">🚀 Créer et démarrer une VM Ubuntu avec une version précise</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ubuntu LTS actuelle (ex: 22.04)</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-lts template://ubuntu-lts
+
+<span class="c"># Ubuntu 20.04 (Focal Fossa) avec 2 CPU et 4 Go de RAM</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu20 template://ubuntu-20.04 <span class="nt">--cpus</span><span class="o">=</span>2 <span class="nt">--memory</span><span class="o">=</span>4G
+
+<span class="c"># Ubuntu 22.04 (Jammy Jellyfish) en mode Virtualization.framework avec Rosetta</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu22 template://ubuntu-22.04 <span class="nt">--vm-type</span><span class="o">=</span>vz <span class="nt">--rosetta</span>
+
+<span class="c"># Ubuntu 24.04 (Noble Numbat) : 4 CPU, 8 Go de RAM, Virtualization.framework, Rosetta, montage virtiofs en écriture</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu24 template://ubuntu-24.04 <span class="nt">--cpus</span><span class="o">=</span>4 <span class="nt">--memory</span><span class="o">=</span>8G <span class="nt">--vm-type</span><span class="o">=</span>vz <span class="nt">--rosetta</span> <span class="nt">--mount-type</span><span class="o">=</span>virtiofs <span class="nt">--mount-writable</span>
+
+<span class="c"># Version non-LTS (ex: 24.10) ou future</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev template://ubuntu-25.04
+</code></pre></div></div>
+
+<p>🛠️ <strong>Paramètres courants :</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--cpus=</code> : Nombre de CPU alloué à la VM.</li>
+  <li><code class="language-plaintext highlighter-rouge">--memory=G</code> : Taille de la mémoire en Go (ex: <code class="language-plaintext highlighter-rouge">8G</code> pour 8 Go).</li>
+  <li><code class="language-plaintext highlighter-rouge">--disk=G</code> : Taille du disque en Go (par défaut 100Go).</li>
+  <li><code class="language-plaintext highlighter-rouge">--vm-type={qemu, vz}</code> : Type de machine virtuelle (<code class="language-plaintext highlighter-rouge">vz</code> pour macOS Ventura+ utilisant Virtualization.framework, plus performant).</li>
+  <li><code class="language-plaintext highlighter-rouge">--rosetta</code> : Active Rosetta pour l’exécution de binaires x86_64 sur Mac Apple Silicon (nécessite <code class="language-plaintext highlighter-rouge">--vm-type=vz</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">--mount-type={9p, virtiofs, reverse-sshfs}</code> : Type de montage (performant : <code class="language-plaintext highlighter-rouge">virtiofs</code> avec <code class="language-plaintext highlighter-rouge">vz</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">--mount-writable</code> : Donne accès en écriture au montage du répertoire de l’hôte.</li>
+</ul>
+
+<p>🐚 <strong>Alternative interactive :</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start
+</code></pre></div></div>
+<p>➡️ Choisir le template dans l’interface interactive.</p>
+
+<hr />
+
+<h2 id="️-accéder-à-la-vm">🖥️ Accéder à la VM</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ouvre un shell interactif sur la VM nommée (commande raccourcie)</span>
+lima 
+
+<span class="c"># Ou, pour une VM nommée "ubuntu24"</span>
+lima ubuntu24
+
+<span class="c"># Commande standard</span>
+limactl shell 
+
+<span class="c"># Exemple :</span>
+limactl shell ubuntu24
+
+<span class="c"># Accès SSH avancé (pour scripts)</span>
+ssh <span class="nt">-o</span> <span class="nv">IdentitiesOnly</span><span class="o">=</span><span class="nb">yes</span> <span class="nt">-i</span> ~/.lima/_config/user <span class="nt">-p</span> 60022 lima@127.0.0.1
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="-gérer-la-vm">🛑 Gérer la VM</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl list                 <span class="c"># Lister toutes les VM</span>
+limactl stop         <span class="c"># Arrêter une VM</span>
+limactl start        <span class="c"># Démarrer une VM arrêtée</span>
+limactl restart      <span class="c"># Redémarrer une VM</span>
+limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</span>
+</code></pre></div></div>
+
+<p>⚠️ <code class="language-plaintext highlighter-rouge">limactl delete</code> supprime les disques et la configuration de la VM.</p>
+
+<hr />
+
+<h2 id="-copier-des-fichiers-entre-hôte-mac-et-vm">📂 Copier des fichiers entre hôte (Mac) et VM</h2>
+
+<h3 id="depuis-le-mac-vers-la-vm">Depuis le Mac vers la VM</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span>  :
+<span class="c"># Exemple: Copier un fichier vers le répertoire home de l'utilisateur dans la VM</span>
+limactl <span class="nb">cp</span> ./mon_fichier.txt ubuntu24:~/
+</code></pre></div></div>
+
+<h3 id="depuis-la-vm-vers-le-mac">Depuis la VM vers le Mac</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> : 
+<span class="c"># Exemple: Copier un fichier de la VM vers le répertoire courant</span>
+limactl <span class="nb">cp </span>ubuntu24:~/rapport.pdf ./
+</code></pre></div></div>
+
+<h3 id="copier-un-répertoire-récursivement">Copier un répertoire récursivement</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> <span class="nt">-r</span>  :
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="️-personnaliser-la-configuration-de-la-vm">⚙️ Personnaliser la configuration de la VM</h2>
+
+<h3 id="editer-la-configuration-post-création">Editer la configuration post-création</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl edit 
+</code></pre></div></div>
+
+<p>Exemple (fragment) :</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cpus</span><span class="pi">:</span> <span class="m">4</span>
+<span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8GiB"</span>
+<span class="na">disk</span><span class="pi">:</span> <span class="s2">"</span><span class="s">50GiB"</span>
+<span class="na">mounts</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">~"</span>
+    <span class="na">writable</span><span class="pi">:</span> <span class="kc">true</span>
+    <span class="c1">#virtiofs: true  # Utiliser pour vz si nécessaire</span>
+</code></pre></div></div>
+
+<p>Après modification, arrêter et redémarrer la VM :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl stop 
+limactl start 
+</code></pre></div></div>
+
+<h3 id="création-avancée-avec-fichier-de-configuration-yaml">Création avancée avec fichier de configuration YAML</h3>
+<ol>
+  <li>Créez un fichier <code class="language-plaintext highlighter-rouge">config.yaml</code> avec le contenu souhaité :
+    <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">images</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"</span>
+<span class="err"> </span><span class="na">arch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">x86_64"</span>
+<span class="na">mounts</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">~"</span>
+<span class="err"> </span><span class="na">writable</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">cpus</span><span class="pi">:</span> <span class="m">4</span>
+<span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8GiB"</span>
+<span class="na">vmType</span><span class="pi">:</span> <span class="s2">"</span><span class="s">vz"</span>
+<span class="na">rosetta</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">mountType</span><span class="pi">:</span> <span class="s2">"</span><span class="s">virtiofs"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Lancez Lima en spécifiant le fichier de configuration :
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu24-advanced <span class="nt">--file</span> config.yaml
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-vérifier-la-version-ubuntu-dans-la-vm">📝 Vérifier la version Ubuntu dans la VM</h2>
+
+<p>Une fois connecté à la VM :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsb_release <span class="nt">-a</span>
+</code></pre></div></div>
+
+<p>Ou :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/os-release
+</code></pre></div></div>
+
+<p>Commande depuis le Mac sans se connecter via un shell :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl shell ubuntu24 <span class="nt">--</span> lsb_release <span class="nt">-d</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ℹ️-infos-rapides-sur-les-images">ℹ️ Infos rapides sur les images</h2>
+
+<ul>
+  <li><strong>Source des images</strong> : Lima utilise les <a href="https://cloud-images.ubuntu.com/">cloud-images Ubuntu</a> au format QCOW2 (KVM/QEMU).</li>
+  <li><strong>Mises à jour</strong> : La première fois, l’image est téléchargée puis mise en cache.</li>
+  <li><strong>Non conteneur</strong> : Lima fonctionne avec des machines virtuelles complètes (QEMU ou Virtualization.framework), pas des conteneurs LXC.</li>
+</ul>
+
+<hr />
+
+<h2 id="-astuces-lima--ubuntu">💡 Astuces Lima + Ubuntu</h2>
+
+<ul>
+  <li><strong>Hostname par défaut</strong> : <code class="language-plaintext highlighter-rouge">lima-</code></li>
+  <li><strong>Utilisateur par défaut</strong> : <code class="language-plaintext highlighter-rouge">lima</code> (avec accès sudo sans mot de passe)</li>
+  <li><strong>Répertoire monté par défaut</strong> : Le répertoire home de l’utilisateur Mac est monté dans <code class="language-plaintext highlighter-rouge">/mnt/lima/home/</code>.</li>
+  <li><strong>Accès SSH avancé</strong> : Voir <code class="language-plaintext highlighter-rouge">~/.lima//ssh.config</code> pour la configuration SSH complète.</li>
+</ul>
+
+<hr />
+
+<h2 id="-liens-utiles">🔗 Liens utiles</h2>
+
+<ul>
+  <li><a href="https://lima-vm.io/">Documentation officielle de Lima</a></li>
+  <li><a href="https://cloud-images.ubuntu.com/">Liste des images cloud Ubuntu</a></li>
+  <li><a href="https://github.com/lima-vm/lima">Github de Lima</a></li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p><strong>Résumé workflow :</strong></p>
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">limactl start --name=... template://...</code> (avec options)</li>
+    <li><code class="language-plaintext highlighter-rouge">limactl shell ...</code> pour se connecter</li>
+    <li>Utiliser la VM comme un vrai système Ubuntu</li>
+    <li><code class="language-plaintext highlighter-rouge">limactl stop ...</code> pour arrêter</li>
+  </ol>
+</blockquote>
+
+<blockquote>
+  <p><strong>Pro tips :</strong></p>
+  <ul>
+    <li>Pour les Mac Apple Silicon : toujours privilégier <code class="language-plaintext highlighter-rouge">--vm-type=vz</code> et <code class="language-plaintext highlighter-rouge">--rosetta</code>.</li>
+    <li><code class="language-plaintext highlighter-rouge">--mount-type=virtiofs</code> offre les meilleures performances de partage de fichiers.</li>
+    <li>Configurer les montages en écriture avec <code class="language-plaintext highlighter-rouge">--mount-writable</code>.</li>
+  </ul>
+</blockquote>]]></content><author><name>Brahim MACHKOURI</name></author><category term="système" /><category term="virtualisation" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Guide d’activation de Windows 11</title><link href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html" rel="alternate" type="text/html" title="Guide d’activation de Windows 11" /><published>2025-06-16T15:00:00+02:00</published><updated>2025-06-16T15:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation.png" alt="activation" /></p>
 
 <blockquote>
   <p>Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.</p>
@@ -733,13 +951,4 @@ Cliquez sur “Continuer” s’il est dit que le driver n’est pas certifié.<
 <h2 id="flashage-">Flashage :</h2>
 <p>Assurez vous que le switch est en position 2 on sur le viper extreme, et que le câble USB est bien branché, et la gamecube allumée. 
 Lancez Viper Flasher, et chargez le fichier (File &gt; Load Bios) dont l’extension est vgc.
-Cliquez sur Write pour flasher le BIOS de la puce.</p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="gamecube" /><category term="viper" /><category term="driver" /><category term="usb" /><summary type="html"><![CDATA[Téléchargements :]]></summary></entry><entry><title type="html">Virtualbox low resolution mode</title><link href="/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html" rel="alternate" type="text/html" title="Virtualbox low resolution mode" /><published>2021-11-29T12:34:00+01:00</published><updated>2021-11-29T12:34:00+01:00</updated><id>/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode</id><content type="html" xml:base="/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html"><![CDATA[<p>You have to change the info.plist with admin rights. For example in terminal type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist
-</code></pre></div></div>
-
-<p>Then you can change the following key to false:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSHighResolutionCapable&lt;/key&gt; &lt;true/&gt;
-</code></pre></div></div>
-<p>should now be :</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;key&gt;NSHighResolutionCapable&lt;/key&gt; &lt;false/&gt;
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="virtualisation" /><category term="virtualbox" /><summary type="html"><![CDATA[You have to change the info.plist with admin rights. For example in terminal type: sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist]]></summary></entry></feed>
+Cliquez sur Write pour flasher le BIOS de la puce.</p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="gamecube" /><category term="viper" /><category term="driver" /><category term="usb" /><summary type="html"><![CDATA[Téléchargements :]]></summary></entry></feed>
