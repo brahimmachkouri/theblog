@@ -330,16 +330,15 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
 
 <h2 id="-copier-des-fichiers-entre-hôte-mac-et-vm">📂 Copier des fichiers entre hôte (Mac) et VM</h2>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lima <span class="nb">cp</span> &lt;<span class="nb">source</span><span class="o">&gt;</span> &lt;destination&gt;
+</code></pre></div></div>
+
 <h3 id="depuis-le-mac-vers-la-vm">Depuis le Mac vers la VM</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span>  :
-<span class="c"># Exemple: Copier un fichier vers le répertoire home de l'utilisateur dans la VM</span>
-limactl <span class="nb">cp</span> ./mon_fichier.txt ubuntu24:~/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> ./mon_fichier.txt ubuntu24:~/
 </code></pre></div></div>
 
 <h3 id="depuis-la-vm-vers-le-mac">Depuis la VM vers le Mac</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> : 
-<span class="c"># Exemple: Copier un fichier de la VM vers le répertoire courant</span>
-limactl <span class="nb">cp </span>ubuntu24:~/rapport.pdf ./
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp </span>ubuntu24:~/rapport.pdf ./
 </code></pre></div></div>
 
 <h3 id="copier-un-répertoire-récursivement">Copier un répertoire récursivement</h3>
