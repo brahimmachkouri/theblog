@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T16:53:44+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T16:58:08+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
 
 <h2 id="installation">Installation</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>lima
 </code></pre></div></div>
 
-<h2 id="-lister-les-templates-disponibles">📦 Lister les templates disponibles</h2>
+<h2 id="-lister-les-templates-ubuntu-disponibles">📦 Lister les templates Ubuntu disponibles</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start <span class="nt">--list-templates</span>
+<p>Il existe de nombreux templates disponibles (docker, podman, debian, fedora, opensuse, alpine, ubuntu), mais ici, c’est Ubuntu qui nous intéresse :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start <span class="nt">--list-templates</span> | <span class="nb">grep </span>ubuntu
 </code></pre></div></div>
 
 <p>✅ Affiche les templates Ubuntu disponibles localement.</p>
