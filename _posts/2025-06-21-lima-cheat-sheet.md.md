@@ -246,7 +246,7 @@ Supposons qu'une VM avec le nom "myubu24" existe, les fichiers sont dans ~/.lima
 - **Hostname par défaut** : `lima-`
 - **Utilisateur par défaut** : `lima` (avec accès sudo sans mot de passe)
 - **Répertoire monté par défaut** : Le répertoire home de l'utilisateur Mac est monté dans `/mnt/lima/home/`.
-- **Accès SSH avancé** : Voir `~/.lima//ssh.config` pour la configuration SSH complète.
+- **Accès SSH avancé** : Voir `~/.lima/<nom_vm>/ssh.config` pour la configuration SSH complète.
 
 ---
 
