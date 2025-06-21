@@ -245,11 +245,6 @@ function lunr_search(term) {
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>lima
 </code></pre></div></div>
 
-<h2 id="créer-la-vm-lima-par-défaut">Créer la VM Lima par défaut</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl create <span class="nt">--name</span><span class="o">=</span>default <span class="nt">--cpus</span><span class="o">=</span>1 <span class="nt">--memory</span><span class="o">=</span>1 <span class="nt">--disk</span> 5 template://ubuntu-24.04
-</code></pre></div></div>
-
 <h2 id="-lister-les-templates-ubuntu-disponibles">📦 Lister les templates Ubuntu disponibles</h2>
 
 <p>Il existe de nombreux templates disponibles (docker, podman, kubernetes, ubuntu, debian, fedora, opensuse, alpine, etc), mais ici, c’est Ubuntu qui nous intéresse :</p>
@@ -276,13 +271,13 @@ function lunr_search(term) {
 limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-lts template://ubuntu-lts
 
 <span class="c"># Ubuntu 20.04 (Focal Fossa) avec 2 CPU et 4 Go de RAM</span>
-limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu20 template://ubuntu-20.04 <span class="nt">--cpus</span><span class="o">=</span>2 <span class="nt">--memory</span><span class="o">=</span>4G
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu20 <span class="nt">--cpus</span><span class="o">=</span>2 <span class="nt">--memory</span><span class="o">=</span>4 <span class="nt">--disk</span><span class="o">=</span>5 template://ubuntu-20.04 
 
 <span class="c"># Ubuntu 22.04 (Jammy Jellyfish) en mode Virtualization.framework avec Rosetta</span>
-limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu22 template://ubuntu-22.04 <span class="nt">--vm-type</span><span class="o">=</span>vz <span class="nt">--rosetta</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu22 <span class="nt">--vm-type</span><span class="o">=</span>vz <span class="nt">--rosetta</span> template://ubuntu-22.04
 
 <span class="c"># Ubuntu 24.04 (Noble Numbat) : 4 CPU, 8 Go de RAM, Virtualization.framework, Rosetta, montage virtiofs en écriture</span>
-limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu24 template://ubuntu-24.04 <span class="nt">--cpus</span><span class="o">=</span>4 <span class="nt">--memory</span><span class="o">=</span>8G <span class="nt">--vm-type</span><span class="o">=</span>vz <span class="nt">--rosetta</span> <span class="nt">--mount-type</span><span class="o">=</span>virtiofs <span class="nt">--mount-writable</span>
+limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu24 <span class="nt">--cpus</span><span class="o">=</span>4 <span class="nt">--memory</span><span class="o">=</span>8 <span class="nt">--vm-type</span><span class="o">=</span>vz <span class="nt">--rosetta</span> <span class="nt">--mount-type</span><span class="o">=</span>virtiofs <span class="nt">--mount-writable</span> template://ubuntu-24.04 
 
 <span class="c"># Version non-LTS (ex: 24.10) ou future</span>
 limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev template://ubuntu-25.04
@@ -308,13 +303,18 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 
 <h2 id="️-accéder-à-la-vm">🖥️ Accéder à la VM</h2>
 
+<p>La commande <strong>lima</strong> est un alias pour “limactl shell default”. Le nom de l’instance par défaut (“default”) peut être changé via la variable $LIMA_INSTANCE.</p>
+
+<p>Exemple :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">LIMA_INSTANCE</span><span class="o">=</span><span class="s2">"myubu24"</span>
+</code></pre></div></div>
+
+<p>Le shell et le répertoire initial (workdir) dans l’instance peuvent être spécifiés via $LIMA_SHELL et $LIMA_WORKDIR.</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Commande standard</span>
-lima &lt;nom_vm&gt;
+lima
 
-<span class="c"># Exemple :</span>
-lima myubu24
-
-<span class="c"># Commande standard</span>
+<span class="c"># Commande standard pour les autres VM </span>
 limactl shell &lt;nom_vm&gt;
 
 <span class="c"># Exemple :</span>
