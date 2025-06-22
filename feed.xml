@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-21T21:09:08+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-22T06:59:45+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
 
 <p>Lima (“<strong>Li</strong>nux virtual <strong>ma</strong>chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.</p>
 
@@ -233,9 +233,9 @@ limactl start
 <h2 id="-astuces-lima--ubuntu">💡 Astuces Lima + Ubuntu</h2>
 
 <ul>
-  <li><strong>Hostname par défaut</strong> : <code class="language-plaintext highlighter-rouge">lima-</code></li>
-  <li><strong>Utilisateur par défaut</strong> : <code class="language-plaintext highlighter-rouge">lima</code> (avec accès sudo sans mot de passe)</li>
-  <li><strong>Répertoire monté par défaut</strong> : Le répertoire home de l’utilisateur Mac est monté dans <code class="language-plaintext highlighter-rouge">/mnt/lima/home/</code>.</li>
+  <li><strong>Hostname par défaut</strong> : <code class="language-plaintext highlighter-rouge">lima-&lt;nom_vm&gt;</code></li>
+  <li><strong>Utilisateur par défaut</strong> : <code class="language-plaintext highlighter-rouge">limactl shell ubuntu24 whoami</code> (avec accès sudo sans mot de passe)</li>
+  <li><strong>Répertoire monté par défaut</strong> : le répertoire home de l’utilisateur Mac est monté à la racine <code class="language-plaintext highlighter-rouge">/Users/&lt;nom_user&gt;</code>.</li>
   <li><strong>Accès SSH avancé</strong> : Voir <code class="language-plaintext highlighter-rouge">~/.lima/&lt;nom_vm&gt;/ssh.config</code> pour la configuration SSH complète.</li>
 </ul>
 
