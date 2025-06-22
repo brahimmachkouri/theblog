@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-22T07:03:57+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-06-22T07:07:42+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.md.html"><![CDATA[<p><img src="https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png" alt="lima" /></p>
 
 <p>Lima (“<strong>Li</strong>nux virtual <strong>ma</strong>chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.</p>
 
@@ -125,9 +125,10 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
 
 <h2 id="️-personnaliser-la-configuration-de-la-vm">⚙️ Personnaliser la configuration de la VM</h2>
 
-<h3 id="editer-la-configuration-post-création">Editer la configuration post-création</h3>
+<h3 id="editer-la-configuration-post-création-à-froid">Editer la configuration post-création (à froid)</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl edit 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl stop
+limactl edit 
 </code></pre></div></div>
 
 <p>Exemple (fragment) :</p>
@@ -141,10 +142,9 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
     <span class="c1">#virtiofs: true  # Utiliser pour vz si nécessaire</span>
 </code></pre></div></div>
 
-<p>Après modification, arrêter et redémarrer la VM :</p>
+<p>Après modification, redémarrer la VM :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl stop 
-limactl start 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start 
 </code></pre></div></div>
 
 <h3 id="création-avancée-avec-fichier-de-configuration-yaml">Création avancée avec fichier de configuration YAML</h3>

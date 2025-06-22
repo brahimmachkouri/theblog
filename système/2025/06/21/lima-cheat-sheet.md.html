@@ -361,9 +361,10 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
 
 <h2 id="️-personnaliser-la-configuration-de-la-vm">⚙️ Personnaliser la configuration de la VM</h2>
 
-<h3 id="editer-la-configuration-post-création">Editer la configuration post-création</h3>
+<h3 id="editer-la-configuration-post-création-à-froid">Editer la configuration post-création (à froid)</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl edit 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl stop
+limactl edit 
 </code></pre></div></div>
 
 <p>Exemple (fragment) :</p>
@@ -377,10 +378,9 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
     <span class="c1">#virtiofs: true  # Utiliser pour vz si nécessaire</span>
 </code></pre></div></div>
 
-<p>Après modification, arrêter et redémarrer la VM :</p>
+<p>Après modification, redémarrer la VM :</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl stop 
-limactl start 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl start 
 </code></pre></div></div>
 
 <h3 id="création-avancée-avec-fichier-de-configuration-yaml">Création avancée avec fichier de configuration YAML</h3>
