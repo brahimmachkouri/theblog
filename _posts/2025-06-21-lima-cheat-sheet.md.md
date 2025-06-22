@@ -190,6 +190,17 @@ limactl start --name=ubuntu24-advanced --file config.yaml
 
 ---
 
+## Snapshots
+
+Les [snapshots](https://lima-vm.io/docs/reference/limactl_snapshot_create/) pour la version macOS n'ont pas l'air d'être implémentées :
+
+```bash
+$ limactl snapshot create ubuntu24 --tag snap1
+WARN[0000] `limactl snapshot` is experimental
+FATA[0000] unimplemented
+```
+---
+
 ## 📝 Vérifier la version Ubuntu dans la VM
 
 Une fois connecté à la VM :
