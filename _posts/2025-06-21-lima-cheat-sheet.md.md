@@ -75,6 +75,11 @@ limactl start
 
 ## 🖥️ Accéder à la VM
 
+Interface lima0, @IP et @mac de la VM :
+```bash
+limactl shell ubuntu24 bash -c "echo lima0 \$(ip -4 -o addr show lima0 | awk '{print \$4}' | cut -d/ -f1) \$(ip link show lima0 | awk '/link\\/ether/ {print \$2}')"
+```
+
 La commande **lima** est un alias pour "limactl shell default". Le nom de l'instance par défaut ("default") peut être changé via la variable $LIMA_INSTANCE.
 
 Exemple : 
