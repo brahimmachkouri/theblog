@@ -314,7 +314,7 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Commande standard</span>
 lima
 
-<span class="c"># Commande standard pour les autres VM </span>
+<span class="c"># Commande standard pour n'importe quelle VM </span>
 limactl shell &lt;nom_vm&gt;
 
 <span class="c"># Exemple :</span>
@@ -346,15 +346,15 @@ limactl delete       <span class="c"># Supprimer une VM (demande confirmation)</
 </code></pre></div></div>
 
 <h3 id="depuis-le-mac-vers-la-vm">Depuis le Mac vers la VM</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> ./mon_fichier.txt ubuntu24:~/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> ./mon_fichier.txt myubu24:~/
 </code></pre></div></div>
 
 <h3 id="depuis-la-vm-vers-le-mac">Depuis la VM vers le Mac</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp </span>ubuntu24:~/rapport.pdf ./
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp </span>myubu24:~/rapport.pdf ./
 </code></pre></div></div>
 
 <h3 id="copier-un-répertoire-récursivement">Copier un répertoire récursivement</h3>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> <span class="nt">-r</span>  :
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl <span class="nb">cp</span> <span class="nt">-r</span>  ./ma_source myubu24:/ma_destination
 </code></pre></div></div>
 
 <hr />
