@@ -303,6 +303,10 @@ limactl start <span class="nt">--name</span><span class="o">=</span>ubuntu-dev t
 
 <h2 id="️-accéder-à-la-vm">🖥️ Accéder à la VM</h2>
 
+<p>Interface lima0, @IP et @mac de la VM :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>limactl shell ubuntu24 bash <span class="nt">-c</span> <span class="s2">"echo lima0 </span><span class="se">\$</span><span class="s2">(ip -4 -o addr show lima0 | awk '{print </span><span class="se">\$</span><span class="s2">4}' | cut -d/ -f1) </span><span class="se">\$</span><span class="s2">(ip link show lima0 | awk '/link</span><span class="se">\\</span><span class="s2">/ether/ {print </span><span class="se">\$</span><span class="s2">2}')"</span>
+</code></pre></div></div>
+
 <p>La commande <strong>lima</strong> est un alias pour “limactl shell default”. Le nom de l’instance par défaut (“default”) peut être changé via la variable $LIMA_INSTANCE.</p>
 
 <p>Exemple :</p>
