@@ -88,7 +88,7 @@ Le shell et le répertoire initial (workdir) dans l'instance peuvent être spéc
 # Commande standard
 lima
 
-# Commande standard pour les autres VM 
+# Commande standard pour n'importe quelle VM 
 limactl shell <nom_vm>
 
 # Exemple :
@@ -123,17 +123,17 @@ limactl cp <source> <destination>
 
 ### Depuis le Mac vers la VM
 ```bash
-limactl cp ./mon_fichier.txt ubuntu24:~/
+limactl cp ./mon_fichier.txt myubu24:~/
 ```
 
 ### Depuis la VM vers le Mac
 ```bash
-limactl cp ubuntu24:~/rapport.pdf ./
+limactl cp myubu24:~/rapport.pdf ./
 ```
 
 ### Copier un répertoire récursivement
 ```bash
-limactl cp -r  :
+limactl cp -r  ./ma_source myubu24:/ma_destination
 ```
 
 ---
