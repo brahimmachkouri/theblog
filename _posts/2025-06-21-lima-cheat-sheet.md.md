@@ -140,9 +140,10 @@ limactl cp -r  ./ma_source myubu24:/ma_destination
 
 ## ⚙️ Personnaliser la configuration de la VM
 
-### Editer la configuration post-création
+### Editer la configuration post-création (à froid)
 
 ```bash
+limactl stop
 limactl edit 
 ```
 
@@ -158,10 +159,9 @@ mounts:
     #virtiofs: true  # Utiliser pour vz si nécessaire
 ```
 
-Après modification, arrêter et redémarrer la VM :
+Après modification, redémarrer la VM :
 
 ```bash
-limactl stop 
 limactl start 
 ```
 
