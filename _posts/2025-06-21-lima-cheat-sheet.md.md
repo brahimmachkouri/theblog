@@ -91,7 +91,7 @@ export LIMA_INSTANCE="myubu24"
 Le shell et le répertoire initial (workdir) dans l'instance peuvent être spécifiés via $LIMA_SHELL et $LIMA_WORKDIR.
 
 ```bash
-# Commande standard
+# Commande standard pour entrer dans la VM
 lima
 
 # Commande standard pour n'importe quelle VM 
