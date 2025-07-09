@@ -7,6 +7,8 @@ tags: zalman iodd firmware
 ---
 
 ![Zalman VE-300](https://raw.githubusercontent.com/brahimmachkouri/ioddfirmware/master/LD0003234649_2.jpg)
+![Zalman VE-300]({{ "/assets/images/iodd.jpg" | relative_url }})
+
 
 Here is a working solution to get the latest IODD firmware on a Zalman VE-300.
 
