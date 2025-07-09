@@ -6,7 +6,7 @@ category: système
 tags: virtualisation macos
 ---
 
-![lima](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/lima2.png)
+![LiMa]({{ "/assets/images/lima2.png" | relative_url }})
 
 Lima (“**Li**nux virtual **ma**chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.
 

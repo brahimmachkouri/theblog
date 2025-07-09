@@ -6,7 +6,7 @@ category: dev
 tags: mysql mariadb
 ---
 
-![LinkAce](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/linkace.png)
+![LinkAce]({{ "/assets/images/linkace.png" | relative_url }})
 
 [LinkAce](https://www.linkace.org/) est une application web libre et open-source qui permet de gérer, organiser et archiver tes favoris (liens/bookmarks) de manière centralisée, auto-hébergée et collaborative.
 

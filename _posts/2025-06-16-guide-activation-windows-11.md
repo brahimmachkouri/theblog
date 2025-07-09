@@ -6,7 +6,7 @@ category: système
 tags: activation windows
 ---
 
-![activation](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation.png)
+![activation]({{ "/assets/images/activation.png" | relative_url }})
 
 > Ce guide pas-à-pas explique comment saisir une nouvelle clé de produit.
 
@@ -18,7 +18,7 @@ tags: activation windows
 
 ---
 
-![Activation1](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation1.png)
+![Recherche « activation » dans le menu Démarrer]({{ "/assets/images/activation1.png" | relative_url }})
 
 ## Étape 1 : ouvrir les paramètres d'activation
 
@@ -30,7 +30,7 @@ tags: activation windows
 
 ---
 
-![Activation2](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation2.png)
+![Fenêtre Système > Activation]({{ "/assets/images/activation2.png" | relative_url }})
 
 ## Étape 2 : vérifier l'état d'activation
 
@@ -41,7 +41,7 @@ tags: activation windows
 
 ---
 
-![Activation3](https://raw.githubusercontent.com/brahimmachkouri/theblog/main/assets/images/activation3.png)
+![Fenêtre « Saisir une clé de produit »]({{ "/assets/images/activation3.png" | relative_url }})
 
 ## Étape 3 : saisir une nouvelle clé de produit
 
