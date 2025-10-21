@@ -6,7 +6,7 @@ category: système
 tags: certificat windows
 ---
 
-![.p12]({{ "/assets/images/creation_certif.png" | relative_url }})
+![.p12]({{ "/assets/images/install_cert_win.png" | relative_url }})
 
 ## ⚖️ Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
 
