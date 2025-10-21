@@ -3,19 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Accueil | Mémos</title>
+<title>Certificat - Installation d’un certificat .p12 pour un navigateur | Mémos</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Accueil" />
+<meta property="og:title" content="Certificat - Installation d’un certificat .p12 pour un navigateur" />
 <meta name="author" content="Brahim MACHKOURI" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A static Github blog for everyone." />
-<meta property="og:description" content="A static Github blog for everyone." />
+<meta name="description" content="⚖️ Guide d’installation d’un certificat .p12 dans Windows 11 (utilisateur courant / navigateur web) 🎯 Objectif Installer un certificat client au format .p12 pour une utilisation dans les navigateurs web tels que Edge, Chrome ou Firefox, pour l’utilisateur courant. 🥉 Étape 1 : Comprendre le fichier .p12 Un fichier .p12 contient : 🔐 Le certificat utilisateur 🔑 La clé privée 🧾 Éventuellement la chaîne de certification (autorité intermédiaire / racine) Ce fichier est protégé par un mot de passe, que tu devras saisir lors de l’importation. 🦯o Étape 2 : Importation via l’interface graphique Double-clique sur le fichier moncertificat.p12 Sélectionne Utilisateur actuel car le certificat doit être disponible uniquement pour ton compte Windows Clique sur Suivant Clique sur Parcourir, puis sélectionne ton fichier .p12 Entre le mot de passe du certificat Coche : ✅ Marquer cette clé comme exportable ✅ Inclure toutes les propriétés étendues Sélectionne : Placer tous les certificats dans le magasin suivant Clique sur Parcourir → choisis Personnel Clique sur Suivant puis Terminer Un message “L’importation a réussi” s’affiche ✅ 🌐 Étape 3 : Vérification dans le navigateur Microsoft Edge / Google Chrome Ouvre les Paramètres Recherche certificats Va dans : Paramètres → Confidentialité et sécurité → Sécurité → Gérer les certificats Onglet Personnel → tu dois voir ton certificat listé. Mozilla Firefox Firefox n’utilise pas le magasin Windows par défaut. Menu ☰ → Paramètres Onglet Vie privée et sécurité Descends jusqu’à Certificats Clique sur Afficher les certificats Onglet Vos certificats → Importer Sélectionne ton fichier .p12 → entre le mot de passe ⚙️ Étape 4 : Installation via PowerShell (option automatisée) Si tu préfères la méthode en ligne de commande : $password = Read-Host -AsSecureString &quot;Mot de passe du fichier .p12&quot; Import-PfxCertificate -FilePath &quot;C:\Users\&lt;ton_user&gt;\Documents\moncertificat.p12&quot; -CertStoreLocation &quot;Cert:\CurrentUser\My&quot; -Password $password 📍 Cert:\CurrentUser\My = magasin “Personnel” de l’utilisateur 🔒 Nécessite aucun privilège administrateur 🧾 Étape 5 : Vérification via PowerShell Get-ChildItem Cert:\CurrentUser\My | Format-List Subject, Issuer, NotAfter Tu verras ton certificat avec : Subject (ton nom / identifiant) Issuer (autorité émettrice) NotAfter (date d’expiration) ✅ Résumé Étape Action Détail 1 Double-cliquer sur .p12 Lancer l’assistant d’importation 2 Choisir “Utilisateur actuel” Installation pour ton compte 3 Entrer le mot de passe Déverrouille le fichier 4 Choisir “Personnel” Emplacement correct pour navigateur 5 Vérifier via navigateur Chrome/Edge = magasin Windows, Firefox = import manuel 💡 Astuce Tu peux exporter ce certificat vers un autre poste Windows ou macOS : Ouvre certmgr.msc Dossier Personnel → Certificats Clique droit → Toutes les tâches → Exporter Coche “Exporter la clé privée” → choisis le format .pfx Protège-le avec un mot de passe fort 🔐" />
+<meta property="og:description" content="⚖️ Guide d’installation d’un certificat .p12 dans Windows 11 (utilisateur courant / navigateur web) 🎯 Objectif Installer un certificat client au format .p12 pour une utilisation dans les navigateurs web tels que Edge, Chrome ou Firefox, pour l’utilisateur courant. 🥉 Étape 1 : Comprendre le fichier .p12 Un fichier .p12 contient : 🔐 Le certificat utilisateur 🔑 La clé privée 🧾 Éventuellement la chaîne de certification (autorité intermédiaire / racine) Ce fichier est protégé par un mot de passe, que tu devras saisir lors de l’importation. 🦯o Étape 2 : Importation via l’interface graphique Double-clique sur le fichier moncertificat.p12 Sélectionne Utilisateur actuel car le certificat doit être disponible uniquement pour ton compte Windows Clique sur Suivant Clique sur Parcourir, puis sélectionne ton fichier .p12 Entre le mot de passe du certificat Coche : ✅ Marquer cette clé comme exportable ✅ Inclure toutes les propriétés étendues Sélectionne : Placer tous les certificats dans le magasin suivant Clique sur Parcourir → choisis Personnel Clique sur Suivant puis Terminer Un message “L’importation a réussi” s’affiche ✅ 🌐 Étape 3 : Vérification dans le navigateur Microsoft Edge / Google Chrome Ouvre les Paramètres Recherche certificats Va dans : Paramètres → Confidentialité et sécurité → Sécurité → Gérer les certificats Onglet Personnel → tu dois voir ton certificat listé. Mozilla Firefox Firefox n’utilise pas le magasin Windows par défaut. Menu ☰ → Paramètres Onglet Vie privée et sécurité Descends jusqu’à Certificats Clique sur Afficher les certificats Onglet Vos certificats → Importer Sélectionne ton fichier .p12 → entre le mot de passe ⚙️ Étape 4 : Installation via PowerShell (option automatisée) Si tu préfères la méthode en ligne de commande : $password = Read-Host -AsSecureString &quot;Mot de passe du fichier .p12&quot; Import-PfxCertificate -FilePath &quot;C:\Users\&lt;ton_user&gt;\Documents\moncertificat.p12&quot; -CertStoreLocation &quot;Cert:\CurrentUser\My&quot; -Password $password 📍 Cert:\CurrentUser\My = magasin “Personnel” de l’utilisateur 🔒 Nécessite aucun privilège administrateur 🧾 Étape 5 : Vérification via PowerShell Get-ChildItem Cert:\CurrentUser\My | Format-List Subject, Issuer, NotAfter Tu verras ton certificat avec : Subject (ton nom / identifiant) Issuer (autorité émettrice) NotAfter (date d’expiration) ✅ Résumé Étape Action Détail 1 Double-cliquer sur .p12 Lancer l’assistant d’importation 2 Choisir “Utilisateur actuel” Installation pour ton compte 3 Entrer le mot de passe Déverrouille le fichier 4 Choisir “Personnel” Emplacement correct pour navigateur 5 Vérifier via navigateur Chrome/Edge = magasin Windows, Firefox = import manuel 💡 Astuce Tu peux exporter ce certificat vers un autre poste Windows ou macOS : Ouvre certmgr.msc Dossier Personnel → Certificats Clique droit → Toutes les tâches → Exporter Coche “Exporter la clé privée” → choisis le format .pfx Protège-le avec un mot de passe fort 🔐" />
 <meta property="og:site_name" content="Mémos" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-21T13:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Accueil" />
+<meta property="twitter:title" content="Certificat - Installation d’un certificat .p12 pour un navigateur" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Brahim MACHKOURI"},"description":"A static Github blog for everyone.","headline":"Accueil","name":"Mémos","url":"/theblog/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Brahim MACHKOURI"},"dateModified":"2025-10-21T13:00:00+02:00","datePublished":"2025-10-21T13:00:00+02:00","description":"⚖️ Guide d’installation d’un certificat .p12 dans Windows 11 (utilisateur courant / navigateur web) 🎯 Objectif Installer un certificat client au format .p12 pour une utilisation dans les navigateurs web tels que Edge, Chrome ou Firefox, pour l’utilisateur courant. 🥉 Étape 1 : Comprendre le fichier .p12 Un fichier .p12 contient : 🔐 Le certificat utilisateur 🔑 La clé privée 🧾 Éventuellement la chaîne de certification (autorité intermédiaire / racine) Ce fichier est protégé par un mot de passe, que tu devras saisir lors de l’importation. 🦯o Étape 2 : Importation via l’interface graphique Double-clique sur le fichier moncertificat.p12 Sélectionne Utilisateur actuel car le certificat doit être disponible uniquement pour ton compte Windows Clique sur Suivant Clique sur Parcourir, puis sélectionne ton fichier .p12 Entre le mot de passe du certificat Coche : ✅ Marquer cette clé comme exportable ✅ Inclure toutes les propriétés étendues Sélectionne : Placer tous les certificats dans le magasin suivant Clique sur Parcourir → choisis Personnel Clique sur Suivant puis Terminer Un message “L’importation a réussi” s’affiche ✅ 🌐 Étape 3 : Vérification dans le navigateur Microsoft Edge / Google Chrome Ouvre les Paramètres Recherche certificats Va dans : Paramètres → Confidentialité et sécurité → Sécurité → Gérer les certificats Onglet Personnel → tu dois voir ton certificat listé. Mozilla Firefox Firefox n’utilise pas le magasin Windows par défaut. Menu ☰ → Paramètres Onglet Vie privée et sécurité Descends jusqu’à Certificats Clique sur Afficher les certificats Onglet Vos certificats → Importer Sélectionne ton fichier .p12 → entre le mot de passe ⚙️ Étape 4 : Installation via PowerShell (option automatisée) Si tu préfères la méthode en ligne de commande : $password = Read-Host -AsSecureString &quot;Mot de passe du fichier .p12&quot; Import-PfxCertificate -FilePath &quot;C:\\Users\\&lt;ton_user&gt;\\Documents\\moncertificat.p12&quot; -CertStoreLocation &quot;Cert:\\CurrentUser\\My&quot; -Password $password 📍 Cert:\\CurrentUser\\My = magasin “Personnel” de l’utilisateur 🔒 Nécessite aucun privilège administrateur 🧾 Étape 5 : Vérification via PowerShell Get-ChildItem Cert:\\CurrentUser\\My | Format-List Subject, Issuer, NotAfter Tu verras ton certificat avec : Subject (ton nom / identifiant) Issuer (autorité émettrice) NotAfter (date d’expiration) ✅ Résumé Étape Action Détail 1 Double-cliquer sur .p12 Lancer l’assistant d’importation 2 Choisir “Utilisateur actuel” Installation pour ton compte 3 Entrer le mot de passe Déverrouille le fichier 4 Choisir “Personnel” Emplacement correct pour navigateur 5 Vérifier via navigateur Chrome/Edge = magasin Windows, Firefox = import manuel 💡 Astuce Tu peux exporter ce certificat vers un autre poste Windows ou macOS : Ouvre certmgr.msc Dossier Personnel → Certificats Clique droit → Toutes les tâches → Exporter Coche “Exporter la clé privée” → choisis le format .pfx Protège-le avec un mot de passe fort 🔐","headline":"Certificat - Installation d’un certificat .p12 pour un navigateur","mainEntityOfPage":{"@type":"WebPage","@id":"/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html"},"url":"/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/theblog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/theblog/feed.xml" title="Mémos" /></head>
 <body><!--<link rel="stylesheet" href="/theblog/assets/css/mystyle.css">-->
@@ -228,21 +229,22 @@ function lunr_search(term) {
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
-  <!--<h1 class="page-heading">Accueil</h1>-->
+        <style>
+.post-title {
+  font-size: 32px;
+}
+</style>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Certificat - Installation d&#39;un certificat .p12 pour un navigateur</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2025-10-21T13:00:00+02:00" itemprop="datePublished">
+        21 Oct 2025
+      </time></p>
+  </header>
 
-
-
-  <!---->
-    <ul class="post-list"><li>
-        <span class="post-meta">21 Oct 2025</span>
-        <h3>
-          <a class="post-link" href="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html">
-            Certificat - Installation d&#39;un certificat .p12 pour un navigateur
-          </a>
-        </h3><h1 id="️-guide-dinstallation-dun-certificat-p12-dans-windows-11-utilisateur-courant--navigateur-web">⚖️ Guide d’installation d’un certificat <code class="language-plaintext highlighter-rouge">.p12</code> dans Windows 11 (utilisateur courant / navigateur web)</h1>
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="️-guide-dinstallation-dun-certificat-p12-dans-windows-11-utilisateur-courant--navigateur-web">⚖️ Guide d’installation d’un certificat <code class="language-plaintext highlighter-rouge">.p12</code> dans Windows 11 (utilisateur courant / navigateur web)</h1>
 
 <h2 id="-objectif">🎯 Objectif</h2>
 <p>Installer un certificat client au format <code class="language-plaintext highlighter-rouge">.p12</code> pour une <strong>utilisation dans les navigateurs web</strong> tels que Edge, Chrome ou Firefox, pour <strong>l’utilisateur courant</strong>.</p>
@@ -401,103 +403,9 @@ function lunr_search(term) {
   <li>Protège-le avec un mot de passe fort 🔐</li>
 </ol>
 
-</li><li>
-        <span class="post-meta">21 Jun 2025</span>
-        <h3>
-          <a class="post-link" href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.html">
-            Lima - Ubuntu cheat sheet
-          </a>
-        </h3><p><img src="/theblog/assets/images/lima2.png" alt="LiMa" /></p>
-</li><li>
-        <span class="post-meta">16 Jun 2025</span>
-        <h3>
-          <a class="post-link" href="/theblog/syst%C3%A8me/2025/06/16/guide-activation-windows-11.html">
-            Guide d&#39;activation de Windows 11
-          </a>
-        </h3><p><img src="/theblog/assets/images/activation.png" alt="activation" /></p>
-</li><li>
-        <span class="post-meta">15 Jun 2025</span>
-        <h3>
-          <a class="post-link" href="/theblog/syst%C3%A8me/2025/06/15/bug-proxy-docker-desktop-4-42-0.html">
-            Bug Proxy dans Docker Desktop 4.42.0
-          </a>
-        </h3><p><img src="/theblog/assets/images/docker-proxy-bug.png" alt="BugProxy" /></p>
-</li><li>
-        <span class="post-meta">7 Jun 2025</span>
-        <h3>
-          <a class="post-link" href="/theblog/dev/2025/06/07/installer-linkace-via-portainer.html">
-            Installation de LinkAce via Portainer
-          </a>
-        </h3><p><img src="/theblog/assets/images/linkace.png" alt="LinkAce" /></p>
-</li><li>
-        <span class="post-meta">2 Jun 2025</span>
-        <h3>
-          <a class="post-link" href="/theblog/dev/2025/06/02/attribution-privileges-mariadb.html">
-            Attribution de privilèges MySQL/MariaDB
-          </a>
-        </h3><p>Accorder des privilèges à un utilisateur sur une base de données MariaDB/MySQL, avec gestion des accès depuis différentes adresses IP et bonnes pratiques.</p>
-</li><li>
-        <span class="post-meta">22 Aug 2024</span>
-        <h3>
-          <a class="post-link" href="/theblog/dev/2024/08/22/connexion-a-ms-sql-server-en-php-sous-ubuntu.html">
-            Connexion à MS SQL Server en PHP sous Debian/Ubuntu
-          </a>
-        </h3><p>Remarque : la procédure suivante a été réalisée pour une version 7.2 de PHP. Il se peut que vous deviez adapter quelques points…</p>
-</li><li>
-        <span class="post-meta">17 Oct 2023</span>
-        <h3>
-          <a class="post-link" href="/theblog/dev/2023/10/17/mermaid.html">
-            Mermaid Markdown
-          </a>
-        </h3><p>Test de <a href="https://mermaid.js.org/intro/">Mermaid Markdown</a></p>
-</li><li>
-        <span class="post-meta">16 Jan 2023</span>
-        <h3>
-          <a class="post-link" href="/theblog/macos/2023/01/16/macos-use-pyenv.html">
-            Utilisation de pyenv sous macOS
-          </a>
-        </h3><p>Pour utiliser différentes versions de Python sous macOS, <a href="https://github.com/pyenv/pyenv"><strong>pyenv</strong></a> est LA solution.</p>
-</li><li>
-        <span class="post-meta">10 Jan 2023</span>
-        <h3>
-          <a class="post-link" href="/theblog/macos/2023/01/10/connexion-repertoire-samba.html">
-            Connexion à un répertoire samba partagé avec macos
-          </a>
-        </h3><p>⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.</p>
-</li><li>
-        <span class="post-meta">8 Jun 2022</span>
-        <h3>
-          <a class="post-link" href="/theblog/materiel/2022/06/08/installation-driver-viper-win10.html">
-            Install viper usb driver on Windows 10
-          </a>
-        </h3><p>Téléchargements :</p>
-</li><li>
-        <span class="post-meta">29 Nov 2021</span>
-        <h3>
-          <a class="post-link" href="/theblog/virtualisation/2021/11/29/virtualbox-low-resolution-mode.html">
-            Virtualbox low resolution mode
-          </a>
-        </h3><p>You have to change the info.plist with admin rights. For example in terminal type:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/Info.plist
-</code></pre></div></div>
-</li><li>
-        <span class="post-meta">5 Nov 2021</span>
-        <h3>
-          <a class="post-link" href="/theblog/materiel/2021/11/05/upgrade-zalman-ve300-firmware-to-iodd-2531.html">
-            Upgrade Zalman VE-300 firmware to an iodd 2531 firmware
-          </a>
-        </h3><p><img src="/theblog/assets/images/iodd.jpg" alt="Zalman VE-300" /></p>
-</li><li>
-        <span class="post-meta">31 Oct 2021</span>
-        <h3>
-          <a class="post-link" href="/theblog/materiel/2021/10/31/compilation-driver-cp210x-linux.html">
-            Compilation du driver cp210x sous Ubuntu (M5Paper)
-          </a>
-        </h3><p><img src="/theblog/assets/images/m5paper.jpg" alt="MPaper" /></p>
-</li></ul>
 
-    </div>
-
+  </div><a class="u-url" href="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html" hidden></a>
+</article>
 
       </div>
     </main><footer class="site-footer h-card">

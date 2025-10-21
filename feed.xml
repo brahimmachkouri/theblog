@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-07-09T15:42:02+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.html"><![CDATA[<p><img src="/theblog/assets/images/lima2.png" alt="LiMa" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2025-10-21T11:06:18+02:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Certificat - Installation d’un certificat .p12 pour un navigateur</title><link href="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html" rel="alternate" type="text/html" title="Certificat - Installation d’un certificat .p12 pour un navigateur" /><published>2025-10-21T13:00:00+02:00</published><updated>2025-10-21T13:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html"><![CDATA[<h1 id="️-guide-dinstallation-dun-certificat-p12-dans-windows-11-utilisateur-courant--navigateur-web">⚖️ Guide d’installation d’un certificat <code class="language-plaintext highlighter-rouge">.p12</code> dans Windows 11 (utilisateur courant / navigateur web)</h1>
+
+<h2 id="-objectif">🎯 Objectif</h2>
+<p>Installer un certificat client au format <code class="language-plaintext highlighter-rouge">.p12</code> pour une <strong>utilisation dans les navigateurs web</strong> tels que Edge, Chrome ou Firefox, pour <strong>l’utilisateur courant</strong>.</p>
+
+<hr />
+
+<h2 id="-étape-1--comprendre-le-fichier-p12">🥉 Étape 1 : Comprendre le fichier <code class="language-plaintext highlighter-rouge">.p12</code></h2>
+
+<p>Un fichier <code class="language-plaintext highlighter-rouge">.p12</code> contient :</p>
+<ul>
+  <li>🔐 Le <strong>certificat utilisateur</strong></li>
+  <li>🔑 La <strong>clé privée</strong></li>
+  <li>🧾 Éventuellement la <strong>chaîne de certification</strong> (autorité intermédiaire / racine)</li>
+</ul>
+
+<p>Ce fichier est <strong>protégé par un mot de passe</strong>, que tu devras saisir lors de l’importation.</p>
+
+<hr />
+
+<h2 id="o-étape-2--importation-via-linterface-graphique">🦯o Étape 2 : Importation via l’interface graphique</h2>
+
+<ol>
+  <li><strong>Double-clique</strong> sur le fichier <code class="language-plaintext highlighter-rouge">moncertificat.p12</code></li>
+  <li>Sélectionne <strong>Utilisateur actuel</strong>
+    <blockquote>
+      <p>car le certificat doit être disponible uniquement pour ton compte Windows</p>
+    </blockquote>
+  </li>
+  <li>Clique sur <strong>Suivant</strong></li>
+  <li>Clique sur <strong>Parcourir</strong>, puis sélectionne ton fichier <code class="language-plaintext highlighter-rouge">.p12</code></li>
+  <li>Entre le <strong>mot de passe</strong> du certificat</li>
+  <li>Coche :
+    <ul>
+      <li>✅ <em>Marquer cette clé comme exportable</em></li>
+      <li>✅ <em>Inclure toutes les propriétés étendues</em></li>
+    </ul>
+  </li>
+  <li>Sélectionne :
+    <ul>
+      <li><strong>Placer tous les certificats dans le magasin suivant</strong></li>
+      <li>Clique sur <strong>Parcourir</strong> → choisis <strong>Personnel</strong></li>
+    </ul>
+  </li>
+  <li>Clique sur <strong>Suivant</strong> puis <strong>Terminer</strong></li>
+  <li>Un message “<strong>L’importation a réussi</strong>” s’affiche ✅</li>
+</ol>
+
+<hr />
+
+<h2 id="-étape-3--vérification-dans-le-navigateur">🌐 Étape 3 : Vérification dans le navigateur</h2>
+
+<h3 id="microsoft-edge--google-chrome">Microsoft Edge / Google Chrome</h3>
+<ol>
+  <li>Ouvre les <strong>Paramètres</strong></li>
+  <li>Recherche <strong>certificats</strong></li>
+  <li>Va dans :
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Paramètres → Confidentialité et sécurité → Sécurité → Gérer les certificats
+</code></pre></div>    </div>
+  </li>
+  <li>Onglet <strong>Personnel</strong> → tu dois voir ton certificat listé.</li>
+</ol>
+
+<h3 id="mozilla-firefox">Mozilla Firefox</h3>
+<blockquote>
+  <p>Firefox n’utilise <strong>pas</strong> le magasin Windows par défaut.</p>
+</blockquote>
+
+<ol>
+  <li>Menu ☰ → <strong>Paramètres</strong></li>
+  <li>Onglet <strong>Vie privée et sécurité</strong></li>
+  <li>Descends jusqu’à <strong>Certificats</strong></li>
+  <li>Clique sur <strong>Afficher les certificats</strong></li>
+  <li>Onglet <strong>Vos certificats</strong> → <strong>Importer</strong></li>
+  <li>Sélectionne ton fichier <code class="language-plaintext highlighter-rouge">.p12</code> → entre le mot de passe</li>
+</ol>
+
+<hr />
+
+<h2 id="️-étape-4--installation-via-powershell-option-automatisée">⚙️ Étape 4 : Installation via PowerShell (option automatisée)</h2>
+
+<p>Si tu préfères la méthode en ligne de commande :</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Read-Host</span><span class="w"> </span><span class="nt">-AsSecureString</span><span class="w"> </span><span class="s2">"Mot de passe du fichier .p12"</span><span class="w">
+</span><span class="n">Import-PfxCertificate</span><span class="w"> </span><span class="nt">-FilePath</span><span class="w"> </span><span class="s2">"C:\Users\&lt;ton_user&gt;\Documents\moncertificat.p12"</span><span class="w"> </span><span class="nt">-CertStoreLocation</span><span class="w"> </span><span class="s2">"Cert:\CurrentUser\My"</span><span class="w"> </span><span class="nt">-Password</span><span class="w"> </span><span class="nv">$password</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>📍 <code class="language-plaintext highlighter-rouge">Cert:\CurrentUser\My</code> = magasin “Personnel” de l’utilisateur</li>
+  <li>🔒 Nécessite <strong>aucun privilège administrateur</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="-étape-5--vérification-via-powershell">🧾 Étape 5 : Vérification via PowerShell</h2>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-ChildItem</span><span class="w"> </span><span class="nx">Cert:\CurrentUser\My</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-List</span><span class="w"> </span><span class="nx">Subject</span><span class="p">,</span><span class="w"> </span><span class="nx">Issuer</span><span class="p">,</span><span class="w"> </span><span class="nx">NotAfter</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Tu verras ton certificat avec :</p>
+<ul>
+  <li><strong>Subject</strong> (ton nom / identifiant)</li>
+  <li><strong>Issuer</strong> (autorité émettrice)</li>
+  <li><strong>NotAfter</strong> (date d’expiration)</li>
+</ul>
+
+<hr />
+
+<h2 id="-résumé">✅ Résumé</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Étape</th>
+      <th>Action</th>
+      <th>Détail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Double-cliquer sur <code class="language-plaintext highlighter-rouge">.p12</code></td>
+      <td>Lancer l’assistant d’importation</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Choisir “Utilisateur actuel”</td>
+      <td>Installation pour ton compte</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Entrer le mot de passe</td>
+      <td>Déverrouille le fichier</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Choisir “Personnel”</td>
+      <td>Emplacement correct pour navigateur</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Vérifier via navigateur</td>
+      <td>Chrome/Edge = magasin Windows, Firefox = import manuel</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-astuce">💡 Astuce</h2>
+<p>Tu peux <strong>exporter</strong> ce certificat vers un autre poste Windows ou macOS :</p>
+<ol>
+  <li>Ouvre <code class="language-plaintext highlighter-rouge">certmgr.msc</code></li>
+  <li>Dossier <strong>Personnel → Certificats</strong></li>
+  <li>Clique droit → <strong>Toutes les tâches → Exporter</strong></li>
+  <li>Coche <em>“Exporter la clé privée”</em> → choisis le format <code class="language-plaintext highlighter-rouge">.pfx</code></li>
+  <li>Protège-le avec un mot de passe fort 🔐</li>
+</ol>]]></content><author><name>Brahim MACHKOURI</name></author><category term="système" /><category term="certificat" /><category term="windows" /><summary type="html"><![CDATA[⚖️ Guide d’installation d’un certificat .p12 dans Windows 11 (utilisateur courant / navigateur web) 🎯 Objectif Installer un certificat client au format .p12 pour une utilisation dans les navigateurs web tels que Edge, Chrome ou Firefox, pour l’utilisateur courant. 🥉 Étape 1 : Comprendre le fichier .p12 Un fichier .p12 contient : 🔐 Le certificat utilisateur 🔑 La clé privée 🧾 Éventuellement la chaîne de certification (autorité intermédiaire / racine) Ce fichier est protégé par un mot de passe, que tu devras saisir lors de l’importation. 🦯o Étape 2 : Importation via l’interface graphique Double-clique sur le fichier moncertificat.p12 Sélectionne Utilisateur actuel car le certificat doit être disponible uniquement pour ton compte Windows Clique sur Suivant Clique sur Parcourir, puis sélectionne ton fichier .p12 Entre le mot de passe du certificat Coche : ✅ Marquer cette clé comme exportable ✅ Inclure toutes les propriétés étendues Sélectionne : Placer tous les certificats dans le magasin suivant Clique sur Parcourir → choisis Personnel Clique sur Suivant puis Terminer Un message “L’importation a réussi” s’affiche ✅ 🌐 Étape 3 : Vérification dans le navigateur Microsoft Edge / Google Chrome Ouvre les Paramètres Recherche certificats Va dans : Paramètres → Confidentialité et sécurité → Sécurité → Gérer les certificats Onglet Personnel → tu dois voir ton certificat listé. Mozilla Firefox Firefox n’utilise pas le magasin Windows par défaut. Menu ☰ → Paramètres Onglet Vie privée et sécurité Descends jusqu’à Certificats Clique sur Afficher les certificats Onglet Vos certificats → Importer Sélectionne ton fichier .p12 → entre le mot de passe ⚙️ Étape 4 : Installation via PowerShell (option automatisée) Si tu préfères la méthode en ligne de commande : $password = Read-Host -AsSecureString "Mot de passe du fichier .p12" Import-PfxCertificate -FilePath "C:\Users\&lt;ton_user&gt;\Documents\moncertificat.p12" -CertStoreLocation "Cert:\CurrentUser\My" -Password $password 📍 Cert:\CurrentUser\My = magasin “Personnel” de l’utilisateur 🔒 Nécessite aucun privilège administrateur 🧾 Étape 5 : Vérification via PowerShell Get-ChildItem Cert:\CurrentUser\My | Format-List Subject, Issuer, NotAfter Tu verras ton certificat avec : Subject (ton nom / identifiant) Issuer (autorité émettrice) NotAfter (date d’expiration) ✅ Résumé Étape Action Détail 1 Double-cliquer sur .p12 Lancer l’assistant d’importation 2 Choisir “Utilisateur actuel” Installation pour ton compte 3 Entrer le mot de passe Déverrouille le fichier 4 Choisir “Personnel” Emplacement correct pour navigateur 5 Vérifier via navigateur Chrome/Edge = magasin Windows, Firefox = import manuel 💡 Astuce Tu peux exporter ce certificat vers un autre poste Windows ou macOS : Ouvre certmgr.msc Dossier Personnel → Certificats Clique droit → Toutes les tâches → Exporter Coche “Exporter la clé privée” → choisis le format .pfx Protège-le avec un mot de passe fort 🔐]]></summary></entry><entry><title type="html">Lima - Ubuntu cheat sheet</title><link href="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.html" rel="alternate" type="text/html" title="Lima - Ubuntu cheat sheet" /><published>2025-06-21T14:30:00+02:00</published><updated>2025-06-21T14:30:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.html"><![CDATA[<p><img src="/theblog/assets/images/lima2.png" alt="LiMa" /></p>
 
 <p>Lima (“<strong>Li</strong>nux virtual <strong>ma</strong>chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.</p>
 
@@ -622,12 +779,12 @@ FATA[0000] unimplemented
 
 <h4 id="fichier-de-configuration-etcmysqlmycnf-ou-etcmycnf">Fichier de configuration (<code class="language-plaintext highlighter-rouge">/etc/mysql/my.cnf</code> ou <code class="language-plaintext highlighter-rouge">/etc/my.cnf</code>)</h4>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mysqld]</span>
-<span class="c"># Commenter ou modifier cette ligne pour autoriser les connexions distantes
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mysqld]</span><span class="w">
+</span><span class="c"># Commenter ou modifier cette ligne pour autoriser les connexions distantes
 # bind-address = 127.0.0.1
-</span><span class="py">bind-address</span> <span class="p">=</span> <span class="s">0.0.0.0</span>
-
-<span class="c"># Ou spécifier une IP précise
+</span><span class="py">bind-address</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">0.0.0.0</span>
+<span class="w">
+</span><span class="c"># Ou spécifier une IP précise
 # bind-address = 192.168.1.10
 </span></code></pre></div></div>
 
@@ -987,35 +1144,4 @@ python3
 
 <p>Lorsque la fenêtre suivante apparaît, entrez vos identifiants (1,2) et cliquez sur Enregistrer le mot de passe dans mon trousseau (3) pour éviter de le resaisir la fois prochaine.<br />
 Cliquez sur le bouton “Connecter” (4) :
-<img src="/theblog/assets/images/connect_samba_macos_img4.png" alt="image4" /></p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="smb" /><category term="samba" /><category term="mac" /><summary type="html"><![CDATA[⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.]]></summary></entry><entry><title type="html">Install viper usb driver on Windows 10</title><link href="/theblog/materiel/2022/06/08/installation-driver-viper-win10.html" rel="alternate" type="text/html" title="Install viper usb driver on Windows 10" /><published>2022-06-08T21:47:04+02:00</published><updated>2022-06-08T21:47:04+02:00</updated><id>/theblog/materiel/2022/06/08/installation-driver-viper-win10</id><content type="html" xml:base="/theblog/materiel/2022/06/08/installation-driver-viper-win10.html"><![CDATA[<p>Téléchargements :</p>
-
-<p><a href="https://github.com/brahimmachkouri/theblog/raw/main/files/ViperUSBWin7Driver.7z">Viper Extreme USB Driver</a><br />
-<a href="https://github.com/brahimmachkouri/theblog/raw/main/files/ViperFlasherUSB10.7z">Viper USB Flasher</a></p>
-
-<p>Le driver est non signé, il est donc nécessaire de passer Windows en mode Test.</p>
-
-<h2 id="test-mode">Test Mode</h2>
-
-<h3 id="activation">Activation</h3>
-
-<p>En ligne de commande avec les droits admin :</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcdedit -set TESTSIGNING ON
-</code></pre></div></div>
-<p>Redémarrer l’OS. Si l’opération a réussi, il y a une indication sur le côté droit au bas de l’écran (watermark) : Test Mode.</p>
-
-<p>Pour installer le driver USB de la Viper, allumez la gamecube en ayant pris soin de brancher la Viper en USB au PC.
-S’il est demandé d’installer le driver via Windows Update, refusez.
-Installez le driver en spécifiant le répertoire dans lequel se trouve les fichiers décompressés du drivers.
-Cliquez sur “Continuer” s’il est dit que le driver n’est pas certifié.</p>
-
-<h3 id="désactivation">Désactivation</h3>
-
-<p>En ligne de commande avec les droits admin :</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bcdedit -set TESTSIGNING OFF
-</code></pre></div></div>
-<p>Redémarrer l’OS.</p>
-
-<h2 id="flashage-">Flashage :</h2>
-<p>Assurez vous que le switch est en position 2 on sur le viper extreme, et que le câble USB est bien branché, et la gamecube allumée. 
-Lancez Viper Flasher, et chargez le fichier (File &gt; Load Bios) dont l’extension est vgc.
-Cliquez sur Write pour flasher le BIOS de la puce.</p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="materiel" /><category term="gamecube" /><category term="viper" /><category term="driver" /><category term="usb" /><summary type="html"><![CDATA[Téléchargements :]]></summary></entry></feed>
+<img src="/theblog/assets/images/connect_samba_macos_img4.png" alt="image4" /></p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="smb" /><category term="samba" /><category term="mac" /><summary type="html"><![CDATA[⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.]]></summary></entry></feed>

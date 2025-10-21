@@ -28,11 +28,21 @@
 var documents = [
     
         {
+            "url": "/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html",
+            "title": "Certificat - Installation d'un certificat .p12 pour un navigateur",
+            "category": " système ",
+            "tags": " certificat , windows ",
+            "id": 0
+        }
+        , 
+        
+    
+        {
             "url": "/theblog/syst%C3%A8me/2025/06/21/lima-cheat-sheet.html",
             "title": "Lima - Ubuntu cheat sheet",
             "category": " système ",
             "tags": " virtualisation , macos ",
-            "id": 0
+            "id": 1
         }
         , 
         
@@ -42,7 +52,7 @@ var documents = [
             "title": "Guide d'activation de Windows 11",
             "category": " système ",
             "tags": " activation , windows ",
-            "id": 1
+            "id": 2
         }
         , 
         
@@ -52,7 +62,7 @@ var documents = [
             "title": "Bug Proxy dans Docker Desktop 4.42.0",
             "category": " système ",
             "tags": " docker ",
-            "id": 2
+            "id": 3
         }
         , 
         
@@ -62,7 +72,7 @@ var documents = [
             "title": "Installation de LinkAce via Portainer",
             "category": " dev ",
             "tags": " mysql , mariadb ",
-            "id": 3
+            "id": 4
         }
         , 
         
@@ -72,7 +82,7 @@ var documents = [
             "title": "Attribution de privilèges MySQL/MariaDB",
             "category": " dev ",
             "tags": " mysql , mariadb ",
-            "id": 4
+            "id": 5
         }
         , 
         
@@ -82,7 +92,7 @@ var documents = [
             "title": "Connexion à MS SQL Server en PHP sous Debian/Ubuntu",
             "category": " dev ",
             "tags": " mssql , php , ubuntu ",
-            "id": 5
+            "id": 6
         }
         , 
         
@@ -92,7 +102,7 @@ var documents = [
             "title": "Mermaid Markdown",
             "category": " dev ",
             "tags": " mermaid ",
-            "id": 6
+            "id": 7
         }
         , 
         
@@ -102,7 +112,7 @@ var documents = [
             "title": "Utilisation de pyenv sous macOS",
             "category": " macos ",
             "tags": " python , dev ",
-            "id": 7
+            "id": 8
         }
         , 
         
@@ -112,7 +122,7 @@ var documents = [
             "title": "Connexion à un répertoire samba partagé avec macos",
             "category": " macos ",
             "tags": " smb , samba , mac ",
-            "id": 8
+            "id": 9
         }
         , 
         
@@ -122,7 +132,7 @@ var documents = [
             "title": "Install viper usb driver on Windows 10",
             "category": " materiel ",
             "tags": " gamecube , viper , driver , usb ",
-            "id": 9
+            "id": 10
         }
         , 
         
@@ -132,7 +142,7 @@ var documents = [
             "title": "Virtualbox low resolution mode",
             "category": " virtualisation ",
             "tags": " virtualbox ",
-            "id": 10
+            "id": 11
         }
         , 
         
@@ -142,7 +152,7 @@ var documents = [
             "title": "Upgrade Zalman VE-300 firmware to an iodd 2531 firmware",
             "category": " materiel ",
             "tags": " zalman , iodd , firmware ",
-            "id": 11
+            "id": 12
         }
         , 
         
@@ -152,7 +162,7 @@ var documents = [
             "title": "Compilation du driver cp210x sous Ubuntu (M5Paper)",
             "category": " materiel ",
             "tags": " m5paper , linux , driver , cp210x ",
-            "id": 12
+            "id": 13
         }
         
         
@@ -400,12 +410,12 @@ function lunr_search(term) {
 
 <h4 id="fichier-de-configuration-etcmysqlmycnf-ou-etcmycnf">Fichier de configuration (<code class="language-plaintext highlighter-rouge">/etc/mysql/my.cnf</code> ou <code class="language-plaintext highlighter-rouge">/etc/my.cnf</code>)</h4>
 
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mysqld]</span>
-<span class="c"># Commenter ou modifier cette ligne pour autoriser les connexions distantes
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[mysqld]</span><span class="w">
+</span><span class="c"># Commenter ou modifier cette ligne pour autoriser les connexions distantes
 # bind-address = 127.0.0.1
-</span><span class="py">bind-address</span> <span class="p">=</span> <span class="s">0.0.0.0</span>
-
-<span class="c"># Ou spécifier une IP précise
+</span><span class="py">bind-address</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">0.0.0.0</span>
+<span class="w">
+</span><span class="c"># Ou spécifier une IP précise
 # bind-address = 192.168.1.10
 </span></code></pre></div></div>
 
