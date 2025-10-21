@@ -6,14 +6,16 @@ category: système
 tags: certificat windows
 ---
 
-# ⚖️ Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
+![.p12]({{ "/assets/images/creation_certif.png" | relative_url }})
 
-## 🎯 Objectif
+## ⚖️ Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
+
+### 🎯 Objectif
 Installer un certificat client au format `.p12` pour une **utilisation dans les navigateurs web** tels que Edge, Chrome ou Firefox, pour **l'utilisateur courant**.
 
 ---
 
-## 🥉 Étape 1 : Comprendre le fichier `.p12`
+### 🥉 Étape 1 : Comprendre le fichier `.p12`
 
 Un fichier `.p12` contient :
 - 🔐 Le **certificat utilisateur**
