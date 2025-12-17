@@ -12,7 +12,8 @@ L'objectif est d'installer un certificat client au format `.p12` pour une **util
 
 ## ⚖️ Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
 
-### 🥉 Étape 1 : Comprendre le fichier `.p12`
+
+### Étape 1 : Comprendre le fichier `.p12`
 
 Un fichier `.p12` contient :
 - 🔐 Le **certificat utilisateur**
@@ -21,7 +22,8 @@ Un fichier `.p12` contient :
 
 Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l’importation.
 
-## 🦯o Étape 2 : Importation via l’interface graphique
+
+## Étape 2 : Importation via l’interface graphique
 
 1. **Double-clique** sur le fichier `moncertificat.p12`
 2. Sélectionne **Utilisateur actuel**  
@@ -38,7 +40,8 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
 8. Clique sur **Suivant** puis **Terminer**
 9. Un message “**L’importation a réussi**” s’affiche ✅
 
-## 🌐 Étape 3 : Vérification dans le navigateur
+
+## Étape 3 : Vérification dans le navigateur
 
 ### Microsoft Edge / Google Chrome
 1. Ouvre les **Paramètres**
@@ -59,7 +62,8 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
 5. Onglet **Vos certificats** → **Importer**
 6. Sélectionne ton fichier `.p12` → entre le mot de passe
 
-## ⚙️ Étape 4 : Installation via PowerShell (option automatisée)
+
+## Étape 4 : Installation via PowerShell (option automatisée)
 
 Si tu préfères la méthode en ligne de commande :
 
@@ -71,7 +75,8 @@ Import-PfxCertificate -FilePath "C:\Users\<ton_user>\Documents\moncertificat.p12
 - 📍 `Cert:\CurrentUser\My` = magasin “Personnel” de l’utilisateur
 - 🔒 Nécessite **aucun privilège administrateur**
 
-## 🧾 Étape 5 : Vérification via PowerShell
+
+## Étape 5 : Vérification via PowerShell
 
 ```powershell
 Get-ChildItem Cert:\CurrentUser\My | Format-List Subject, Issuer, NotAfter
