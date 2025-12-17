@@ -11,7 +11,7 @@ tags: certificat windows
 L'objectif est d'installer un certificat client au format `.p12` pour une **utilisation dans les navigateurs web** tels que Edge, Chrome ou Firefox, pour **l'utilisateur courant**.
 
 ## ⚖️ Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
-
+####
 
 ### Étape 1 : Comprendre le fichier `.p12`
 
@@ -39,7 +39,7 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
    - Clique sur **Parcourir** → choisis **Personnel**
 8. Clique sur **Suivant** puis **Terminer**
 9. Un message “**L’importation a réussi**” s’affiche ✅
-
+###
 
 ## Étape 3 : Vérification dans le navigateur
 
@@ -61,7 +61,7 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
 4. Clique sur **Afficher les certificats**
 5. Onglet **Vos certificats** → **Importer**
 6. Sélectionne ton fichier `.p12` → entre le mot de passe
-
+###
 
 ## Étape 4 : Installation via PowerShell (option automatisée)
 
@@ -74,7 +74,7 @@ Import-PfxCertificate -FilePath "C:\Users\<ton_user>\Documents\moncertificat.p12
 
 - 📍 `Cert:\CurrentUser\My` = magasin “Personnel” de l’utilisateur
 - 🔒 Nécessite **aucun privilège administrateur**
-
+###
 
 ## Étape 5 : Vérification via PowerShell
 
