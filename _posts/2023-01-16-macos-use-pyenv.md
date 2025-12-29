@@ -61,3 +61,11 @@ python -V
 python2
 python3
 ```
+
+Pour mettre à jour Pyenv :
+```bash
+cd ~/.pyenv
+git pull
+```
+
+
