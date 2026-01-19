@@ -1,4 +1,176 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2026-01-19T18:38:05+01:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Certificat - Installation d’un certificat .p12 pour un navigateur</title><link href="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html" rel="alternate" type="text/html" title="Certificat - Installation d’un certificat .p12 pour un navigateur" /><published>2025-10-21T13:00:00+02:00</published><updated>2025-10-21T13:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html"><![CDATA[<p><img src="/theblog/assets/images/install_cert_win.png" alt="p12" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/theblog/feed.xml" rel="self" type="application/atom+xml" /><link href="/theblog/" rel="alternate" type="text/html" /><updated>2026-01-19T18:43:02+01:00</updated><id>/theblog/feed.xml</id><title type="html">Mémos</title><subtitle>A static Github blog for everyone.</subtitle><author><name>Brahim MACHKOURI</name></author><entry><title type="html">Dématérialisation des signatures des conventions de stage - Yousign &amp;amp; iParapheur</title><link href="/theblog/bureautique/2026/01/19/dematerialisation-signatures.html" rel="alternate" type="text/html" title="Dématérialisation des signatures des conventions de stage - Yousign &amp;amp; iParapheur" /><published>2026-01-19T19:00:00+01:00</published><updated>2026-01-19T19:00:00+01:00</updated><id>/theblog/bureautique/2026/01/19/dematerialisation-signatures</id><content type="html" xml:base="/theblog/bureautique/2026/01/19/dematerialisation-signatures.html"><![CDATA[<h1 id="dématérialisation-des-signatures-des-conventions-de-stage---yousign--iparapheur">Dématérialisation des signatures des conventions de stage - Yousign / iParapheur</h1>
+
+<p>Ce document a pour objectif de vous donner la marche à suivre afin de faire signer numériquement les conventions de stage. Dans un premier temps, vous ferez signer l’étudiant.e, le/la tuteur/tutrice pédagogique et les responsables de l’entreprise via l’application Yousign , et dans un deuxième temps, le directeur de l’établissement, via l’application iParapheur.</p>
+
+<h2 id="création-dune-nouvelle-invitation-à-signer-un-document">Création d’une nouvelle invitation à signer un document</h2>
+
+<p>Pour créer une nouvelle invitation à signer un document, cliquez sur le bouton “NOUVELLE INVITATION” :</p>
+
+<p><img src="assets/images/doc_yousign_dashboard_accueil.png" alt="doc_yousign_dashboard_accueil.png" /></p>
+
+<h2 id="téléversement-upload-du-document-à-signer">Téléversement (upload) du document à signer</h2>
+
+<p>L’application vous propose de téléverser le document PDF (ou DOCX) à signer. Uploadez votre document soit en le glissant dans la zone du “déposer”, soit en allant chercher le document en cliquant sur le bouton [+] :</p>
+
+<p><img src="assets/images/doc_yousign_new_invite.png" alt="doc_yousign_new_invite.png" /></p>
+
+<h2 id="ajout-des-signataires">Ajout des signataires</h2>
+
+<p>Maintenant qu’on a uploadé le document, il faut définir les signataires, en cliquant sur le bouton [+] :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire_.png" alt="doc_yousign_ajout-signataire_.png" /></p>
+
+<p>Tapez le nom du signataire puis cliquez soit sur le bouton “AJOUTER”, soit sur le lien “Ajouter en tant que nouveau signataire” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape1.png" alt="doc_yousign_ajout-signataire-etape1.png" /></p>
+
+<p>Vous pouvez soit laisser comme ceci et valider en cliquant sur le bouton “AJOUTER UN SIGNATAIRE” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape2-1.png" alt="doc_yousign_ajout-signataire-etape2-1.png" /></p>
+
+<p>Soit enregistrer le nouveau signataire et le partager dans l’espace de travail afin qu’il soit proposé dans la liste des signataires lors du prochain ajout :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape2-2.png" alt="doc_yousign_ajout-signataire-etape2-2.png" /></p>
+
+<p><strong><em>Remarque : le fait de partager avec “Tous les membres de l’organisation”  a une incidence : TOUS les membres de l’organisation auront connaissance de vos contacts, raison pour laquelle il faut nécessairement rester cantonné à “l’Espace de travail”, sous-ensemble de l’organisation.</em></strong></p>
+
+<p>Voici un aperçu de ce que cela donnera une fois enregistré dans les contacts lors du prochain ajout :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire_contact.png" alt="doc_yousign_ajout-signataire_contact.png" /></p>
+
+<p>Vous avez également la possibilité d’importer des contacts. Cela sera abordé dans la partie suivante.</p>
+
+<p>Une fois que vous avez ajouté les signataires, vous pouvez les voir dans la partie droite de la fenêtre. Donc ici : Brad Pitt, Julia Roberts et Adèle Exarchopoulos :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape3.png" alt="doc_yousign_ajout-signataire-etape3.png" /></p>
+
+<h2 id="emplacement-des-signatures">Emplacement des signatures</h2>
+
+<p>Maintenant que le document est téléversé et les signataires définis, il est nécessaire de définir l’emplacement des signatures.</p>
+
+<p>Pour cela, cliquez sur le signataire désiré, et glissez le champ “Signature” sur l’endroit voulu. Ici, Brad Pitt est le représentant de l’entreprise d’accueil, Julia Roberts la tutrice de stage, et Adèle Exarchopoulos la stagiaire. Dans la cas où le tuteur en entreprise n’est pas le responsable de l’entreprise, il faudra l’ajouter aussi.</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape4.gif" alt="doc_yousign_ajout-signataire-etape4.gif" /></p>
+
+<p>Une fois ceci réalisé, l’étape suivante est débloquée : le bouton “SUIVANT” en haut à droite passe au vert :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape5.png" alt="doc_yousign_ajout-signataire-etape5.png" /></p>
+
+<h2 id="envoi-du-document-aux-signataires">Envoi du document aux signataires</h2>
+
+<p>Voici la dernière fenêtre : les détails de l’invitation à signer. Sur le côté droit, vous avez un aperçu du courrier que recevront les signataires, mis à jour dynamiquement, en fonction de ce que vous saisissez.</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_app___.png" alt="doc_yousign_ajout-signataire-etape6_app___.png" /></p>
+
+<p>1 : Donnez un nom à la convention.</p>
+
+<p>2 : Vous pouvez ajouter un label. C’est optionnel, mais recommandé. Pour ajouter un label, cliquez sur le bouton pour obtenir la liste des labels existants et la possibilité d’en créer un nouveau :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_ajout-label.png" alt="doc_yousign_ajout-signataire-etape6_ajout-label.png" /></p>
+
+<p>Cela nous donnera la possibilité de filtrer les invitations pour n’afficher que les documents tagués avec le label concerné.</p>
+
+<p>3 : Sélectionnez la ligne contenant “(moi)”.</p>
+
+<p>4 : Saisissez l’objet du mail.</p>
+
+<p>5 : Rédigez le corps du courrier.</p>
+
+<p>6 : Il y a possibilité de créer des messages favoris pour venir piocher dedans au lieu de les rédiger à chaque fois.</p>
+
+<p>A cette fin, une fois que vous avez rédigé le message, enregistrez-le en cliquant sur le lien “Gérer les messages favoris” puis sur “Enregistrer le message dans les favoris” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_new-message-record_.png" alt="doc_yousign_ajout-signataire-etape6_new-message-record_.png" /></p>
+
+<p>Donnez un nom à ce message puis cliquez sur le bouton “ENREGISTRER” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_new-message-record-save.png" alt="doc_yousign_ajout-signataire-etape6_new-message-record-save.png" /></p>
+
+<p>Dorénavant, pour utiliser un message favori plutôt que de le saisir, cliquez sur “Gérer les messages favoris” puis “Utiliser un message personnalisé” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_new-message-use_.png" alt="doc_yousign_ajout-signataire-etape6_new-message-use_.png" /></p>
+
+<p>Enfin, sélectionnez le message dans la liste :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_new-message-use-select.png" alt="doc_yousign_ajout-signataire-etape6_new-message-use-select.png" /></p>
+
+<h2 id="envoi-du-document">Envoi du document</h2>
+
+<p>Maintenant que tout est paramétré, le document peut être envoyé soit immédiatement, soit programmé, soit être enregistré en tant que brouillon pour y revenir plus tard afin de le terminer :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape6_programmer-envoi.png" alt="doc_yousign_ajout-signataire-etape6_programmer-envoi.png" /></p>
+
+<p>On suppose que l’envoi est fait immédiatement. Dans ce cas, voici le résultat :</p>
+
+<p>![doc_yousign_ajout-signataire-etape7<em>.png](assets/images/doc_yousign_ajout-signataire-etape7</em>.png)</p>
+
+<p>A gauche, la liste des signataires, et à droite l’historique des actions réalisées sur le document.</p>
+
+<p>Si on revient à l’accueil, icône Yousign en haut à gauche de l’écran, on constate que l’invitation à signer est “En cours” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape7_envoi_en-cours.png" alt="doc_yousign_ajout-signataire-etape7_envoi_en-cours.png" /></p>
+
+<p>Adèle Exachopoulos a signé, son statut passe au vert, et les actions sur le document progressent : “En cours” passe de 0 à 33% :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-signataire-etape7_envoi_en-cours_33pcents.png" alt="doc_yousign_ajout-signataire-etape7_envoi_en-cours_33pcents.png" /></p>
+
+<p>Une fois que tous les signataires ont signé le document, l’invitation à signer est terminée, et le bouton “Télécharger” remplace le bouton permettant d’envoyer des rappels :</p>
+
+<p><img src="assets/images/doc_yousign_dashboard_accueil_doc-signed.png" alt="doc_yousign_dashboard_accueil_doc-signed.png" /></p>
+
+<p>Cliquez sur ce bouton pour télécharger le document et passer à la suite : le téléversement sur iParapheur, afin que le responsable de l’établissement puisse le signer à son tour et ainsi clôturer le circuit de la convention de stage.</p>
+
+<h2 id="import-de-contact-via-un-fichier-csv">Import de contact via un fichier CSV</h2>
+
+<p>L’application offre la possibilité d’importer des contacts soit au fil de l’eau, soit via un fichier csv.</p>
+
+<h3 id="préparation-du-fichier-csv"><strong>Préparation du fichier .csv</strong></h3>
+
+<p>Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.</p>
+
+<p><a href="assets/files/yousign-contacts.csv">yousign-contacts.csv</a></p>
+
+<p>Alimentez-le avec vos données. Exemple ci-dessous :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-contact_excel.png" alt="doc_yousign_ajout-contact_excel.png" /></p>
+
+<h3 id="import-dans-yousign">Import dans YouSign</h3>
+
+<p>Ensuite enregistrez le fichier sous le format .csv et revenez dans Yousign, dans Paramètres (1) puis Contacts (2) :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-contact__dashboard.png" alt="doc_yousign_ajout-contact__dashboard.png" /></p>
+
+<p>Pour importer un fichier .csv, cliquez sur l’un des boutons “IMPORTER DEPUIS CSV” (3). La fenêtre d’import apparaît :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-contact_csv-1.png" alt="doc_yousign_ajout-contact_csv-1.png" /></p>
+
+<p>Glissez le fichier .csv pour obtenir la fenêtre suivante. Cliquez sur le bouton “IMPORTER X CONTACTS” :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-contact_csv-2.png" alt="doc_yousign_ajout-contact_csv-2.png" /></p>
+
+<p>Les contacts sont bien importés :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-contact_csv-3.png" alt="doc_yousign_ajout-contact_csv-3.png" /></p>
+
+<p>Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :</p>
+
+<p><img src="assets/images/doc_yousign_ajout-contact_csv-4.png" alt="doc_yousign_ajout-contact_csv-4.png" /></p>
+
+<h2 id="iparapheur">iParapheur</h2>
+
+<p>Dans iParapheur, cliquez sur le bouton “Créer un dossier” :</p>
+
+<p><img src="assets/images/doc_iparapheur_accueil.png" alt="doc_iparapheur_accueil.png" /></p>
+
+<p>Cliquez sur le bouton “Ajouter des documents principaux” pour uploader le document.</p>
+
+<p><img src="assets/images/doc_iparapheur_accueil_ajouter-document.png" alt="doc_iparapheur_accueil_ajouter-document.png" /></p>
+
+<p><strong>Ne cliquez pas tout de suite sur le bouton “Envoyer dans le circuit” : l’emplacement de la signature doit être défini au préalable, donc cliquez sur le bouton “Enregistrer en tant que brouillon”.</strong></p>
+
+<p>Une fois dans le brouillon, allez sur la page qui doit recevoir la signature, puis cliquez sur l’icône de la main en haut à droite (1), avant de cliquer sur l’emplacement désiré (2). Une fois l’opération effectuée, cliquez sur le bouton “Envoyer dans le circuit” (3). Vous pouvez consulter les brouillons en cliquant sur le bouton orange (4) :</p>
+
+<p><img src="assets/images/doc_iparapheur_brouillon-signature_.png" alt="doc_iparapheur_brouillon-signature_.png" /></p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="bureautique" /><category term="yousign" /><category term="signatures" /><category term="iparapheur" /><summary type="html"><![CDATA[Dématérialisation des signatures des conventions de stage - Yousign / iParapheur]]></summary></entry><entry><title type="html">Certificat - Installation d’un certificat .p12 pour un navigateur</title><link href="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html" rel="alternate" type="text/html" title="Certificat - Installation d’un certificat .p12 pour un navigateur" /><published>2025-10-21T13:00:00+02:00</published><updated>2025-10-21T13:00:00+02:00</updated><id>/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur</id><content type="html" xml:base="/theblog/syst%C3%A8me/2025/10/21/ajout-certificat-navigateur.html"><![CDATA[<p><img src="/theblog/assets/images/install_cert_win.png" alt="p12" /></p>
 
 <p>L’objectif est d’installer un certificat client au format <code class="language-plaintext highlighter-rouge">.p12</code> pour une <strong>utilisation dans les navigateurs web</strong> tels que Edge, Chrome ou Firefox, pour <strong>l’utilisateur courant</strong>.</p>
 
@@ -1129,19 +1301,4 @@ python3
 <p>Pour mettre à jour Pyenv :</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.pyenv
 git pull
-</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="python" /><category term="dev" /><summary type="html"><![CDATA[Pour utiliser différentes versions de Python sous macOS, pyenv est LA solution.]]></summary></entry><entry><title type="html">Connexion à un répertoire samba partagé avec macos</title><link href="/theblog/macos/2023/01/10/connexion-repertoire-samba.html" rel="alternate" type="text/html" title="Connexion à un répertoire samba partagé avec macos" /><published>2023-01-10T17:57:26+01:00</published><updated>2023-01-10T17:57:26+01:00</updated><id>/theblog/macos/2023/01/10/connexion-repertoire-samba</id><content type="html" xml:base="/theblog/macos/2023/01/10/connexion-repertoire-samba.html"><![CDATA[<p>⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.</p>
-
-<p>Depuis le menu Finder, cliquez sur “Aller” &gt; “Se connecter au serveur…” (ou command+K):<br />
-<img src="/theblog/assets/images/connect_samba_macos_img1.png" alt="image1" /></p>
-
-<p>Dans le champ, saisissez “smb://login@adresseip”, en remplaçant login par votre propre login, et adresseip par l’adresse IP de votre serveur (1) :
-<img src="/theblog/assets/images/connect_samba_macos_img2.png" alt="image2" /></p>
-
-<p>Pour ajouter le serveur aux serveurs favoris, cliquez sur le bouton ‘+’ (2). Puis cliquez sur le bouton “Connecter” (3).</p>
-
-<p>Cliquez une nouvelle fois sur “Se connecter” :
-<img src="/theblog/assets/images/connect_samba_macos_img3.png" alt="image3" /></p>
-
-<p>Lorsque la fenêtre suivante apparaît, entrez vos identifiants (1,2) et cliquez sur Enregistrer le mot de passe dans mon trousseau (3) pour éviter de le resaisir la fois prochaine.<br />
-Cliquez sur le bouton “Connecter” (4) :
-<img src="/theblog/assets/images/connect_samba_macos_img4.png" alt="image4" /></p>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="smb" /><category term="samba" /><category term="mac" /><summary type="html"><![CDATA[⚠️ Utilisez le VPN de l’établissement si votre serveur de fichier est hébergé en interne.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Brahim MACHKOURI</name></author><category term="macos" /><category term="python" /><category term="dev" /><summary type="html"><![CDATA[Pour utiliser différentes versions de Python sous macOS, pyenv est LA solution.]]></summary></entry></feed>
