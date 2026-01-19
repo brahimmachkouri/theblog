@@ -58,7 +58,7 @@ Maintenant que le document est téléversé et les signataires définis, il est 
 
 Pour cela, cliquez sur le signataire désiré, et glissez le champ “Signature” sur l’endroit voulu. Ici, Brad Pitt est le représentant de l’entreprise d’accueil, Julia Roberts la tutrice de stage, et Adèle Exarchopoulos la stagiaire. Dans la cas où le tuteur en entreprise n’est pas le responsable de l’entreprise, il faudra l’ajouter aussi.
 
-![doc_yousign_ajout-signataire-etape4.gif]({{ "/assets/images/doc_yousign_ajout-signataire-etape4.gif)
+![doc_yousign_ajout-signataire-etape4.gif]({{ "/assets/images/doc_yousign_ajout-signataire-etape4.gif" | relative_url }})
 
 Une fois ceci réalisé, l’étape suivante est débloquée : le bouton “SUIVANT” en haut à droite passe au vert :
 
