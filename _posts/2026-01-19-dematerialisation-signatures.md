@@ -6,7 +6,6 @@ category: bureautique
 tags: yousign signatures iparapheur
 ---  
 
-# Dématérialisation des signatures des conventions de stage - Yousign / iParapheur
 
 Ce document a pour objectif de vous donner la marche à suivre afin de faire signer numériquement les conventions de stage. Dans un premier temps, vous ferez signer l’étudiant.e, le/la tuteur/tutrice pédagogique et les responsables de l’entreprise via l’application Yousign , et dans un deuxième temps, le directeur de l’établissement, via l’application iParapheur.
 
