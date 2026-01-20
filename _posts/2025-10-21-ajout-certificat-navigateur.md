@@ -6,10 +6,6 @@ category: système
 tags: certificat windows
 ---
 
-![LiMa]({{ "/assets/images/lima2.png" | relative_url }})
-
-Lima (“**Li**nux virtual **ma**chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.
-
 L'objectif est d’exécuter des outils Linux (Docker, Podman, Kubernetes, etc.) sur Mac dans un vrai environnement Linux, ce qui offre une compatibilité et un comportement identiques à un vrai serveur Linux.
 
 ## Installation
@@ -43,7 +39,7 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
    - **Placer tous les certificats dans le magasin suivant**
    - Clique sur **Parcourir** → choisis **Personnel**
 8. Clique sur **Suivant** puis **Terminer**
-9. Un message “**L’importation a réussi**” s’affiche ✅
+9. Un message “**L’importation a réussi**” s’affiche
 
 ## Étape 3 : Vérification dans le navigateur
 
@@ -65,7 +61,6 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
 4. Clique sur **Afficher les certificats**
 5. Onglet **Vos certificats** → **Importer**
 6. Sélectionne ton fichier `.p12` → entre le mot de passe
-###
 
 ## Étape 4 : Installation via PowerShell (option automatisée)
 
@@ -76,9 +71,8 @@ $password = Read-Host -AsSecureString "Mot de passe du fichier .p12"
 Import-PfxCertificate -FilePath "C:\Users\<ton_user>\Documents\moncertificat.p12" -CertStoreLocation "Cert:\CurrentUser\My" -Password $password
 ```
 
-- 📍 `Cert:\CurrentUser\My` = magasin “Personnel” de l’utilisateur
-- 🔒 Nécessite **aucun privilège administrateur**
-###
+- `Cert:\CurrentUser\My` = magasin “Personnel” de l’utilisateur
+- Nécessite **aucun privilège administrateur**
 
 ## Étape 5 : Vérification via PowerShell
 
@@ -93,7 +87,7 @@ Tu verras ton certificat avec :
 
 ---
 
-## ✅ Résumé
+## Résumé
 
 | Étape | Action | Détail |
 |-------|---------|--------|
@@ -112,7 +106,3 @@ Tu peux **exporter** ce certificat vers un autre poste Windows ou macOS :
 3. Clique droit → **Toutes les tâches → Exporter**
 4. Coche *“Exporter la clé privée”* → choisis le format `.pfx`
 5. Protège-le avec un mot de passe fort 🔐
-
-
-
-
