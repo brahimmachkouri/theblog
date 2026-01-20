@@ -109,7 +109,7 @@ Maintenant que tout est paramétré, le document peut être envoyé soit immédi
 
 On suppose que l’envoi est fait immédiatement. Dans ce cas, voici le résultat :
 
-![doc_yousign_ajout-signataire-etape7_.png]({{ "/assets/images/doc_yousign_ajout-signataire-etape7_.png" | relative_url }})
+![doc_yousign_ajout-signataire-etape7_image.png]({{ "/assets/images/doc_yousign_ajout-signataire-etape7_image.png" | relative_url }})
 
 A gauche, la liste des signataires, et à droite l’historique des actions réalisées sur le document.
 
