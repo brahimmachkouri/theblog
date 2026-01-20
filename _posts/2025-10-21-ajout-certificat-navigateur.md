@@ -10,18 +10,16 @@ tags: certificat windows
 
 L'objectif est d'installer un certificat client au format `.p12` pour une **utilisation dans les navigateurs web** tels que Edge, Chrome ou Firefox, pour **l'utilisateur courant**.
 
-## ⚖️ Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
-####
+## Guide d'installation d'un certificat `.p12` dans Windows 11 (utilisateur courant / navigateur web)
 
 ### Étape 1 : Comprendre le fichier `.p12`
 
 Un fichier `.p12` contient :
-- 🔐 Le **certificat utilisateur**
-- 🔑 La **clé privée**
-- 🧾 Éventuellement la **chaîne de certification** (autorité intermédiaire / racine)
+- Le **certificat utilisateur**
+- La **clé privée**
+- Éventuellement la **chaîne de certification** (autorité intermédiaire / racine)
 
 Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l’importation.
-
 
 ## Étape 2 : Importation via l’interface graphique
 
@@ -39,7 +37,6 @@ Ce fichier est **protégé par un mot de passe**, que tu devras saisir lors de l
    - Clique sur **Parcourir** → choisis **Personnel**
 8. Clique sur **Suivant** puis **Terminer**
 9. Un message “**L’importation a réussi**” s’affiche ✅
-###
 
 ## Étape 3 : Vérification dans le navigateur
 
@@ -108,5 +105,6 @@ Tu peux **exporter** ce certificat vers un autre poste Windows ou macOS :
 3. Clique droit → **Toutes les tâches → Exporter**
 4. Coche *“Exporter la clé privée”* → choisis le format `.pfx`
 5. Protège-le avec un mot de passe fort 🔐
+
 
 
