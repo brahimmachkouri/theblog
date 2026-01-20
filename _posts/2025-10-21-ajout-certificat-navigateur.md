@@ -1,11 +1,18 @@
 ---
 layout: post
-date: 2025-10-21 11:00:00
+date: 2025-10-21 12:30:00
 title: Certificat - Installation d'un certificat .p12 pour un navigateur
 category: système
 tags: certificat windows
 ---
 
+![LiMa]({{ "/assets/images/lima2.png" | relative_url }})
+
+Lima (“**Li**nux virtual **ma**chines”) est un outil open-source qui permet de lancer facilement des machines virtuelles Linux sur macOS (et aussi Linux). Il vise à offrir une expérience “Linux-on-Mac” fluide pour les développeurs, tout en gardant une gestion simple et intégrée.
+
+L'objectif est d’exécuter des outils Linux (Docker, Podman, Kubernetes, etc.) sur Mac dans un vrai environnement Linux, ce qui offre une compatibilité et un comportement identiques à un vrai serveur Linux.
+
+## Installation
 ![p12]({{ "/assets/images/install_cert_win.png" | relative_url }})
 
 L'objectif est d'installer un certificat client au format `.p12` pour une **utilisation dans les navigateurs web** tels que Edge, Chrome ou Firefox, pour **l'utilisateur courant**.
@@ -105,6 +112,7 @@ Tu peux **exporter** ce certificat vers un autre poste Windows ou macOS :
 3. Clique droit → **Toutes les tâches → Exporter**
 4. Coche *“Exporter la clé privée”* → choisis le format `.pfx`
 5. Protège-le avec un mot de passe fort 🔐
+
 
 
 
