@@ -125,7 +125,11 @@ Une fois que tous les signataires ont signé le document, l’invitation à sign
 
 ![doc_yousign_dashboard_accueil_doc-signed.png]({{ "/assets/images/doc_yousign_dashboard_accueil_doc-signed.png" | relative_url }})
 
-Cliquez sur ce bouton pour télécharger le document et passer à la suite : le téléversement sur iParapheur, afin que le responsable de l’établissement puisse le signer à son tour et ainsi clôturer le circuit de la convention de stage.
+Cliquez sur ce bouton pour télécharger le document. Il faut également télécharger le dossier de preuve :
+
+![doc_yousign_alerte-telecharger-dossiers-preuves.png]({{ "/assets/images/doc_yousign_alerte-telecharger-dossiers-preuves.png" | relative_url }})
+
+Une fois tous les éléments téléchargés, vous pouvez passer à la suite : le téléversement sur iParapheur, afin que le responsable de l’établissement puisse le signer à son tour et ainsi clôturer le circuit de la convention de stage.
 
 ## Import de contact via un fichier CSV
 
