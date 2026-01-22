@@ -21,6 +21,52 @@ L’application vous propose de téléverser le document PDF (ou DOCX) à signer
 
 ![doc_yousign_new_invite.png]({{ "/assets/images/doc_yousign_new_invite.png" | relative_url }})
 
+## Import de contacts via un fichier CSV
+
+L’application offre la possibilité d’importer des contacts soit au fil de l’eau, soit via un fichier csv.
+
+### **Préparation du fichier .csv**
+
+1. Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.
+
+[yousign-contacts.csv]({{ "/assets/files/yousign-contacts.csv" | relative_url }})
+
+2. Alimentez-le avec vos données. 
+
+Exemple ci-dessous :
+
+![doc_yousign_ajout-contact_excel.png]({{ "/assets/images/doc_yousign_ajout-contact_excel.png" | relative_url }})
+
+### Import dans YouSign
+
+Ensuite enregistrez le fichier sous le format .csv et revenez dans Yousign. Cliquez sur Abonnement :
+
+![doc_yousign_abonnement.png]({{ "/assets/images/doc_yousign_abonnement.png" | relative_url }})
+
+Puis sur Contacts (1) :
+
+![doc_yousign_ajout-contact__dashboard.png]({{ "/assets/images/doc_yousign_ajout-contact__dashboard.png" | relative_url }})
+
+Pour importer un fichier .csv, cliquez sur l’un des boutons “IMPORTER DEPUIS CSV” (2). La fenêtre d’import apparaît : 
+
+![doc_yousign_ajout-contact_csv-1.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-1.png" | relative_url }})
+
+Glissez le fichier .csv pour obtenir la fenêtre suivante. Cliquez sur le bouton “IMPORTER X CONTACTS” :
+
+![doc_yousign_ajout-contact_csv-2.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-2.png" | relative_url }})
+
+Les contacts sont bien importés :
+
+![doc_yousign_ajout-contact_csv-3.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-3.png" | relative_url }})
+
+***Remarque : le fait de partager avec “Tous les membres de l’organisation”  a une incidence : TOUS les membres de l'organisation auront connaissance de vos contacts, raison pour laquelle il faut nécessairement rester cantonné à “l’Espace de travail” de l'établissement, sous-ensemble de l’organisation.***
+
+Il faut donc les affecter à l'espace de travail (workspace) de l'établissement. Pour cela, vous pouvez soit utiliser le bouton [...] > modifier et les affecter à la main quand il n'y en a très peu. S'il y en a une dizaine, vous pouvez utiliser l'application YousignBot. Notez que lorsque vous serez dans le navigateur ouvert par YousignBot, il faudra ouvrir la page des contacts pour que le bot fasse son travail. 
+
+Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :
+
+![doc_yousign_ajout-contact_csv-4.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-4.png" | relative_url }})
+
 ## Ajout des signataires
 
 Maintenant qu’on a uploadé le document, il faut définir les signataires, en cliquant sur le bouton [+] : 
@@ -39,15 +85,11 @@ Soit enregistrer le nouveau signataire et le partager dans l’espace de travail
 
 ![doc_yousign_ajout-signataire-etape2-2.png]({{ "/assets/images/doc_yousign_ajout-signataire-etape2-2.png" | relative_url }})
 
-***Remarque : le fait de partager avec “Tous les membres de l’organisation”  a une incidence : TOUS les membres de l'organisation auront connaissance de vos contacts, raison pour laquelle il faut nécessairement rester cantonné à “l’Espace de travail”, sous-ensemble de l’organisation.***
-
 Voici un aperçu de ce que cela donnera une fois enregistré dans les contacts lors du prochain ajout :
 
 ![doc_yousign_ajout-signataire_contact.png]({{ "/assets/images/doc_yousign_ajout-signataire_contact.png" | relative_url }})
 
-Vous avez également la possibilité d’importer des contacts. Cela sera abordé dans la partie suivante.
-
-Une fois que vous avez ajouté les signataires, vous pouvez les voir dans la partie droite de la fenêtre. Donc ici : Brad Pitt, Julia Roberts et Adèle Exarchopoulos :
+Une fois que vous avez ajouté les signataires, ils sont visibles dans la partie droite de la fenêtre. Donc ici : Brad Pitt, Julia Roberts et Adèle Exarchopoulos :
 
 ![doc_yousign_ajout-signataire-etape3.png]({{ "/assets/images/doc_yousign_ajout-signataire-etape3.png" | relative_url }})
 
@@ -130,48 +172,6 @@ Cliquez sur ce bouton pour télécharger le document. Il faut également téléc
 ![doc_yousign_alerte-telecharger-dossiers-preuves.png]({{ "/assets/images/doc_yousign_alerte-telecharger-dossiers-preuves.png" | relative_url }})
 
 Une fois tous les éléments téléchargés, vous pouvez passer à la suite : le téléversement sur iParapheur, afin que le responsable de l’établissement puisse le signer à son tour et ainsi clôturer le circuit de la convention de stage.
-
-## Import de contact via un fichier CSV
-
-L’application offre la possibilité d’importer des contacts soit au fil de l’eau, soit via un fichier csv.
-
-### **Préparation du fichier .csv**
-
-Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.
-
-[yousign-contacts.csv]({{ "/assets/files/yousign-contacts.csv" | relative_url }})
-
-Alimentez-le avec vos données. Exemple ci-dessous :
-
-![doc_yousign_ajout-contact_excel.png]({{ "/assets/images/doc_yousign_ajout-contact_excel.png" | relative_url }})
-
-### Import dans YouSign
-
-Ensuite enregistrez le fichier sous le format .csv et revenez dans Yousign. Cliquez sur Abonnement :
-
-![doc_yousign_abonnement.png]({{ "/assets/images/doc_yousign_abonnement.png" | relative_url }})
-
-Puis sur Contacts (1) :
-
-![doc_yousign_ajout-contact__dashboard.png]({{ "/assets/images/doc_yousign_ajout-contact__dashboard.png" | relative_url }})
-
-Pour importer un fichier .csv, cliquez sur l’un des boutons “IMPORTER DEPUIS CSV” (2). La fenêtre d’import apparaît : 
-
-![doc_yousign_ajout-contact_csv-1.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-1.png" | relative_url }})
-
-Glissez le fichier .csv pour obtenir la fenêtre suivante. Cliquez sur le bouton “IMPORTER X CONTACTS” :
-
-![doc_yousign_ajout-contact_csv-2.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-2.png" | relative_url }})
-
-Les contacts sont bien importés :
-
-![doc_yousign_ajout-contact_csv-3.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-3.png" | relative_url }})
-
-Maintenant, il faut les affecter à l'espace de travail (workspace) de l'établissement. Pour cela, vous pouvez soit utiliser le bouton [...] > modifier et les affecter à la main quand il n'y en a très peu. S'il y en a une dizaine, vous pouvez utiliser l'application YousignBot. Notez que lorsque vous serez dans le navigateur ouvert par YousignBot, il faudra ouvrir la page des contacts pour que le bot fasse son travail. 
-
-Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :
-
-![doc_yousign_ajout-contact_csv-4.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-4.png" | relative_url }})
 
 ## iParapheur
 
