@@ -167,8 +167,7 @@ Les contacts sont bien importés :
 
 ![doc_yousign_ajout-contact_csv-3.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-3.png" | relative_url }})
 
-Maintenant, il faut les affecter à l'espace de travail (workspace) de l'établissement. Pour cela, vous pouvez utiliser l'application YousignBot.
-Lorsque vous serez dans le navigateur ouvert par YousignBot, il faudra ouvrir la page des contacts pour que le bot fasse son travail. 
+Maintenant, il faut les affecter à l'espace de travail (workspace) de l'établissement. Pour cela, vous pouvez soit utiliser le bouton [...] > modifier et les affecter à la main quand il n'y en a très peu. S'il y en a une dizaine, vous pouvez utiliser l'application YousignBot. Notez que lorsque vous serez dans le navigateur ouvert par YousignBot, il faudra ouvrir la page des contacts pour que le bot fasse son travail. 
 
 Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :
 
