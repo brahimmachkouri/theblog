@@ -9,17 +9,7 @@ tags: yousign signatures iparapheur
 
 Ce document a pour objectif de vous donner la marche à suivre afin de faire signer numériquement les conventions de stage. Dans un premier temps, vous ferez signer l’étudiant.e, le/la tuteur/tutrice pédagogique et les responsables de l’entreprise via l’application Yousign , et dans un deuxième temps, le directeur de l’établissement, via l’application iParapheur.
 
-## Création d’une nouvelle invitation à signer un document
-
-Pour créer une nouvelle invitation à signer un document, cliquez sur le bouton “NOUVELLE INVITATION” :
-
-![doc_yousign_dashboard_accueil.png]({{ "/assets/images/doc_yousign_dashboard_accueil.png" | relative_url }})
-
-## Téléversement (upload) du document à signer
-
-L’application vous propose de téléverser le document PDF (ou DOCX) à signer. Uploadez votre document soit en le glissant dans la zone du “déposer”, soit en allant chercher le document en cliquant sur le bouton [+] :
-
-![doc_yousign_new_invite.png]({{ "/assets/images/doc_yousign_new_invite.png" | relative_url }})
+Avant d'entrer dans le vif du sujet, il est recommandé d'uploader vos contacts afin de faciliter la selection des destinataires de la convention de stage.
 
 ## Import de contacts via un fichier CSV
 
@@ -66,6 +56,18 @@ Il faut donc les affecter à l'espace de travail (workspace) de l'établissement
 Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :
 
 ![doc_yousign_ajout-contact_csv-4.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-4.png" | relative_url }})
+
+## Création d’une nouvelle invitation à signer un document
+
+Pour créer une nouvelle invitation à signer un document, cliquez sur le bouton “NOUVELLE INVITATION” :
+
+![doc_yousign_dashboard_accueil.png]({{ "/assets/images/doc_yousign_dashboard_accueil.png" | relative_url }})
+
+## Téléversement (upload) du document à signer
+
+L’application vous propose de téléverser le document PDF (ou DOCX) à signer. Uploadez votre document soit en le glissant dans la zone du “déposer”, soit en allant chercher le document en cliquant sur le bouton [+] :
+
+![doc_yousign_new_invite.png]({{ "/assets/images/doc_yousign_new_invite.png" | relative_url }})
 
 ## Ajout des signataires
 
