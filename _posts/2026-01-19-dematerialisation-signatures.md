@@ -147,11 +147,15 @@ Alimentez-le avec vos données. Exemple ci-dessous :
 
 ### Import dans YouSign
 
-Ensuite enregistrez le fichier sous le format .csv et revenez dans Yousign, dans Paramètres (1) puis Contacts (2) :
+Ensuite enregistrez le fichier sous le format .csv et revenez dans Yousign. Cliquez sur Abonnement :
+
+![doc_yousign_abonnement.png]({{ "/assets/images/doc_yousign_abonnement.png" | relative_url }})
+
+Puis sur Contacts (1) :
 
 ![doc_yousign_ajout-contact__dashboard.png]({{ "/assets/images/doc_yousign_ajout-contact__dashboard.png" | relative_url }})
 
-Pour importer un fichier .csv, cliquez sur l’un des boutons “IMPORTER DEPUIS CSV” (3). La fenêtre d’import apparaît : 
+Pour importer un fichier .csv, cliquez sur l’un des boutons “IMPORTER DEPUIS CSV” (2). La fenêtre d’import apparaît : 
 
 ![doc_yousign_ajout-contact_csv-1.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-1.png" | relative_url }})
 
@@ -162,6 +166,9 @@ Glissez le fichier .csv pour obtenir la fenêtre suivante. Cliquez sur le bouton
 Les contacts sont bien importés :
 
 ![doc_yousign_ajout-contact_csv-3.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-3.png" | relative_url }})
+
+Maintenant, il faut les affecter à l'espace de travail (workspace) de l'établissement. Pour cela, vous pouvez utiliser l'application YousignBot.
+Lorsque vous serez dans le navigateur ouvert par YousignBot, il faudra ouvrir la page des contacts pour que le bot fasse son travail. 
 
 Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :
 
