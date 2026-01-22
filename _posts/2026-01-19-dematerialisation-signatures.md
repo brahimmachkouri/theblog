@@ -7,29 +7,17 @@ tags: yousign signatures iparapheur
 ---  
 
 
-Ce document a pour objectif de vous donner la marche à suivre afin de faire signer numériquement les conventions de stage. Dans un premier temps, vous ferez signer l’étudiant.e, le/la tuteur/tutrice pédagogique et les responsables de l’entreprise via l’application Yousign , et dans un deuxième temps, le directeur de l’établissement, via l’application iParapheur.
+Ce document a pour objectif de vous donner la marche à suivre afin de faire signer numériquement les conventions de stage, en respectant le circuit de validation en vigueur dans l’établissement. Dans un premier temps, vous ferez signer l’étudiant.e, le/la tuteur/tutrice pédagogique et les responsables de l’entreprise via l’application Yousign , et dans un deuxième temps, le directeur de l’établissement, via l’application iParapheur.
 
 Avant d'entrer dans le vif du sujet, il est recommandé d'uploader vos contacts afin de faciliter la selection des destinataires de la convention de stage.
 
 ## Import de contacts via un fichier CSV
 
-L’application offre la possibilité d’importer des contacts soit au fil de l’eau, soit via un fichier csv.
-
-### **Préparation du fichier .csv**
-
-1. Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.
-
-[yousign-contacts.csv]({{ "/assets/files/yousign-contacts.csv" | relative_url }})
-
-2. Alimentez-le avec vos données. 
-
-Exemple ci-dessous :
-
-![doc_yousign_ajout-contact_excel.png]({{ "/assets/images/doc_yousign_ajout-contact_excel.png" | relative_url }})
+L’application offre la possibilité d’importer des contacts soit au fil de l’eau, soit via un fichier CSV.
 
 ### Import dans YouSign
 
-Ensuite enregistrez le fichier sous le format .csv et revenez dans Yousign. Cliquez sur Abonnement :
+Téléchargez le fichier Yousign depuis l'intranet. Ensuite enregistrez le fichier sous le format CSV et revenez dans Yousign. Cliquez sur Abonnement :
 
 ![doc_yousign_abonnement.png]({{ "/assets/images/doc_yousign_abonnement.png" | relative_url }})
 
@@ -49,9 +37,14 @@ Les contacts sont bien importés :
 
 ![doc_yousign_ajout-contact_csv-3.png]({{ "/assets/images/doc_yousign_ajout-contact_csv-3.png" | relative_url }})
 
-***Remarque : le fait de partager avec “Tous les membres de l’organisation”  a une incidence : TOUS les membres de l'organisation auront connaissance de vos contacts, raison pour laquelle il faut nécessairement rester cantonné à “l’Espace de travail” de l'établissement, sous-ensemble de l’organisation.***
+### ⚠️ Attention – visibilité des contacts
+L’import de contacts entraîne, par défaut, leur partage avec l’ensemble des membres de l’organisation. Il est donc indispensable de les rattacher à l’espace de travail de l’établissement, qui constitue un sous-ensemble de l’organisation.
 
-Il faut donc les affecter à l'espace de travail (workspace) de l'établissement. Pour cela, vous pouvez soit utiliser le bouton [...] > modifier et les affecter à la main quand il n'y en a très peu. S'il y en a une dizaine, vous pouvez utiliser l'application YousignBot. Notez que lorsque vous serez dans le navigateur ouvert par YousignBot, il faudra ouvrir la page des contacts pour que le bot fasse son travail. 
+Pour cela, deux possibilités s’offrent à vous :
+- lorsque le nombre de contacts est très limité, vous pouvez les affecter manuellement via le menu […] > Modifier ;
+- lorsque le volume est plus important (par exemple une dizaine de contacts ou plus), il est recommandé d’utiliser l’application YousignBot.
+
+⚠️ Important : une fois le navigateur ouvert par YousignBot, veillez à afficher la page des contacts ; c’est uniquement à partir de cette page que le bot pourra effectuer les opérations automatiquement.
 
 Dorénavant, lorsque vous importerez des signataires dans les documents à signer, vous verrez :
 
@@ -71,7 +64,7 @@ L’application vous propose de téléverser le document PDF (ou DOCX) à signer
 
 ## Ajout des signataires
 
-Maintenant qu’on a uploadé le document, il faut définir les signataires, en cliquant sur le bouton [+] : 
+Une fois le document téléversé, il faut définir les signataires, en cliquant sur le bouton [+] : 
 
 ![doc_yousign_ajout-signataire_.png]({{ "/assets/images/doc_yousign_ajout-signataire_.png" | relative_url }})
 
@@ -97,7 +90,7 @@ Une fois que vous avez ajouté les signataires, ils sont visibles dans la partie
 
 ## Emplacement des signatures
 
-Maintenant que le document est téléversé et les signataires définis, il est nécessaire de définir l’emplacement des signatures. 
+Les signataires ont été définis, passons à l’emplacement des signatures. 
 
 Pour cela, cliquez sur le signataire désiré, et glissez le champ “Signature” sur l’endroit voulu. Ici, Brad Pitt est le représentant de l’entreprise d’accueil, Julia Roberts la tutrice de stage, et Adèle Exarchopoulos la stagiaire. Dans la cas où le tuteur en entreprise n’est pas le responsable de l’entreprise, il faudra l’ajouter aussi.
 
@@ -145,9 +138,11 @@ Enfin, sélectionnez le message dans la liste :
 
 ![doc_yousign_ajout-signataire-etape6_new-message-use-select.png]({{ "/assets/images/doc_yousign_ajout-signataire-etape6_new-message-use-select.png" | relative_url }})
 
+Cette fonctionnalité permet de standardiser les messages envoyés aux signataires et d’éviter les erreurs ou oublis lors des envois successifs.
+
 ## Envoi du document
 
-Maintenant que tout est paramétré, le document peut être envoyé soit immédiatement, soit programmé, soit être enregistré en tant que brouillon pour y revenir plus tard afin de le terminer :
+Le document peut être envoyé soit immédiatement, soit programmé, soit être enregistré en tant que brouillon pour y revenir plus tard afin de le terminer :
 
 ![doc_yousign_ajout-signataire-etape6_programmer-envoi.png]({{ "/assets/images/doc_yousign_ajout-signataire-etape6_programmer-envoi.png" | relative_url }})
 
@@ -173,7 +168,7 @@ Cliquez sur ce bouton pour télécharger le document. Il faut également téléc
 
 ![doc_yousign_alerte-telecharger-dossiers-preuves.png]({{ "/assets/images/doc_yousign_alerte-telecharger-dossiers-preuves.png" | relative_url }})
 
-Une fois tous les éléments téléchargés, vous pouvez passer à la suite : le téléversement sur iParapheur, afin que le responsable de l’établissement puisse le signer à son tour et ainsi clôturer le circuit de la convention de stage.
+Une fois le document signé par l’ensemble des parties externes, le circuit de signature interne peut être finalisé via iParapheur. 
 
 ## iParapheur
 
@@ -185,8 +180,11 @@ Cliquez sur le bouton “Ajouter des documents principaux” pour uploader le do
 
 ![doc_iparapheur_accueil_ajouter-document.png]({{ "/assets/images/doc_iparapheur_accueil_ajouter-document.png" | relative_url }})
 
-**Ne cliquez pas tout de suite sur le bouton “Envoyer dans le circuit” : l’emplacement de la signature doit être défini au préalable, donc cliquez sur le bouton “Enregistrer en tant que brouillon”.**
+**⚠️ Ne cliquez pas immédiatement sur le bouton « Envoyer dans le circuit » : l’emplacement de la signature doit d’abord être défini. Cliquez donc sur « Enregistrer en tant que brouillon ».**
 
-Une fois dans le brouillon, allez sur la page qui doit recevoir la signature, puis cliquez sur l’icône de la main en haut à droite (1), avant de cliquer sur l’emplacement désiré (2). Une fois l’opération effectuée, cliquez sur le bouton “Envoyer dans le circuit” (3). Vous pouvez consulter les brouillons en cliquant sur le bouton orange (4) :
+Une fois le document enregistré en brouillon, rendez-vous sur la page destinée à recevoir la signature. Cliquez ensuite sur l’icône en forme de main située en haut à droite (1), puis sélectionnez l’emplacement souhaité pour la signature (2).
+
+Lorsque cette étape est terminée, vous pouvez cliquer sur le bouton « Envoyer dans le circuit » (3).
+Les documents enregistrés en brouillon restent accessibles via le bouton orange (4).
 
 ![doc_iparapheur_brouillon-signature_.png]({{ "/assets/images/doc_iparapheur_brouillon-signature_.png" | relative_url }})
