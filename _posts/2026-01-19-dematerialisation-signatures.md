@@ -17,11 +17,11 @@ L’application offre la possibilité d’importer des contacts soit au fil de l
 
 ### Option A - **Préparation du fichier .csv**
 
-1. Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.
+a. Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.
 
 [yousign-contacts.csv]({{ "/assets/files/yousign-contacts.csv" | relative_url }})
 
-2. Alimentez-le avec vos données. 
+b. Alimentez-le avec vos données. 
 
 Exemple ci-dessous :
 
