@@ -29,7 +29,7 @@ Exemple ci-dessous :
 
 ### **Option B - A partir du fichier exporté depuis l'intranet**
 
-Téléchargez le fichier Yousign depuis l'intranet. Ensuite enregistrez le fichier sous le format CSV et revenez dans Yousign. 
+Téléchargez le fichier Yousign depuis l'intranet, depuis "Stages" > "Export Yousign". Ensuite enregistrez le fichier sous le format CSV et revenez dans Yousign. 
 
 ### **Import dans YouSign**
 
