@@ -15,7 +15,7 @@ Avant d'entrer dans le vif du sujet, il est recommandé d'uploader vos contacts 
 
 L’application offre la possibilité d’importer des contacts à partir d'un fichier vierge (Option A), soit via un fichier CSV issu de l'intranet (Option B).
 
-### **Option A - Préparation du fichier .csv**
+### **Option A - Préparation à partir d'un fichier .csv vierge**
 
 #### a. Téléchargez le fichier ci-dessous puis ouvrez-le avec Excel ou LibreOffice Calc.
 
@@ -27,13 +27,17 @@ Exemple ci-dessous :
 
 ![doc_yousign_ajout-contact_excel.png]({{ "/assets/images/doc_yousign_ajout-contact_excel.png" | relative_url }})
 
-### **Option B - Import dans YouSign**
+### **Option B - A partir du fichier exporté depuis l'intranet**
 
-Téléchargez le fichier Yousign depuis l'intranet. Ensuite enregistrez le fichier sous le format CSV et revenez dans Yousign. Cliquez sur Abonnement :
+Téléchargez le fichier Yousign depuis l'intranet. Ensuite enregistrez le fichier sous le format CSV et revenez dans Yousign. 
+
+### **Import dans YouSign**
+
+Cliquez sur Abonnement :
 
 ![doc_yousign_abonnement.png]({{ "/assets/images/doc_yousign_abonnement.png" | relative_url }})
 
-Puis sur Contacts (1) :
+Cliquez  sur Contacts (1) :
 
 ![doc_yousign_ajout-contact__dashboard.png]({{ "/assets/images/doc_yousign_ajout-contact__dashboard.png" | relative_url }})
 
