@@ -13,7 +13,7 @@ Avant d'entrer dans le vif du sujet, il est recommandé d'uploader vos contacts 
 
 ## Import de contacts via un fichier CSV
 
-L’application offre la possibilité d’importer des contacts à partir d'un fichier vierge (Option A), soit via un fichier CSV issu de l'intranet (Option B).
+L’application offre la possibilité d’importer des contacts à partir d'un fichier vierge (Option A) pour un ajout ponctuel avec peu de contacts, soit via un fichier CSV issu de l'intranet (Option B) pour un ajout en masse.
 
 ### **Option A - Préparation à partir d'un fichier .csv vierge**
 
