@@ -33,11 +33,7 @@ Téléchargez le fichier Yousign depuis l'intranet, depuis "Stages" > "Export Yo
 
 ### **Import dans YouSign**
 
-Cliquez sur Abonnement :
-
-![doc_yousign_abonnement.png]({{ "/assets/images/doc_yousign_abonnement.png" | relative_url }})
-
-Cliquez  sur Contacts (1) :
+Cliquez sur Paramètres > Contacts (1) :
 
 ![doc_yousign_ajout-contact__dashboard.png]({{ "/assets/images/doc_yousign_ajout-contact__dashboard.png" | relative_url }})
 
